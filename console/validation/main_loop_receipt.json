@@ -1,0 +1,19 @@
+{
+  "elf_sha256": "5a311f0480a07a758451fa09447282b4f31d48978c95fa23575a0fe692b2915a",
+  "main_service_calls": [
+    {
+      "address": "10ce6c",
+      "target": "cup_poll"
+    },
+    {
+      "address": "10ce84",
+      "target": "studio_poll"
+    },
+    {
+      "address": "10cea8",
+      "target": "preview_poll"
+    }
+  ],
+  "status": "PASS",
+  "scope": "Source live-loop integration and actual linked ARM main; not execution on hardware"
+}

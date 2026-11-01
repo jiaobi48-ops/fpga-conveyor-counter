@@ -1,0 +1,53 @@
+{
+  "revision": 41,
+  "detector_parameters_checked": {
+    "WIDTH": 800,
+    "HEIGHT": 480,
+    "AX0": 416,
+    "AX1": 420,
+    "BX0": 376,
+    "BX1": 380,
+    "Y0": 96,
+    "Y1": 128,
+    "ON_PIXELS": 52,
+    "OFF_PIXELS": 25,
+    "WARM_GATE_LIMIT": 32,
+    "UX0": 320,
+    "UX1": 480,
+    "UY0": 8,
+    "UY1": 48,
+    "UPPER_WARM_LIMIT": 640,
+    "UPPER_DARK_LIMIT": 3200
+  },
+  "status": "Vivado bit/XSA verified; not yet programmed",
+  "clock_source": "No_buffer",
+  "methodology_sha256": "96912e1fd84dfa9e69efdea93f23b097790c8e0963da7432f6a507d3950b616a",
+  "bit_sha256": "d6b5fa47f8c510586485e69dabb4f07650846f7e5aa0c412cb440d38c52792fa",
+  "xsa_sha256": "003a7a0a16d6a2127a71df0f6428c2172ad4b61c4c7690526e2c10b5d4bc7cd8",
+  "psinit_sha256": "e5352b19575fb13013f45e409fa8e3dfe904cbc38cec0054c194a5878cfb45ca",
+  "vdma_parameters_checked": {
+    "C_NUM_FSTORES": 3,
+    "C_INCLUDE_MM2S": 1,
+    "C_INCLUDE_S2MM": 1,
+    "C_INCLUDE_SG": 0,
+    "C_INCLUDE_MM2S_DRE": 0,
+    "C_INCLUDE_S2MM_DRE": 0,
+    "C_M_AXI_MM2S_DATA_WIDTH": 64,
+    "C_M_AXI_S2MM_DATA_WIDTH": 64,
+    "C_M_AXIS_MM2S_TDATA_WIDTH": 24,
+    "C_S_AXIS_S2MM_TDATA_WIDTH": 24,
+    "C_MM2S_GENLOCK_MODE": 3,
+    "C_S2MM_GENLOCK_MODE": 2,
+    "C_INCLUDE_INTERNAL_GENLOCK": 1,
+    "C_S2MM_SOF_ENABLE": 1
+  },
+  "cup_gpio_base": "0x43C20000",
+  "rtl_sources": {
+    "cup_control.v": "0a805949614b77ba3f123c9a5474708ec629852ed7dd96ccf9bbaecc30e0303e",
+    "cup_overlay.v": "850b347adae15aa99a89c4c55330707976ef828cace9eba8ad6e337b99e00382",
+    "cup_passage.v": "895d4bfafd477325510d8792f48bd0698d2ce729bca0803a78725b2df64c9a19",
+    "follow_capture.v": "c434a344ab4ceaf6f5409df4b3f68ce39694d04050bca6171847171854fd2d34",
+    "lcd_video_bridge.v": "ea20718da220049858f2a6c03f33a1730d1ef4fc52862492d7c5604dfdd123b9"
+  },
+  "constraints_sha256": "75dc50858a2b2ad6824aaf886e511648326d71cefb4ad38995acf37ac7b331e2"
+}

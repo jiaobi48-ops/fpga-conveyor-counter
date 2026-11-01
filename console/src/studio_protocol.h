@@ -1,0 +1,14 @@
+#ifndef STUDIO_PROTOCOL_H
+#define STUDIO_PROTOCOL_H
+#include <stdint.h>
+#define STUDIO_BASE 0x03000000U
+#define STUDIO_PIXELS 0x02400000U
+#define STUDIO_MAGIC 0x43545231U
+#define STUDIO_SEAL 0x93E57A21U
+#define STUDIO_WORDS 128U
+enum {STUDIO_PING=0,STUDIO_CAPTURE=1,STUDIO_ROI=2,STUDIO_STATUS=3,STUDIO_MODE=4,STUDIO_THRESHOLD=5,STUDIO_MASK=6,STUDIO_RESET=7};
+enum {S_RUNNING=31,S_ACK=32,S_STATE=33,S_ERROR=34,S_SEQUENCE=35,S_WIDTH=36,S_HEIGHT=37,S_STRIDE=38,S_BYTES=39,S_FNV=40,S_SELECTED=41,S_SOURCE=42,S_BEFORE=43,S_AFTER=44,S_WR=45,S_RD=46,S_POLARITY=47,S_FREEZE_MS=48,S_ELAPSED_MS=49,S_PIXELS=50,S_CFG=64,S_PAGES=80,S_STREAM_COUNTER=96,S_RESUME_WR=97,S_RESUME_RD=98,S_UPTIME_MS=99};
+typedef int (*studio_handler)(unsigned command,const unsigned args[5],volatile uint32_t *mailbox,void *context);
+void studio_init(volatile uint32_t *);
+int studio_poll(volatile uint32_t *,unsigned *seen,studio_handler,void *);
+#endif

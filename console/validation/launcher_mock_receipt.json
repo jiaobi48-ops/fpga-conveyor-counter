@@ -1,0 +1,5 @@
+{
+  "status": "PASS mocked hardware; no board access",
+  "source_sha256": "394673a145dbeb457d12b53d4363c687e838a84fed9a798922d27ccfccc41dc2",
+  "terminal": "FIXED_CONSOLE_INPUTS_VERIFIED -- no auto-follow service; starts paused\nFIXED_CONSOLE_INPUTS_VERIFIED -- no auto-follow service; starts paused\nCAMERA_CONTROL_CONSOLE_STARTED -- fixed manual controls, starts paused; UART 115200\nPASS actual Tcl entry: input rejection before any board action, ambiguous-target rejection before reset, matched FOLLOW V1 bit/ELF sequence; hardware mocked"
+}

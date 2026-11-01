@@ -1,0 +1,371 @@
+{
+  "version": "1.2",
+  "mailbox_version": 3,
+  "files": [
+    {
+      "path": "app.py",
+      "bytes": 17610,
+      "sha256": "3c667adaec43fcc2b72e2c284373e28720ba27636fd95b44921713803f544269"
+    },
+    {
+      "path": "build/camera_control_console.elf",
+      "bytes": 520688,
+      "sha256": "5a311f0480a07a758451fa09447282b4f31d48978c95fa23575a0fe692b2915a"
+    },
+    {
+      "path": "build_app.py",
+      "bytes": 2371,
+      "sha256": "bd376186c3a090566e187900173e850ac92c7116c62159cbc6a78fc2faba0e41"
+    },
+    {
+      "path": "controller.py",
+      "bytes": 12662,
+      "sha256": "75ad4735f9580adaa4a304e1625d06544852880f2f8678edc52ce0487c377e51"
+    },
+    {
+      "path": "ddr_bridge.tcl",
+      "bytes": 2208,
+      "sha256": "ccdd56701d2fd890c4b26cae65ef404c36a5502f25fd81a8456affa4d17584fb"
+    },
+    {
+      "path": "hardware/camera_cup_follow_v1.bit",
+      "bytes": 3510794,
+      "sha256": "d6b5fa47f8c510586485e69dabb4f07650846f7e5aa0c412cb440d38c52792fa"
+    },
+    {
+      "path": "hardware/camera_cup_follow_v1.xsa",
+      "bytes": 676377,
+      "sha256": "003a7a0a16d6a2127a71df0f6428c2172ad4b61c4c7690526e2c10b5d4bc7cd8"
+    },
+    {
+      "path": "hardware/handoff_receipt.json",
+      "bytes": 1928,
+      "sha256": "6c88ebc70f156c5b181432d52f90efae1712098ef7bd0c35767d6499cdf9221d"
+    },
+    {
+      "path": "hardware/ps7_init.tcl",
+      "bytes": 34364,
+      "sha256": "e5352b19575fb13013f45e409fa8e3dfe904cbc38cec0054c194a5878cfb45ca"
+    },
+    {
+      "path": "Launcher.cs",
+      "bytes": 1076,
+      "sha256": "4590b1f991c829bc519aa4c7814edd0ad50fa459d4767b3e436edc09a4295aa0"
+    },
+    {
+      "path": "protocol.py",
+      "bytes": 6582,
+      "sha256": "02cb8e2dc7f203daee89abe8a2b05cb81763e3594fc9bc38a271ee45e649909d"
+    },
+    {
+      "path": "run_control.tcl",
+      "bytes": 1261,
+      "sha256": "394673a145dbeb457d12b53d4363c687e838a84fed9a798922d27ccfccc41dc2"
+    },
+    {
+      "path": "serial_win.py",
+      "bytes": 3552,
+      "sha256": "89d284ac43b9107b20088c86f59d1affd9b0a86629e2868a1170fcbc841b309c"
+    },
+    {
+      "path": "src/control_dispatch.c",
+      "bytes": 624,
+      "sha256": "1d0f2a61f64368ccd48266ddb298d74f4798ec5d592357fbc9430e8c5097caa4"
+    },
+    {
+      "path": "src/control_dispatch.h",
+      "bytes": 124,
+      "sha256": "2b52c809719403670f9e754121323804572442603ce72165982d270f15548099"
+    },
+    {
+      "path": "src/count_types.h",
+      "bytes": 106,
+      "sha256": "d0a32bd70f4dbd76ad183626aaaf13ab12a7bb9948e88a44653c87b990a0a102"
+    },
+    {
+      "path": "src/cup_commands.c",
+      "bytes": 7821,
+      "sha256": "bde634f9402f1f3a4d663627160bd73938c71149a742bf3aaa9bcf54f9106821"
+    },
+    {
+      "path": "src/cup_commands.h",
+      "bytes": 425,
+      "sha256": "364cf43ca06170271be7b42125376ca30f30ff44ff9b2df2286237c790e5696b"
+    },
+    {
+      "path": "src/frame_audit.c",
+      "bytes": 1229,
+      "sha256": "c98f4cc9662c212764f51b70dbf78ca20cbcac499fc6fc99561c842001bcce4d"
+    },
+    {
+      "path": "src/frame_audit.h",
+      "bytes": 769,
+      "sha256": "7a596a70eeefab60c8b0d23118851693d721a71bbe9a40a0bd799eed339fc4b3"
+    },
+    {
+      "path": "src/gpio_bus.c",
+      "bytes": 1944,
+      "sha256": "c58eca334f0b9338e4b4ab927d94c2929270970c35e50ad62ef99441b0944f61"
+    },
+    {
+      "path": "src/gpio_bus.h",
+      "bytes": 127,
+      "sha256": "9b84dca984fb046edea708f2a5d1981bf44a3ae54275424eb6268652f5618da1"
+    },
+    {
+      "path": "src/lscript.ld",
+      "bytes": 6233,
+      "sha256": "2d5104ce4b68436517b0691fb261ad949685242cacc032c303b02b86fecbbf93"
+    },
+    {
+      "path": "src/main.c",
+      "bytes": 14421,
+      "sha256": "c7878c23a3471d91665a0c6995beae8cdc6a47bb5e7e05d5042a73311800df2f"
+    },
+    {
+      "path": "src/platform.c",
+      "bytes": 1946,
+      "sha256": "f71a3da639ce53d700967a4ab37685af1248743e27aadf9184aaf06c3c97a924"
+    },
+    {
+      "path": "src/platform.h",
+      "bytes": 488,
+      "sha256": "449c2bd1529754fe2de126858afd63b3b1ee20db2ea418af549c6f8c3b887f55"
+    },
+    {
+      "path": "src/preview_service.c",
+      "bytes": 1358,
+      "sha256": "0fdd9e44a17d828b19f445fb22ba411a314c1713c1f0b2f27979191daa588b5d"
+    },
+    {
+      "path": "src/preview_service.h",
+      "bytes": 234,
+      "sha256": "0b2d2448c547b93a859624b81a8a50dc41bb57feb89575e75a60af5c88c5a6a8"
+    },
+    {
+      "path": "src/probe_sccb.c",
+      "bytes": 3761,
+      "sha256": "1807bb5268fe7c839cd3b2934aaf17584706c8f2497775e22dcada4594b00648"
+    },
+    {
+      "path": "src/probe_sccb.h",
+      "bytes": 867,
+      "sha256": "534b946f7d72af1d3e4a53cdd7749f1d7c0a68e23ef1b3b2bd56e668667a7c6e"
+    },
+    {
+      "path": "src/sccb_verify.c",
+      "bytes": 858,
+      "sha256": "c6753b895579c19e605eeafa2b31c1d56e7ce0b3f78cd7dfd66d0d45c3a98fa0"
+    },
+    {
+      "path": "src/sccb_verify.h",
+      "bytes": 456,
+      "sha256": "39d5b771f6a6d859b3caf40a76550212cd07d6ae5bf191b5e925977674995829"
+    },
+    {
+      "path": "src/sensor.c",
+      "bytes": 11509,
+      "sha256": "5f00048e9accc2c531af9400b57a0432f1940a2ddd44b087fad31812430f4c33"
+    },
+    {
+      "path": "src/sensor.h",
+      "bytes": 205,
+      "sha256": "57f1f79bc849c81b618855226a052b884f1365091445aac195baef556ddcaf92"
+    },
+    {
+      "path": "src/studio_protocol.c",
+      "bytes": 1271,
+      "sha256": "d6c4f03b6393f0d3fa53442e3d6aba9070cef6e47059f7ffd4d5df2174223c3c"
+    },
+    {
+      "path": "src/studio_protocol.h",
+      "bytes": 935,
+      "sha256": "ba6fff8d7c1c2f8ccda8f927a48a67587e27f579c2b4325f19237b818e20d5be"
+    },
+    {
+      "path": "src/studio_snapshot.c",
+      "bytes": 1077,
+      "sha256": "29b74d81cf71cc59d1d08c3ca149fce6faaff066b3f2d6986f44084f557f675d"
+    },
+    {
+      "path": "src/studio_snapshot.h",
+      "bytes": 227,
+      "sha256": "ed4d3553facdedf4f26b6c792de1c0e0e0dea215a003462be4f791a1e53eed34"
+    },
+    {
+      "path": "test_controller.py",
+      "bytes": 4386,
+      "sha256": "a82dbd835865cac13335bb89d0b945cfb25ccda694f7c15c53fc12cfc6b9a447"
+    },
+    {
+      "path": "test_firmware.py",
+      "bytes": 4973,
+      "sha256": "785b2f39c7c92288c936763cf5ce54b59c24abf0d7d1590d55d12119e8fc6ed5"
+    },
+    {
+      "path": "test_launcher.py",
+      "bytes": 3196,
+      "sha256": "a01dcac81be9fff4340a421bd1a9cc3b3fa2a4a65bb0308bae60a9954b76f0a0"
+    },
+    {
+      "path": "test_mailbox_controls.py",
+      "bytes": 4563,
+      "sha256": "1dda4f3d45a21f5eb489a5fc32617a29e4fe3338abc52151675e7a5bd3f6db39"
+    },
+    {
+      "path": "test_poll_wiring.py",
+      "bytes": 2345,
+      "sha256": "df34a71b281b6fb0afb130de1d8886a8a209c2a500f0919ea15c8338aeb659a8"
+    },
+    {
+      "path": "test_ui.py",
+      "bytes": 2802,
+      "sha256": "16c1402be4ed056937a654b85142623ed1bba2429c6c874b437b424e9759941c"
+    },
+    {
+      "path": "transport.py",
+      "bytes": 3024,
+      "sha256": "8ef917cbf207a0e938abb82321e1cc2d0c9cb188ab35d53ef483af0a852d52a2"
+    },
+    {
+      "path": "validation/build_receipt.json",
+      "bytes": 15283,
+      "sha256": "dd492952b49061bb8019ce83c007e17fe5217db048b02bcebb55a8f1d130b5ca"
+    },
+    {
+      "path": "validation/compile_control_dispatch.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/compile_cup_commands.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/compile_frame_audit.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/compile_gpio_bus.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/compile_main.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/compile_platform.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/compile_preview_service.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/compile_probe_sccb.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/compile_sccb_verify.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/compile_sensor.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/compile_studio_protocol.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/compile_studio_snapshot.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/controller_receipt.json",
+      "bytes": 692,
+      "sha256": "d4b956546785ad30c62d2566961667bc41d38ea5d875574295a4e8279f4393ee"
+    },
+    {
+      "path": "validation/firmware_host_receipt.json",
+      "bytes": 324,
+      "sha256": "5fade09f278fe353612fe5141d6236f0821c0211911bb6eb4b83981102d33467"
+    },
+    {
+      "path": "validation/launcher_mock_receipt.json",
+      "bytes": 549,
+      "sha256": "fbcc75dfbbd0abee726aeed45730966c175f63253b6896c725e2f97d9684276f"
+    },
+    {
+      "path": "validation/link.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation/mailbox_controls_receipt.json",
+      "bytes": 644,
+      "sha256": "715d31ad27e1e3ee22cc47e40c6cae478e03455d7130272aae0bd0a84b9c8482"
+    },
+    {
+      "path": "validation/main_loop_receipt.json",
+      "bytes": 459,
+      "sha256": "f69f33825dda19a6e7958e909e082288b0c9b7a79f9d7752d8265d0081790a5d"
+    },
+    {
+      "path": "validation/mock_board.py",
+      "bytes": 3602,
+      "sha256": "946e0d914a01b0dcea53e8867cc5df2c505a08df0b9837c58e669422293a824f"
+    },
+    {
+      "path": "validation/preview_receipt.json",
+      "bytes": 264,
+      "sha256": "4443facd9f1e6b6efebdba66227feae06f480ccd72c2c0eb69181a8454cecc35"
+    },
+    {
+      "path": "validation/ready_receipt.json",
+      "bytes": 622,
+      "sha256": "577eaabb44d6853ed1c5a603f53db9a7d9adcf85dd381d305c729e2bc9b8b235"
+    },
+    {
+      "path": "validation/reproducible_build.json",
+      "bytes": 436,
+      "sha256": "fd2a00b8b6c6175ab2da068835af2ba805cc9cdeb78153b49266fa59446f3337"
+    },
+    {
+      "path": "validation/ui_receipt.json",
+      "bytes": 516,
+      "sha256": "8b1b53c4af8ea59f23ca23e99143d0cc43bf0c863fab6fce61f1b7106bba2b2d"
+    },
+    {
+      "path": "verify_download.py",
+      "bytes": 928,
+      "sha256": "0da864bfce04a26b8dc089658014c99d642bc65a0e000ae19c6a92a66a87f739"
+    },
+    {
+      "path": "使用说明.md",
+      "bytes": 5526,
+      "sha256": "4c92d335f1f49832e234d0f91277bdb77ea03b14aa7927120af5cceb91257665"
+    },
+    {
+      "path": "修复说明.md",
+      "bytes": 1231,
+      "sha256": "0d30874a15e19d787b9e8e19d56860aa3101d101bd1dc7ffaf7d4515885e3209"
+    },
+    {
+      "path": "控制台.exe",
+      "bytes": 5120,
+      "sha256": "7b05bc79bf14c81d967229b7fe2ceecc4c541b063702eba81951d17dd629fcc8"
+    }
+  ]
+}

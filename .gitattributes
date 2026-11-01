@@ -1,2 +1,3 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Preserve the exact bytes of sealed source and evidence files across checkouts.
+# Third-party HDL retains its original GBK comments; do not transcode it.
+* -text

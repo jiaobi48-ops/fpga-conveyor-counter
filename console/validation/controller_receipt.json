@@ -1,0 +1,19 @@
+{
+  "status": "PASS mock UART/JTAG backend; no board claim",
+  "checks": [
+    "mode readback",
+    "ROI pauses and retains total",
+    "threshold/mask absolute readback",
+    "session-confirmed clear",
+    "profile restores paused",
+    "invalid/follow commands rejected before TX",
+    "full immutable capture",
+    "stale hardware epoch cannot confirm request",
+    "no auto retry"
+  ],
+  "sources": {
+    "controller.py": "75ad4735f9580adaa4a304e1625d06544852880f2f8678edc52ce0487c377e51",
+    "protocol.py": "02cb8e2dc7f203daee89abe8a2b05cb81763e3594fc9bc38a271ee45e649909d",
+    "serial_win.py": "89d284ac43b9107b20088c86f59d1affd9b0a86629e2868a1170fcbc841b309c"
+  }
+}

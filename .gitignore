@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+console/logs/
+console/snapshots/
+console/profiles/
+fpga/project/
+fpga/generated/
+rebuild/
+.Xil/
+*.jou
+*.wdb
+*.pb
+*.zip
+*.rar
