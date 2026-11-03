@@ -1,0 +1,11 @@
+{
+  "verified_inputs": {
+    "fpga/rtl/selftest_video_source.v": "d522dc3a1f6c65600fe9985059ad9750f029edbefdb2ba73a387fe3e18ac4f4b",
+    "fpga/rtl/conveyor_bist_source.v": "402bbb65b0386ccd0b868532b3fc5076120c4b1fb2a6330d14b0566a97b4516f",
+    "fpga/sim/tb_800_sources.sv": "c450736eb1bec60d8f9ec7a8f6e5c6924499cd822a7f46a1e9dd6c0342435e74",
+    "fpga/data/scenes_200x120.hex": "c8e15fcee709beb39d068e049425cf42922ca1bf799838d108e7c065cfb46a0b",
+    "tools/run_source_tests.ps1": "d4932ad99b2cc378188c10d274e5346c831101c4bdd18cbb85f9b1d39f55d101"
+  },
+  "source_run": "W:\\rebuild\\sim\\sources800",
+  "identity": "SHA256-identical instantiated RTL, testbench and data"
+}

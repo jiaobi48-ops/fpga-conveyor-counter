@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "X:/fpga/rtl/projection_correlation_speed.v" into library work
+INFO: [VRFC 10-311] analyzing module projection_correlation_speed
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "X:/fpga/sim/tb_speed_indices800.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_speed_indices800

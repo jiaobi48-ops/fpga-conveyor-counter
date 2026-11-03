@@ -1,0 +1,45 @@
+{
+  "algorithm_clock_hz": 75000000,
+  "LCD_clock_hz": 25000000,
+  "axi_clock_hz": 100000000,
+  "setup_wns_ns": 0.355,
+  "setup_tns_ns": 0.0,
+  "hold_whs_ns": 0.013,
+  "hold_ths_ns": 0.0,
+  "timing_status": "PASS",
+  "clock_domains": {
+    "clk_fpga_0": {
+      "setup_wns_ns": 0.355,
+      "setup_tns_ns": 0.0,
+      "hold_whs_ns": 0.013,
+      "hold_ths_ns": 0.0
+    },
+    "clk_out1_system_clk_wiz_0_0": {
+      "setup_wns_ns": 13.993,
+      "setup_tns_ns": 0.0,
+      "hold_whs_ns": 0.051,
+      "hold_ths_ns": 0.0
+    },
+    "clk_fpga_1": {
+      "setup_wns_ns": 2.476,
+      "setup_tns_ns": 0.0,
+      "hold_whs_ns": 0.076,
+      "hold_ths_ns": 0.0
+    }
+  },
+  "bit_sha256": "b61e83ff1b08735fcce30e24116949186055d0ed0522f5ca3661d32adb6ac58e",
+  "xsa_sha256": "29ab894700d7544856fb5fe1edfbfaad53e7d507d6a9bc6a0564ea43c41be421",
+  "baseline_100MHz": {
+    "setup_wns_ns": -0.198,
+    "setup_tns_ns": -11.44,
+    "hold_whs_ns": 0.004
+  },
+  "lcd_interface": {
+    "status": "PASS",
+    "outputs": 25,
+    "setup_slack_ns": 3.358,
+    "hold_slack_ns": 7.135,
+    "output_delay_max_ns": 13.0,
+    "output_delay_min_ns": -13.0
+  }
+}

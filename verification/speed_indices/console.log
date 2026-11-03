@@ -1,0 +1,18 @@
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Mon Nov  2 20:18:07 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/indices800/xsim_script.tcl
+# xsim {indices800} -autoloadwcfg -tclbatch {run.tcl}
+Time resolution is 1 ps
+source run.tcl
+## run all
+PASS SPEED INDICES800 cases=24 exhaustive_reference/left/right/stop/gap/context/empty/clipped/tie/disable/flush/timestamp_wrap/malformed
+$finish called at time : 398670 ns : File "X:/fpga/sim/tb_speed_indices800.sv" Line 63
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Nov  2 20:18:09 2026...

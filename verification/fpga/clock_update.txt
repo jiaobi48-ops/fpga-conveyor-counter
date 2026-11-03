@@ -1,0 +1,8 @@
+BEFORE system_vision_system_bridge_0_0_synth_1 synth_design Complete!
+BEFORE system_lcd_video_bridge_0_0_synth_1 synth_design Complete!
+PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ=75.000000
+PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ=100.000000
+PCW_ACT_UART_PERIPHERAL_FREQMHZ=100.000000
+DDR_MHZ=533.333374
+AFTER system_vision_system_bridge_0_0_synth_1 synth_design Complete! refresh=0
+AFTER system_lcd_video_bridge_0_0_synth_1 synth_design Complete! refresh=0

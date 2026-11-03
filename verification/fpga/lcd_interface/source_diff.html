@@ -1,0 +1,70 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <title></title>
+    <style type="text/css">
+        table.diff {font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace; border:medium}
+        .diff_header {background-color:#e0e0e0}
+        td.diff_header {text-align:right}
+        .diff_next {background-color:#c0c0c0}
+        .diff_add {background-color:#aaffaa}
+        .diff_chg {background-color:#ffff77}
+        .diff_sub {background-color:#ffaaaa}
+    </style>
+</head>
+
+<body>
+    
+    <table class="diff" id="difflib_chg_to0__top"
+           cellspacing="0" cellpadding="0" rules="groups" >
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <colgroup></colgroup> <colgroup></colgroup> <colgroup></colgroup>
+        <thead><tr><th class="diff_next"><br /></th><th colspan="2" class="diff_header">Current camera_lcd.xdc</th><th class="diff_next"><br /></th><th colspan="2" class="diff_header">ATK-4384 LCD output constraints</th></tr></thead>
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__0"><a href="#difflib_chg_to0__1">n</a></td><td class="diff_header" id="from0_1">1</td><td nowrap="nowrap"><span class="diff_sub">#&nbsp;Camera&nbsp;constraints&nbsp;preserved;&nbsp;LCD&nbsp;pinout&nbsp;copied&nbsp;from&nbsp;proven&nbsp;display.</span></td><td class="diff_next"><a href="#difflib_chg_to0__1">n</a></td><td class="diff_header" id="to0_1">1</td><td nowrap="nowrap"><span class="diff_add">#&nbsp;Camera&nbsp;and&nbsp;RGBLCD&nbsp;pin&nbsp;and&nbsp;clock&nbsp;constraints.</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_2">2</td><td nowrap="nowrap">create_clock&nbsp;-period&nbsp;20.833&nbsp;-name&nbsp;cam_pclk&nbsp;[get_ports&nbsp;cam_pclk]</td><td class="diff_next"></td><td class="diff_header" id="to0_2">2</td><td nowrap="nowrap">create_clock&nbsp;-period&nbsp;20.833&nbsp;-name&nbsp;cam_pclk&nbsp;[get_ports&nbsp;cam_pclk]</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_3">3</td><td nowrap="nowrap">set_property&nbsp;CLOCK_DEDICATED_ROUTE&nbsp;FALSE&nbsp;[get_nets&nbsp;cam_pclk_IBUF]</td><td class="diff_next"></td><td class="diff_header" id="to0_3">3</td><td nowrap="nowrap">set_property&nbsp;CLOCK_DEDICATED_ROUTE&nbsp;FALSE&nbsp;[get_nets&nbsp;cam_pclk_IBUF]</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_4">4</td><td nowrap="nowrap">set_property&nbsp;-dict&nbsp;{PACKAGE_PIN&nbsp;J7&nbsp;IOSTANDARD&nbsp;LVCMOS18}&nbsp;[get_ports&nbsp;{cam_data[0]}]</td><td class="diff_next"></td><td class="diff_header" id="to0_4">4</td><td nowrap="nowrap">set_property&nbsp;-dict&nbsp;{PACKAGE_PIN&nbsp;J7&nbsp;IOSTANDARD&nbsp;LVCMOS18}&nbsp;[get_ports&nbsp;{cam_data[0]}]</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_5">5</td><td nowrap="nowrap">set_property&nbsp;-dict&nbsp;{PACKAGE_PIN&nbsp;P3&nbsp;IOSTANDARD&nbsp;LVCMOS18}&nbsp;[get_ports&nbsp;{cam_data[1]}]</td><td class="diff_next"></td><td class="diff_header" id="to0_5">5</td><td nowrap="nowrap">set_property&nbsp;-dict&nbsp;{PACKAGE_PIN&nbsp;P3&nbsp;IOSTANDARD&nbsp;LVCMOS18}&nbsp;[get_ports&nbsp;{cam_data[1]}]</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_6">6</td><td nowrap="nowrap">set_property&nbsp;-dict&nbsp;{PACKAGE_PIN&nbsp;J6&nbsp;IOSTANDARD&nbsp;LVCMOS18}&nbsp;[get_ports&nbsp;{cam_data[2]}]</td><td class="diff_next"></td><td class="diff_header" id="to0_6">6</td><td nowrap="nowrap">set_property&nbsp;-dict&nbsp;{PACKAGE_PIN&nbsp;J6&nbsp;IOSTANDARD&nbsp;LVCMOS18}&nbsp;[get_ports&nbsp;{cam_data[2]}]</td></tr>
+        </tbody>        
+        <tbody>
+            <tr><td class="diff_next" id="difflib_chg_to0__1"></td><td class="diff_header" id="from0_48">48</td><td nowrap="nowrap">set_property&nbsp;-dict&nbsp;{PACKAGE_PIN&nbsp;U17&nbsp;IOSTANDARD&nbsp;LVCMOS33}&nbsp;[get_ports&nbsp;lcd_clk]</td><td class="diff_next"></td><td class="diff_header" id="to0_48">48</td><td nowrap="nowrap">set_property&nbsp;-dict&nbsp;{PACKAGE_PIN&nbsp;U17&nbsp;IOSTANDARD&nbsp;LVCMOS33}&nbsp;[get_ports&nbsp;lcd_clk]</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_49">49</td><td nowrap="nowrap">set_property&nbsp;-dict&nbsp;{PACKAGE_PIN&nbsp;A7&nbsp;IOSTANDARD&nbsp;LVCMOS18}&nbsp;[get_ports&nbsp;lcd_rst]</td><td class="diff_next"></td><td class="diff_header" id="to0_49">49</td><td nowrap="nowrap">set_property&nbsp;-dict&nbsp;{PACKAGE_PIN&nbsp;A7&nbsp;IOSTANDARD&nbsp;LVCMOS18}&nbsp;[get_ports&nbsp;lcd_rst]</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_50">50</td><td nowrap="nowrap">set_property&nbsp;-dict&nbsp;{PACKAGE_PIN&nbsp;G3&nbsp;IOSTANDARD&nbsp;LVCMOS18}&nbsp;[get_ports&nbsp;ms7200_rst_n]</td><td class="diff_next"></td><td class="diff_header" id="to0_50">50</td><td nowrap="nowrap">set_property&nbsp;-dict&nbsp;{PACKAGE_PIN&nbsp;G3&nbsp;IOSTANDARD&nbsp;LVCMOS18}&nbsp;[get_ports&nbsp;ms7200_rst_n]</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_51">51</td><td nowrap="nowrap">#&nbsp;Clock&nbsp;wizard&nbsp;generates&nbsp;25&nbsp;MHz.&nbsp;ODDR&nbsp;forwards&nbsp;its&nbsp;inverted&nbsp;clock.</td><td class="diff_next"></td><td class="diff_header" id="to0_51">51</td><td nowrap="nowrap">#&nbsp;Clock&nbsp;wizard&nbsp;generates&nbsp;25&nbsp;MHz.&nbsp;ODDR&nbsp;forwards&nbsp;its&nbsp;inverted&nbsp;clock.</td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header" id="from0_52">52</td><td nowrap="nowrap">create_generated_clock&nbsp;-name&nbsp;lcd_forwarded&nbsp;-source&nbsp;[get_pins&nbsp;-hierarchical&nbsp;-filter&nbsp;{NAME&nbsp;=~&nbsp;*/u_forward_clock/C}]&nbsp;-divide_by&nbsp;1&nbsp;-invert&nbsp;[get_ports&nbsp;lcd_clk]</td><td class="diff_next"></td><td class="diff_header" id="to0_52">52</td><td nowrap="nowrap">create_generated_clock&nbsp;-name&nbsp;lcd_forwarded&nbsp;-source&nbsp;[get_pins&nbsp;-hierarchical&nbsp;-filter&nbsp;{NAME&nbsp;=~&nbsp;*/u_forward_clock/C}]&nbsp;-divide_by&nbsp;1&nbsp;-invert&nbsp;[get_ports&nbsp;lcd_clk]</td></tr>
+            <tr><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"><a href="#difflib_chg_to0__top">t</a></td><td class="diff_header" id="to0_53">53</td><td nowrap="nowrap"><span class="diff_add">&nbsp;</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_54">54</td><td nowrap="nowrap"><span class="diff_add">#&nbsp;ATK-4384&nbsp;RGB/DE&nbsp;interface,&nbsp;25&nbsp;MHz&nbsp;forwarded&nbsp;clock.</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_55">55</td><td nowrap="nowrap"><span class="diff_add">#&nbsp;Source:&nbsp;supplied&nbsp;ATK-4.3&nbsp;RGBLCD&nbsp;manual,&nbsp;table&nbsp;2.2.2.2,&nbsp;pages&nbsp;4-5.</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_56">56</td><td nowrap="nowrap"><span class="diff_add">#&nbsp;Receiver&nbsp;setup/hold&nbsp;requirement:&nbsp;12&nbsp;ns&nbsp;each.</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_57">57</td><td nowrap="nowrap"><span class="diff_add">#&nbsp;Board&nbsp;data-minus-clock&nbsp;propagation&nbsp;budget:&nbsp;-1&nbsp;ns&nbsp;to&nbsp;+1&nbsp;ns.</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_58">58</td><td nowrap="nowrap"><span class="diff_add">#&nbsp;Keep&nbsp;the&nbsp;existing&nbsp;rising&nbsp;sampling&nbsp;edge&nbsp;of&nbsp;lcd_forwarded.</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_59">59</td><td nowrap="nowrap"><span class="diff_add">set_output_delay&nbsp;-clock&nbsp;[get_clocks&nbsp;lcd_forwarded]&nbsp;-max&nbsp;13.000&nbsp;[get_ports&nbsp;{lcd_rgb[*]&nbsp;lcd_de}]</span></td></tr>
+            <tr><td class="diff_next"></td><td class="diff_header"></td><td nowrap="nowrap"></td><td class="diff_next"></td><td class="diff_header" id="to0_60">60</td><td nowrap="nowrap"><span class="diff_add">set_output_delay&nbsp;-clock&nbsp;[get_clocks&nbsp;lcd_forwarded]&nbsp;-min&nbsp;-13.000&nbsp;[get_ports&nbsp;{lcd_rgb[*]&nbsp;lcd_de}]</span></td></tr>
+        </tbody>
+    </table>
+    <table class="diff" summary="Legends">
+        <tr> <th colspan="2"> Legends </th> </tr>
+        <tr> <td> <table border="" summary="Colors">
+                      <tr><th> Colors </th> </tr>
+                      <tr><td class="diff_add">&nbsp;Added&nbsp;</td></tr>
+                      <tr><td class="diff_chg">Changed</td> </tr>
+                      <tr><td class="diff_sub">Deleted</td> </tr>
+                  </table></td>
+             <td> <table border="" summary="Links">
+                      <tr><th colspan="2"> Links </th> </tr>
+                      <tr><td>(f)irst change</td> </tr>
+                      <tr><td>(n)ext change</td> </tr>
+                      <tr><td>(t)op</td> </tr>
+                  </table></td> </tr>
+    </table>
+</body>
+
+</html>

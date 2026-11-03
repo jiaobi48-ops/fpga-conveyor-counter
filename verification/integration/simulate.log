@@ -1,0 +1,285 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Tue Nov  3 09:48:16 2026
+# Process ID         : 11936
+# Current directory  : L:/rebuild/sim/system_20261103_094803_2cbeb5
+# Command line       : xsim.exe -log simulate.log -mode tcl -source {xsim.dir/integrated/xsim_script.tcl}
+# Log file           : L:/rebuild/sim/system_20261103_094803_2cbeb5/simulate.log
+# Journal file       : L:/rebuild/sim/system_20261103_094803_2cbeb5\xsim.jou
+# Running On         : Xianyu-laptop
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : AMD Ryzen 7 H 255 w/ Radeon 780M Graphics
+# CPU Frequency      : 3793 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 29859 MB
+# Swap memory        : 0 MB
+# Total Virtual      : 29859 MB
+# Available Virtual  : 17294 MB
+#-----------------------------------------------------------
+source xsim.dir/integrated/xsim_script.tcl
+# xsim {integrated} -testplusarg INPUT=L:/fpga/data/integration_input_rgb.hex -autoloadwcfg -tclbatch {run.tcl}
+Time resolution is 1 ps
+source run.tcl
+## run all
+TRACE FRAME id=1 count=0 threshold=128 mode=0 state=3 reason=0020 fg=0 permit=1 rejected=0
+TRACE FRAME id=2 count=0 threshold=128 mode=0 state=3 reason=0020 fg=0 permit=1 rejected=0
+TRACE FRAME id=3 count=0 threshold=128 mode=0 state=4 reason=0040 fg=0 permit=1 rejected=0
+TRACE FRAME id=4 count=0 threshold=128 mode=0 state=4 reason=0040 fg=0 permit=1 rejected=0
+TRACE FRAME id=5 count=0 threshold=128 mode=0 state=5 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=6 count=0 threshold=128 mode=0 state=5 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=7 count=0 threshold=136 mode=0 state=5 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=8 count=0 threshold=144 mode=0 state=5 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=9 count=2 threshold=152 mode=0 state=5 reason=0000 fg=887 permit=1 rejected=0
+TRACE FRAME id=10 count=2 threshold=160 mode=0 state=5 reason=0000 fg=887 permit=1 rejected=0
+TRACE FRAME id=11 count=2 threshold=168 mode=0 state=5 reason=0000 fg=887 permit=1 rejected=0
+TRACE FRAME id=12 count=2 threshold=175 mode=0 state=5 reason=0000 fg=887 permit=1 rejected=0
+TRACE FRAME id=13 count=2 threshold=173 mode=0 state=5 reason=0000 fg=887 permit=1 rejected=0
+TRACE FRAME id=14 count=2 threshold=172 mode=0 state=5 reason=0000 fg=887 permit=1 rejected=0
+TRACE FRAME id=15 count=2 threshold=170 mode=0 state=5 reason=0000 fg=883 permit=1 rejected=0
+TRACE FRAME id=16 count=2 threshold=168 mode=0 state=5 reason=0000 fg=883 permit=1 rejected=0
+TRACE FRAME id=17 count=1 threshold=167 mode=0 state=5 reason=0000 fg=702 permit=1 rejected=0
+TRACE FRAME id=18 count=1 threshold=169 mode=0 state=5 reason=0000 fg=706 permit=1 rejected=0
+TRACE FRAME id=19 count=1 threshold=167 mode=3 state=5 reason=0000 fg=630 permit=1 rejected=0
+TRACE FRAME id=20 count=1 threshold=166 mode=3 state=5 reason=0000 fg=630 permit=1 rejected=0
+TRACE FRAME id=21 count=1 threshold=164 mode=0 state=5 reason=0000 fg=630 permit=1 rejected=0
+TRACE FRAME id=22 count=2 threshold=163 mode=0 state=5 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=23 count=2 threshold=158 mode=0 state=5 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=24 count=2 threshold=156 mode=0 state=5 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=25 count=2 threshold=154 mode=0 state=5 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=26 count=2 threshold=152 mode=0 state=5 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=27 count=2 threshold=151 mode=0 state=5 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=28 count=2 threshold=149 mode=0 state=5 reason=0000 fg=883 permit=1 rejected=0
+TRACE FRAME id=29 count=2 threshold=146 mode=0 state=5 reason=0000 fg=879 permit=1 rejected=0
+TRACE FRAME id=30 count=2 threshold=144 mode=0 state=5 reason=0000 fg=883 permit=1 rejected=0
+TRACE FRAME id=31 count=2 threshold=142 mode=0 state=5 reason=0000 fg=883 permit=1 rejected=0
+TRACE FRAME id=32 count=2 threshold=141 mode=0 state=5 reason=0000 fg=883 permit=1 rejected=0
+TRACE FRAME id=33 count=2 threshold=139 mode=0 state=5 reason=0000 fg=879 permit=1 rejected=0
+TRACE FRAME id=34 count=2 threshold=137 mode=0 state=5 reason=0000 fg=883 permit=1 rejected=0
+TRACE FRAME id=35 count=2 threshold=135 mode=0 state=5 reason=0000 fg=883 permit=1 rejected=0
+TRACE FRAME id=36 count=2 threshold=134 mode=0 state=5 reason=0000 fg=883 permit=1 rejected=0
+TRACE FRAME id=37 count=2 threshold=132 mode=0 state=5 reason=0000 fg=879 permit=1 rejected=0
+TRACE FRAME id=38 count=2 threshold=130 mode=0 state=5 reason=0000 fg=883 permit=1 rejected=0
+TRACE FRAME id=39 count=2 threshold=128 mode=0 state=5 reason=0000 fg=883 permit=1 rejected=0
+TRACE FRAME id=40 count=2 threshold=127 mode=0 state=5 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=41 count=2 threshold=130 mode=0 state=5 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=42 count=2 threshold=133 mode=0 state=5 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=43 count=2 threshold=136 mode=0 state=5 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=44 count=2 threshold=139 mode=0 state=5 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=45 count=2 threshold=141 mode=0 state=5 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=46 count=2 threshold=144 mode=0 state=5 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=47 count=2 threshold=147 mode=0 state=5 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=48 count=2 threshold=150 mode=0 state=5 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=49 count=0 threshold=152 mode=0 state=5 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=50 count=0 threshold=160 mode=0 state=5 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=51 count=0 threshold=168 mode=0 state=5 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=52 count=0 threshold=175 mode=0 state=5 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=53 count=0 threshold=178 mode=0 state=5 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=54 count=0 threshold=181 mode=0 state=5 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=55 count=0 threshold=184 mode=0 state=5 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=56 count=0 threshold=187 mode=0 state=5 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=1 count=2 threshold=128 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=2 count=2 threshold=120 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=3 count=2 threshold=112 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=4 count=2 threshold=104 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=5 count=2 threshold=96 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=6 count=2 threshold=88 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=7 count=2 threshold=80 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=8 count=2 threshold=72 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=9 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=10 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=11 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=12 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=13 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=14 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=15 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=16 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=17 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=18 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=19 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=20 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=21 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=22 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=23 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=24 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=25 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=26 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=27 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=28 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=29 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=30 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=31 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=32 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=33 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=34 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=35 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=36 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=37 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=38 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=39 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=40 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=41 count=0 threshold=67 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=42 count=0 threshold=59 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=43 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=44 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=45 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=46 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=47 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=48 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=1 count=2 threshold=128 mode=0 state=0 reason=0000 fg=881 permit=1 rejected=0
+TRACE FRAME id=2 count=2 threshold=120 mode=0 state=0 reason=0000 fg=879 permit=1 rejected=0
+TRACE FRAME id=3 count=2 threshold=112 mode=3 state=0 reason=0000 fg=882 permit=1 rejected=0
+TRACE FRAME id=4 count=2 threshold=104 mode=3 state=0 reason=0000 fg=885 permit=1 rejected=0
+TRACE FRAME id=5 count=2 threshold=96 mode=3 state=0 reason=0000 fg=877 permit=1 rejected=0
+TRACE FRAME id=6 count=2 threshold=88 mode=3 state=0 reason=0000 fg=883 permit=1 rejected=0
+TRACE FRAME id=7 count=2 threshold=80 mode=3 state=0 reason=0000 fg=877 permit=1 rejected=0
+TRACE FRAME id=8 count=2 threshold=81 mode=3 state=0 reason=0000 fg=877 permit=1 rejected=0
+TRACE FRAME id=9 count=2 threshold=83 mode=3 state=0 reason=0000 fg=872 permit=1 rejected=0
+TRACE FRAME id=10 count=2 threshold=84 mode=3 state=0 reason=0000 fg=878 permit=1 rejected=0
+TRACE FRAME id=11 count=2 threshold=86 mode=3 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=12 count=2 threshold=86 mode=3 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=13 count=2 threshold=88 mode=0 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=14 count=2 threshold=90 mode=0 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=15 count=2 threshold=92 mode=0 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=16 count=2 threshold=94 mode=0 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=17 count=2 threshold=95 mode=0 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=18 count=2 threshold=97 mode=0 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=19 count=2 threshold=99 mode=0 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=20 count=2 threshold=101 mode=0 state=0 reason=0000 fg=879 permit=1 rejected=0
+TRACE FRAME id=21 count=2 threshold=104 mode=0 state=0 reason=0000 fg=871 permit=1 rejected=0
+TRACE FRAME id=22 count=2 threshold=106 mode=3 state=0 reason=0000 fg=882 permit=1 rejected=0
+TRACE FRAME id=23 count=2 threshold=108 mode=3 state=0 reason=0000 fg=880 permit=1 rejected=0
+TRACE FRAME id=24 count=2 threshold=110 mode=3 state=0 reason=0000 fg=880 permit=1 rejected=0
+TRACE FRAME id=25 count=2 threshold=112 mode=3 state=0 reason=0000 fg=874 permit=1 rejected=0
+TRACE FRAME id=26 count=2 threshold=113 mode=3 state=0 reason=0000 fg=876 permit=1 rejected=0
+TRACE FRAME id=27 count=2 threshold=115 mode=3 state=0 reason=0000 fg=878 permit=1 rejected=0
+TRACE FRAME id=28 count=2 threshold=117 mode=3 state=0 reason=0000 fg=879 permit=1 rejected=0
+TRACE FRAME id=29 count=2 threshold=119 mode=3 state=0 reason=0000 fg=878 permit=1 rejected=0
+TRACE FRAME id=30 count=2 threshold=121 mode=3 state=0 reason=0000 fg=878 permit=1 rejected=0
+TRACE FRAME id=31 count=2 threshold=122 mode=3 state=0 reason=0000 fg=880 permit=1 rejected=0
+TRACE FRAME id=32 count=2 threshold=124 mode=3 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=33 count=2 threshold=120 mode=3 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=34 count=2 threshold=117 mode=0 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=35 count=2 threshold=114 mode=0 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=36 count=2 threshold=112 mode=0 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=37 count=2 threshold=109 mode=0 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=38 count=2 threshold=106 mode=0 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=39 count=2 threshold=103 mode=0 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=40 count=2 threshold=100 mode=0 state=0 reason=0000 fg=807 permit=1 rejected=0
+TRACE FRAME id=41 count=0 threshold=97 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=42 count=0 threshold=89 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=43 count=0 threshold=83 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=44 count=0 threshold=80 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=45 count=0 threshold=77 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=46 count=0 threshold=74 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=47 count=0 threshold=71 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=48 count=0 threshold=68 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+PASS INTEGRATION BIST_PROFILE profile=1 expected=2 actual=2
+TRACE FRAME id=1 count=1 threshold=128 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=2 count=1 threshold=120 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=3 count=1 threshold=112 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=4 count=1 threshold=104 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=5 count=1 threshold=96 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=6 count=1 threshold=88 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=7 count=1 threshold=80 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=8 count=1 threshold=72 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=9 count=1 threshold=64 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=10 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=11 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=12 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=13 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=14 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=15 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=16 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=17 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=18 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=19 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=20 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=21 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=22 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=23 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=24 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=25 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=26 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=27 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=28 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=29 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=30 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=31 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=32 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=33 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=34 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=35 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=36 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=37 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=38 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=39 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=40 count=1 threshold=61 mode=0 state=0 reason=0000 fg=390 permit=1 rejected=0
+TRACE FRAME id=41 count=0 threshold=61 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=42 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=43 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=44 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=45 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=46 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=47 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=48 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+PASS INTEGRATION BIST_PROFILE profile=2 expected=1 actual=1
+TRACE FRAME id=1 count=2 threshold=128 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=2 count=2 threshold=120 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=3 count=2 threshold=112 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=4 count=2 threshold=104 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=5 count=2 threshold=96 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=6 count=2 threshold=88 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=7 count=2 threshold=80 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=8 count=2 threshold=72 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=9 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=10 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=11 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=12 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=13 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=14 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=15 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=16 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=17 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=18 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=19 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=20 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=21 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=22 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=23 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=24 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=25 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=26 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=27 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=28 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=29 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=30 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=31 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=32 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=33 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=34 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=35 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=36 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=37 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=38 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=39 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=40 count=2 threshold=67 mode=0 state=0 reason=0000 fg=780 permit=1 rejected=0
+TRACE FRAME id=41 count=0 threshold=67 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=42 count=0 threshold=59 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=43 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=44 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=45 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=46 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=47 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+TRACE FRAME id=48 count=0 threshold=56 mode=0 state=0 reason=0000 fg=0 permit=1 rejected=0
+PASS INTEGRATION BIST_PROFILE profile=3 expected=0 actual=0
+PASS INTEGRATION camera=2 test=5 pixels=688128 three_lane_frames=56 dynamic_denoise=1 valley_cuts=75 speeds=193 restored=1 GPIO=1 BIST_profiles=4 display_CDC=PASS decimal=PASS mean_updates=243 threshold_changes=130
+$finish called at time : 54567120 ns : File "L:/fpga/sim/tb_vision_system.sv" Line 117
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:02:45 . Memory (MB): peak = 230.863 ; gain = 0.000
+## quit
+INFO: xsimkernel Simulation Memory Usage: 21200 KB (Peak: 21200 KB), Simulation CPU Usage: 163265 ms
+INFO: [Common 17-206] Exiting xsim at Tue Nov  3 09:51:03 2026...

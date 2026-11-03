@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "model": "B",
+  "algorithm_size": [
+    800,
+    480
+  ],
+  "roi": [
+    2,
+    2,
+    798,
+    478
+  ],
+  "guard": [
+    320,
+    8,
+    480,
+    48
+  ],
+  "guard_enabled": true,
+  "direction": "right_to_left",
+  "threshold": 128,
+  "invert": true,
+  "scene_epoch": 1,
+  "mapping": {
+    "scale_xy": [
+      1,
+      1
+    ],
+    "offset_xy": [
+      0,
+      0
+    ]
+  },
+  "policy": {
+    "dark_on": 192,
+    "dark_off": 96,
+    "warm_on": 48,
+    "warm_off": 16,
+    "empty_ratio": 12,
+    "normal_frames": 3,
+    "empty_frames": 2,
+    "timeout_cycles": 7500000
+  },
+  "motion": {
+    "line_a": 410,
+    "line_b": 220,
+    "hysteresis": 10,
+    "max_step": 120,
+    "width_delta": 30,
+    "min_hits": 2,
+    "max_missed": 2
+  },
+  "calibrated": false,
+  "note": "ABC v1.4 800x480算法与LCD坐标，75MHz算法时钟。"
+}

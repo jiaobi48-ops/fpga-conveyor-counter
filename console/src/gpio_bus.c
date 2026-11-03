@@ -36,8 +36,8 @@ static void wait_us(void *context,unsigned usec)
 {
     (void)context; usleep(usec);
 }
-/* EMIO DATA_RO must not be used as an output-pad readback while DIRM=1.
- * UG585 GPIO EMIO Signals. These checks verify control registers only.
+/* UG585 GPIO EMIO: read DATA for the output latch while DIRM=1;
+ * sample released input pins through DATA_RO.
  */
 
 int camera_bus_init(probe_bus *bus) {

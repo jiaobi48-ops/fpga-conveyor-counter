@@ -1,5 +1,5 @@
 set lcd_root [file normalize [file dirname [info script]]]
-set lcd_python {C:/Users/asus/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe}
+if {[info exists ::env(FPGA_PYTHON)]} {set lcd_python $::env(FPGA_PYTHON)} else {set lcd_python {python}}
 puts [exec $lcd_python -I -X utf8 [file join $lcd_root verify_download.py]]
 namespace eval xsdb {
     set existing {}
@@ -12,7 +12,7 @@ namespace eval xsdb {
     rst -system
     after 1000
     targets -set -nocase -filter {name =~ "*xc7z015*"}
-    fpga -file [file join $::lcd_root hardware camera_cup_follow_v1.bit]
+    fpga -file [file join $::lcd_root hardware camera_vision_integrated_v14.bit]
     targets -set -nocase -filter {name =~ "ARM*#0"}
     source [file join $::lcd_root hardware ps7_init.tcl]
     ps7_init

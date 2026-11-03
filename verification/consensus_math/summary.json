@@ -1,0 +1,5 @@
+{
+  "terminal": "PASS CONSENSUS BOUNDS checks=50216 uint16_edges/saturation/random_absolute_distance_reference",
+  "test": "tb_consensus_bounds_math",
+  "status": "PASS"
+}

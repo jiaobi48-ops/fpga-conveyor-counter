@@ -1,6 +1,0 @@
-{
-  "status": "PASS",
-  "scope": "Actual parser with mock MMIO; no hardware claim",
-  "source_sha256": "bde634f9402f1f3a4d663627160bd73938c71149a742bf3aaa9bcf54f9106821",
-  "terminal": "PASS actual C UART parser: manual U/H/A, case/CRLF, mask/ROI/threshold mode retention, no count reset, invalid/timeout propagation"
-}

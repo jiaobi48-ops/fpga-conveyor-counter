@@ -1,0 +1,6 @@
+{
+  "test": "noise_pipeline",
+  "status": "PASS",
+  "terminal": "PASS NOISE_PIPELINE cycles=30000 checks=29939 coherent_products/thresholds/history/epoch/gaps/invalid_config/reset",
+  "cycles": 30000
+}

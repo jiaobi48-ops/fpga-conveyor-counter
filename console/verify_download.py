@@ -1,11 +1,14 @@
+"""Check the exact integrated bit/XSA/ELF tuple and its source receipt."""
 from pathlib import Path
-import json,hashlib
+import hashlib,json,zipfile,struct
 R=Path(__file__).resolve().parent
-def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
-b=json.loads((R/'validation/build_receipt.json').read_text());h=json.loads((R/'hardware/handoff_receipt.json').read_text())
-assert sha(R/'build/camera_control_console.elf')==b['elf_sha256'],'ELF changed'
-for n,v in b['sources'].items():assert sha(R/'src'/n)==v,'Source changed: '+n
-for n,k in [('camera_cup_follow_v1.bit','bit_sha256'),('camera_cup_follow_v1.xsa','xsa_sha256'),('ps7_init.tcl','psinit_sha256')]:assert sha(R/'hardware'/n)==h[k],'Hardware changed'
-assert 'follow_match' not in (R/'build_app.py').read_text() and 'follow_service' not in (R/'build_app.py').read_text()
-f=json.loads((R/'validation/firmware_host_receipt.json').read_text());assert sha(R/'src/cup_commands.c')==f['source_sha256']
-print('FIXED_CONSOLE_INPUTS_VERIFIED -- no auto-follow service; starts paused')
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+receipt=json.loads((R/'release_receipt.json').read_text(encoding='utf-8'))
+for name,want in receipt['files'].items():assert sha(R/name)==want,'Release file changed: '+name
+for name,want in receipt['sources'].items():assert sha(R/'src'/name)==want,'Firmware source changed: '+name
+bit=R/'hardware/camera_vision_integrated_v14.bit';elf=R/'build/camera_control_console.elf'
+with zipfile.ZipFile(R/'hardware/camera_vision_integrated_v14.xsa') as z:
+ payloads=[n for n in z.namelist() if n.endswith('.bit')];assert len(payloads)==1
+ assert hashlib.sha256(z.read(payloads[0])).hexdigest()==sha(bit),'XSA/bit mismatch'
+b=elf.read_bytes();assert b[:6]==b'\x7fELF\x01\x01' and struct.unpack_from('<HH',b,16)==(2,40)
+print('ABC_V14_RELEASE_VERIFIED -- integrated bit/XSA/ELF and firmware sources')

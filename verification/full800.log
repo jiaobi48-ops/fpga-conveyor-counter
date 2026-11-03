@@ -1,0 +1,82 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Tue Nov  3 09:48:16 2026
+# Process ID         : 17188
+# Current directory  : L:/rebuild/full800
+# Command line       : xsim.exe -log simulate.log -mode tcl -source {xsim.dir/full800/xsim_script.tcl}
+# Log file           : L:/rebuild/full800/simulate.log
+# Journal file       : L:/rebuild/full800\xsim.jou
+# Running On         : Xianyu-laptop
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : AMD Ryzen 7 H 255 w/ Radeon 780M Graphics
+# CPU Frequency      : 3793 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 29859 MB
+# Swap memory        : 0 MB
+# Total Virtual      : 29859 MB
+# Available Virtual  : 17481 MB
+#-----------------------------------------------------------
+source xsim.dir/full800/xsim_script.tcl
+# xsim {full800} -autoloadwcfg -tclbatch {run.tcl}
+Time resolution is 1 ps
+source run.tcl
+## run all
+FULL800 frame=1 count=2 mode=0 T=128 total=0 merge=0
+FULL800 frame=2 count=2 mode=0 T=120 total=0 merge=0
+FULL800 frame=3 count=2 mode=3 T=112 total=0 merge=0
+FULL800 frame=4 count=2 mode=3 T=104 total=0 merge=0
+FULL800 frame=5 count=2 mode=3 T=96 total=0 merge=0
+FULL800 frame=6 count=2 mode=3 T=88 total=0 merge=0
+FULL800 frame=7 count=2 mode=3 T=80 total=0 merge=0
+FULL800 frame=8 count=2 mode=3 T=79 total=0 merge=0
+FULL800 frame=9 count=2 mode=3 T=81 total=0 merge=0
+FULL800 frame=10 count=2 mode=3 T=83 total=0 merge=0
+FULL800 frame=11 count=2 mode=3 T=85 total=0 merge=0
+FULL800 frame=12 count=2 mode=3 T=84 total=0 merge=0
+FULL800 frame=13 count=2 mode=0 T=86 total=0 merge=0
+FULL800 frame=14 count=2 mode=0 T=88 total=0 merge=0
+FULL800 frame=15 count=2 mode=0 T=90 total=0 merge=0
+FULL800 frame=16 count=2 mode=0 T=92 total=0 merge=0
+FULL800 frame=17 count=2 mode=0 T=93 total=0 merge=0
+FULL800 frame=18 count=2 mode=0 T=95 total=0 merge=0
+FULL800 frame=19 count=2 mode=0 T=97 total=0 merge=0
+FULL800 frame=20 count=2 mode=0 T=99 total=0 merge=0
+FULL800 frame=21 count=2 mode=0 T=103 total=0 merge=0
+FULL800 frame=22 count=2 mode=3 T=105 total=0 merge=0
+FULL800 frame=23 count=2 mode=3 T=107 total=0 merge=0
+FULL800 frame=24 count=2 mode=3 T=108 total=0 merge=0
+FULL800 frame=25 count=2 mode=3 T=110 total=0 merge=0
+FULL800 frame=26 count=2 mode=3 T=112 total=1 merge=0
+FULL800 frame=27 count=2 mode=3 T=114 total=1 merge=0
+FULL800 frame=28 count=2 mode=3 T=116 total=1 merge=0
+FULL800 frame=29 count=2 mode=3 T=118 total=1 merge=0
+FULL800 frame=30 count=2 mode=3 T=119 total=1 merge=0
+FULL800 frame=31 count=2 mode=3 T=121 total=1 merge=0
+FULL800 frame=32 count=2 mode=3 T=123 total=2 merge=0
+FULL800 frame=33 count=2 mode=3 T=119 total=2 merge=0
+FULL800 frame=34 count=2 mode=0 T=116 total=2 merge=0
+FULL800 frame=35 count=2 mode=0 T=113 total=2 merge=0
+FULL800 frame=36 count=2 mode=0 T=110 total=2 merge=0
+FULL800 frame=37 count=2 mode=0 T=107 total=2 merge=0
+FULL800 frame=38 count=2 mode=0 T=104 total=2 merge=0
+FULL800 frame=39 count=2 mode=0 T=101 total=2 merge=0
+FULL800 frame=40 count=2 mode=0 T=98 total=2 merge=0
+FULL800 frame=41 count=0 mode=0 T=96 total=2 merge=0
+FULL800 frame=42 count=0 mode=0 T=88 total=2 merge=0
+FULL800 frame=43 count=0 mode=0 T=83 total=2 merge=0
+FULL800 frame=44 count=0 mode=0 T=80 total=2 merge=0
+FULL800 frame=45 count=0 mode=0 T=77 total=2 merge=0
+FULL800 frame=46 count=0 mode=0 T=74 total=2 merge=0
+FULL800 frame=47 count=0 mode=0 T=71 total=2 merge=0
+FULL800 frame=48 count=0 mode=0 T=68 total=2 merge=0
+PASS FULL800 default_ROI adaptive_threshold=1 adaptive_denoise=1 three_lanes=1 valleys=1 tracking_merge=1 speed=1 BIST_profile=1 frames=48 test_total=2 camera_total=0 mean_updates=48 threshold_changes=47 denoise_frames=22
+$finish called at time : 253404816274 ps : File "L:/fpga/sim/tb_full800_bist.sv" Line 34
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:13:36 . Memory (MB): peak = 222.375 ; gain = 0.000
+## quit
+INFO: xsimkernel Simulation Memory Usage: 15324 KB (Peak: 15324 KB), Simulation CPU Usage: 807358 ms
+INFO: [Common 17-206] Exiting xsim at Tue Nov  3 10:01:54 2026...

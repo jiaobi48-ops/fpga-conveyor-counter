@@ -1,0 +1,2 @@
+ARM Standalone compile and BSP link
+E:/Documents/ChatGPT/FPGAcounter/build/toolchains/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: E:\Documents\ChatGPT\FPGAcounter\work\ABC_clock75_v14\rebuild\firmware\camera_control_console.elf has a LOAD segment with RWX permissions

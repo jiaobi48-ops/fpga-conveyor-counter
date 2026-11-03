@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Mon Nov  2 19:20:23 2026
+# Process ID         : 21032
+# Current directory  : U:/rebuild/epoch_hint
+# Command line       : xsim.exe -log simulate.log -mode tcl -source {xsim.dir/epoch_hint/xsim_script.tcl}
+# Log file           : U:/rebuild/epoch_hint/simulate.log
+# Journal file       : U:/rebuild/epoch_hint\xsim.jou
+# Running On         : Xianyu-laptop
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : AMD Ryzen 7 H 255 w/ Radeon 780M Graphics
+# CPU Frequency      : 3793 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 29859 MB
+# Swap memory        : 0 MB
+# Total Virtual      : 29859 MB
+# Available Virtual  : 12354 MB
+#-----------------------------------------------------------
+source xsim.dir/epoch_hint/xsim_script.tcl
+# xsim {epoch_hint} -autoloadwcfg -tclbatch {run.tcl}
+Time resolution is 1 ps
+source run.tcl
+## run all
+PASS EPOCH_HINT cycles=30000 checks=59982 SOF/version_wrap/statistics/hold/clamps/slew/reset
+$finish called at time : 300006 ns : File "U:/fpga/sim/tb_epoch_hint.sv" Line 137
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Nov  2 19:20:25 2026...

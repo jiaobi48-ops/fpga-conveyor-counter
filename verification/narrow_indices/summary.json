@@ -1,0 +1,37 @@
+[
+  {
+    "terminal": "PASS PARALLEL CONSENSUS cases=10 rejected=4 disagreement=2 dropped=2 voting/central_outlier/empty/ambiguity/tag/order/bypass/backpressure/timeout/flush",
+    "status": "PASS",
+    "test": "tb_parallel_consensus"
+  },
+  {
+    "terminal": "PASS PARALLEL CONSENSUS LOCAL cases=13 rejected=4 disagreement=2 dropped=2 voting/central_outlier/empty/ambiguity/tag/order/bypass/backpressure/timeout/flush",
+    "status": "PASS",
+    "test": "tb_parallel_consensus_local"
+  },
+  {
+    "terminal": "PASS PARALLEL SPEED cases=24 exhaustive_reference/left/right/stop/gap/context/empty/clipped/tie/disable/flush/timestamp_wrap/malformed",
+    "status": "PASS",
+    "test": "tb_parallel_speed"
+  },
+  {
+    "terminal": "PASS MERGE TRACKS cases=17 transactions=107 checks=389 events=5 partial/identity/confirmation/catchup/no_prediction/other_tracks/remerge/timeout/gap/bad_split/empty/flush/context/immature/duplicate/disable/startup/config",
+    "status": "PASS",
+    "test": "tb_merge_tracks"
+  },
+  {
+    "terminal": "PASS MERGE TRACKS REGISTERED cases=19 transactions=109 checks=402 events=5 partial/identity/confirmation/catchup/no_prediction/other_tracks/remerge/timeout/gap/bad_split/empty/flush/context/immature/duplicate/disable/startup/config",
+    "status": "PASS",
+    "test": "tb_merge_tracks_registered"
+  },
+  {
+    "terminal": "PASS CONVEYOR EXTRACT cases=32 batches=11 faults=21 width640=PASS committed_intervals/gaps/cuts/backpressure/flush/recovery",
+    "status": "PASS",
+    "test": "tb_conveyor_extract"
+  },
+  {
+    "terminal": "PASS CONVEYOR EXTRACT cases=32 batches=11 faults=21 width640=PASS committed_intervals/gaps/cuts/backpressure/flush/recovery",
+    "status": "PASS",
+    "test": "tb_conveyor_extract_pipelined"
+  }
+]

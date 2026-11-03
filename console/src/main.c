@@ -1,5 +1,6 @@
 #include "platform.h"
 #include "cup_commands.h"
+#include "vision_control.h"
 #include "preview_service.h"
 #include "studio_protocol.h"
 #include "studio_snapshot.h"
@@ -20,12 +21,12 @@
 #include "xuartps_hw.h"
 #include "xil_io.h"
 #include <string.h>
-#define STRIDE 3840U
-#define FRAME_BYTES (STRIDE*720U)
+#define STRIDE 2400U
+#define FRAME_BYTES (STRIDE*480U)
 #define BASE_FRAME 0x01000000U
 #define BUFFER_STEP 0x00400000U
 #define GUARDS 64U
-#define CROP_OFFSET (120U*STRIDE+240U*3U)
+#define CROP_OFFSET 0U
 static XAxiVdma dma;
 static XVtc vtc;
 static probe_bus bus;
@@ -44,8 +45,8 @@ static int setup_channel(int dir)
 {
  XAxiVdma_DmaSetup c;unsigned i;int rc;
  memset(&c,0,sizeof c);
- c.VertSizeInput=dir==XAXIVDMA_WRITE?720:480;
- c.HoriSizeInput=dir==XAXIVDMA_WRITE?3840:2400;
+ c.VertSizeInput=480;
+ c.HoriSizeInput=2400;
  c.Stride=STRIDE;c.EnableCircularBuf=1;
  /* Writer starts independently for a bounded capture check; genlock is
     enabled on BOTH channels before the reader starts. Dynamic slave ignores
@@ -173,7 +174,10 @@ static int resume_for_studio(void){
  if(XAxiVdma_SetFrameCounter(&dma,&f))return -1;
  XAxiVdma_IntrEnable(&dma,XAXIVDMA_IXR_FRMCNT_MASK|XAXIVDMA_IXR_ERROR_MASK,XAXIVDMA_WRITE);
  XAxiVdma_IntrEnable(&dma,XAXIVDMA_IXR_FRMCNT_MASK|XAXIVDMA_IXR_ERROR_MASK,XAXIVDMA_READ);
- if(capture_ready())return -1;
+ /* Completed one-shot BIST keeps its last DDR image until another source is selected. */
+ if(vision_test_finished()){
+  if(XAxiVdma_DmaStart(&dma,XAXIVDMA_WRITE))return -1;
+ }else if(capture_ready())return -1;
  cr=XAxiVdma_ReadReg(base,0x30);XAxiVdma_WriteReg(base,0x30,cr|8U);
  if(XAxiVdma_DmaStart(&dma,XAXIVDMA_READ))return -1;
  XVtc_EnableGenerator(&vtc);return 0;
@@ -182,7 +186,11 @@ static int resume_for_studio(void){
 static int studio_handle(unsigned command,const unsigned args[5],volatile u32 *h,void *ctx){
  unsigned before,after,started,stream_id;int selected,rc;uint8_t polarity;
  (void)ctx;
- if(control_dispatch(command,args))return -28;
+ if(command==8)return vision_set(args[0],args[1])?2:0;
+  if(command==9)return vision_commit()?2:0;
+  if(command==10)return vision_report();
+  if(command==11){unsigned e[12],k;if(vision_event(args[0],e))return 12;for(k=0;k<12;k++)h[100+k]=e[k];return 0;}
+  if(control_dispatch(command,args))return -28;
  if(studio_refresh(h))return -23;
  if(command!=STUDIO_CAPTURE)return 0;
  if(cup_set_mode(12)||studio_refresh(h))return -27; /* Photo/ROI work stays paused. */
@@ -199,7 +207,7 @@ static int studio_handle(unsigned command,const unsigned args[5],volatile u32 *h
   (unsigned)selected,before,after,status(XAXIVDMA_WRITE),status(XAXIVDMA_READ));
  if(rc)return rc;
  if(preview_stream_id(&stream_id))return -26;
- h[S_STREAM_COUNTER]=stream_id; // Diagnostic at stop; NOT an identity tag of the selected DDR frame.
+ h[S_STREAM_COUNTER]=stream_id; // Stream counter sampled when DMA is stopped.
  if(resume_for_studio())return -24;
  h[S_RESUME_WR]=status(XAXIVDMA_WRITE);h[S_RESUME_RD]=status(XAXIVDMA_READ);
  h[S_ELAPSED_MS]=studio_millis()-started;h[S_UPTIME_MS]=studio_millis();
@@ -214,8 +222,8 @@ int main(void)
  init_platform();Xil_ExceptionDisable();Xil_DCacheDisable();
  studio_init(studio_box);
  *(volatile unsigned *)0x02000000U=0;dsb(); /* Invalidate any previous-run thumbnail before initialization. */
- xil_printf("\r\nCAMERA_CONTROL_CONSOLE_V1_2 -- control mailbox v3 and UART; STARTS MANUALLY PAUSED\r\n");
- xil_printf("INPUT 1280x720 BGR bytes; LCD 800x480 central crop x=240 y=120; pixel_clk=25MHz\r\n");
+ xil_printf("\r\nCAMERA_CONTROL_CONSOLE_V1_4 -- control mailbox v4 and UART; STARTS MANUALLY PAUSED\r\n");
+ xil_printf("INPUT 1280x720 BGR bytes; B crop 800x480 x=240 y=120; algorithm_clk=75MHz axi_clk=100MHz LCD_clk=25MHz\r\n");
  xil_printf("WIRING direct camera connection; U1=D4 input; K7=PWDN; LCD on existing RGB connector\r\n");
  if(camera_bus_init(&bus))goto stopped;
  usleep(500000);
@@ -251,7 +259,7 @@ int main(void)
  
  XVtc_EnableGenerator(&vtc);
  studio_box[S_RUNNING]=1;
- xil_printf("LCD_STREAM_STARTED -- inspect moving picture; UART events alone do not prove screen output\r\n");
+ xil_printf("LCD_STREAM_STARTED ABC_V14 -- LCD=800x480 algorithm=75MHz\r\n");
  for(;;) {
   for(ms=0;ms<1000U;ms++) {
    wr=status(XAXIVDMA_WRITE);rd=status(XAXIVDMA_READ);
@@ -265,7 +273,7 @@ int main(void)
    {XTime now,end;XTime_GetTime(&now);if(preview_poll((unsigned)(now/(COUNTS_PER_SECOND/1000U))))goto stopped;XTime_GetTime(&end);preview_work_time((unsigned)((end-now)*1000000U/COUNTS_PER_SECOND));}
    usleep(1000);
   }
-  if(!w_events||!r_events){xil_printf("FAIL LIVE_FRAME_TIMEOUT write=%u read=%u\r\n",w_events,r_events);goto stopped;}
+  if((!w_events && !vision_test_finished())||!r_events){xil_printf("FAIL LIVE_FRAME_TIMEOUT write=%u read=%u\r\n",w_events,r_events);goto stopped;}
   for(i=0;i<3U;i++) {
    p=(volatile u8 *)(BASE_FRAME+i*BUFFER_STEP);
    for(j=0;j<GUARDS;j++)if(p[(int)j-(int)GUARDS]!=0x5A||p[FRAME_BYTES+j]!=0x5A){xil_printf("FAIL BUFFER_GUARD\r\n");goto stopped;}
@@ -282,7 +290,7 @@ stopped:
  if(vtc.IsReady)XVtc_DisableGenerator(&vtc);
  if(dma.IsReady){XAxiVdma_DmaStop(&dma,XAXIVDMA_READ);XAxiVdma_DmaStop(&dma,XAXIVDMA_WRITE);}
  if(bus.release){bus.release(bus.context,PROBE_SDA);bus.release(bus.context,PROBE_SCL);}
- xil_printf("STOP_CAMERA_LCD -- inspect preceding failure; no LCD acceptance recorded\r\n");
+ xil_printf("STOP_CAMERA_LCD -- inspect preceding failure\r\n");
  while(1)usleep(1000000);
 }
 
@@ -291,7 +299,7 @@ void preview_publish(const unsigned char *image,unsigned id){
  volatile unsigned char *p=(volatile unsigned char *)0x02000040U;
  unsigned i,hash=2166136261U;h[0]=0;dsb();
  for(i=0;i<14400U;i++){p[i]=image[i];hash=(hash^image[i])*16777619U;}
- h[1]=id;h[2]=160;h[3]=90;h[4]=14400;h[5]=hash;h[6]=0xC30401;h[7]=0;
+ h[1]=id;h[2]=160;h[3]=90;h[4]=14400;h[5]=hash;h[6]=0xC31401;h[7]=0;
  {XTime t;XTime_GetTime(&t);h[8]=(unsigned)(t/(COUNTS_PER_SECOND/1000U));}h[10]=STUDIO_MAGIC;
  h[9]=0;for(i=11;i<16;i++)h[i]=0;
  dsb();h[0]=0x464F4C31U;dsb();

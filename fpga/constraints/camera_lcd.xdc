@@ -1,4 +1,4 @@
-# Camera constraints preserved; LCD pinout copied from proven display.
+# Camera and RGBLCD pin and clock constraints.
 create_clock -period 20.833 -name cam_pclk [get_ports cam_pclk]
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets cam_pclk_IBUF]
 set_property -dict {PACKAGE_PIN J7 IOSTANDARD LVCMOS18} [get_ports {cam_data[0]}]
@@ -50,3 +50,11 @@ set_property -dict {PACKAGE_PIN A7 IOSTANDARD LVCMOS18} [get_ports lcd_rst]
 set_property -dict {PACKAGE_PIN G3 IOSTANDARD LVCMOS18} [get_ports ms7200_rst_n]
 # Clock wizard generates 25 MHz. ODDR forwards its inverted clock.
 create_generated_clock -name lcd_forwarded -source [get_pins -hierarchical -filter {NAME =~ */u_forward_clock/C}] -divide_by 1 -invert [get_ports lcd_clk]
+
+# ATK-4384 RGB/DE interface, 25 MHz forwarded clock.
+# Source: supplied ATK-4.3 RGBLCD manual, table 2.2.2.2, pages 4-5.
+# Receiver setup/hold requirement: 12 ns each.
+# Board data-minus-clock propagation budget: -1 ns to +1 ns.
+# Keep the existing rising sampling edge of lcd_forwarded.
+set_output_delay -clock [get_clocks lcd_forwarded] -max 13.000 [get_ports {lcd_rgb[*] lcd_de}]
+set_output_delay -clock [get_clocks lcd_forwarded] -min -13.000 [get_ports {lcd_rgb[*] lcd_de}]

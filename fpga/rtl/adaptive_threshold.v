@@ -1,0 +1,84 @@
+`timescale 1ns/1ps
+// Mean target is asynchronous to video ce. Selection/slew is atomic at raw SOF.
+module adaptive_threshold (
+    input wire clk,rst_n,frame_start,
+    input wire [31:0] frame_epoch,
+    input wire cfg_auto,
+    input wire [7:0] cfg_manual,cfg_min,cfg_max,cfg_step,
+    input wire stats_update,
+    input wire [31:0] stats_sum,stats_pixels,stats_frame_id,stats_epoch,
+    input wire stats_auto,
+    input wire [7:0] stats_min,stats_max,
+    input wire signed [8:0] stats_offset,
+    output wire [7:0] selected_threshold,
+    output reg [7:0] active_threshold,
+    output wire busy,
+    output reg mean_update,
+    output reg [7:0] mean_gray,target_threshold,
+    output reg [31:0] mean_frame_id,target_frame_id,target_epoch,skipped_statistics,
+    output reg target_valid
+);
+    wire done,zero;
+    wire [31:0] quotient;
+    // pending also covers the done-to-consumer clock; avoid replacing job metadata.
+    reg pending;
+    wire accept=stats_update&&!pending&&!busy;
+    reg [31:0] job_id,job_epoch,active_epoch;
+    reg job_auto;
+    reg [7:0] job_min,job_max;
+    reg signed [8:0] job_offset;
+    unsigned_divider32 divider(.clk(clk),.rst_n(rst_n),.start(accept),
+        .numerator(stats_sum),.denominator(stats_pixels),.busy(busy),.done(done),
+        .divide_by_zero(zero),.quotient(quotient));
+    reg [7:0] chosen;
+    reg [8:0] difference;
+    reg signed [10:0] target_signed;
+    reg [7:0] clipped;
+    always @* begin
+        target_signed=$signed({3'b000,quotient[7:0]})+$signed(job_offset);
+        clipped=target_signed<$signed({3'b000,job_min}) ? job_min :
+                target_signed>$signed({3'b000,job_max}) ? job_max : target_signed[7:0];
+        chosen=cfg_manual;difference=0;
+        if(cfg_auto&&cfg_min<=cfg_max) begin
+            chosen=(frame_epoch==active_epoch) ? active_threshold : cfg_manual;
+            if(target_valid&&target_epoch==frame_epoch&&frame_epoch==active_epoch) begin
+                if(target_threshold>chosen) begin
+                    difference={1'b0,target_threshold}-{1'b0,chosen};
+                    chosen=difference>cfg_step ? chosen+cfg_step : target_threshold;
+                end else begin
+                    difference={1'b0,chosen}-{1'b0,target_threshold};
+                    chosen=difference>cfg_step ? chosen-cfg_step : target_threshold;
+                end
+            end
+            if(chosen<cfg_min) chosen=cfg_min;
+            if(chosen>cfg_max) chosen=cfg_max;
+        end
+    end
+    assign selected_threshold=frame_start ? chosen : active_threshold;
+    always @(posedge clk) begin
+        if(!rst_n) begin
+            pending<=0;job_id<=0;job_epoch<=0;job_auto<=0;
+            job_min<=0;job_max<=255;job_offset<=0;active_epoch<=0;active_threshold<=128;
+            mean_update<=0;mean_gray<=0;mean_frame_id<=0;target_threshold<=128;
+            target_frame_id<=0;target_epoch<=0;target_valid<=0;skipped_statistics<=0;
+        end else begin
+            mean_update<=0;
+            if(frame_start) begin active_threshold<=chosen;active_epoch<=frame_epoch;end
+            if(stats_update&&!accept) skipped_statistics<=skipped_statistics+1'b1;
+            if(accept) begin
+                pending<=1;job_id<=stats_frame_id;job_epoch<=stats_epoch;job_auto<=stats_auto;
+                job_min<=stats_min;job_max<=stats_max;job_offset<=stats_offset;
+            end
+            if(done&&pending) begin
+                pending<=0;
+                if(!zero&&quotient<=255) begin
+                    mean_update<=1;mean_gray<=quotient[7:0];mean_frame_id<=job_id;
+                    if(job_auto&&job_min<=job_max) begin
+                        target_valid<=1;target_threshold<=clipped;
+                        target_frame_id<=job_id;target_epoch<=job_epoch;
+                    end
+                end
+            end
+        end
+    end
+endmodule

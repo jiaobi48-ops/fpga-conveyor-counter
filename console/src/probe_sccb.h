@@ -10,9 +10,8 @@ typedef struct {
     unsigned (*read)(void *, unsigned);
     void (*delay_us)(void *, unsigned);
 } probe_bus;
-/* Only writes the sensor's register-address pointer; no register-data write.
- * The ninth bit after transmitted bytes is released and sampled, never forced
- * low by the controller. Report its four observed levels as diagnostic bits.
+/* Read a sensor register through a pointer write followed by a data read.
+ * Release SDA during each ninth bit and record the four sampled levels.
  */
 int probe_read_register(probe_bus *bus, uint16_t reg, uint8_t *value,
                         uint8_t *ninth_high_mask);

@@ -6,13 +6,17 @@ from protocol import StudioDevice,configuration,valid_roi
 from transport import DDRTransport
 from serial_win import SerialPort,ports
 ROOT=Path(__file__).resolve().parent
-PYTHON=Path('C:/Users/asus/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe')
+import sys
+PYTHON=Path(sys.executable)
+from tool_paths import xsdb_path
+import vision_device
 def stamp():return datetime.now().strftime('%Y%m%d_%H%M%S')
 class Controller:
  def __init__(self,root=ROOT,serial_factory=SerialPort,transport_factory=DDRTransport):
   self.root=Path(root);self.root.mkdir(exist_ok=True);self.lock=threading.RLock();self.io=threading.RLock();self.closed=threading.Event();self.events=queue.Queue();self.jobs=queue.Queue()
-  self.serial=serial_factory();self.transport_factory=transport_factory;self.transport=None;self.device=None;self.connected=False;self.busy=False;self.error='';self.config=None;self.header=None;self.pause_pending=threading.Event()
+  self.serial=serial_factory();self.transport_factory=transport_factory;self.transport=None;self.device=None;self.connected=False;self.busy=False;self.error='';self.config=None;self.header=None;self.vision=None;self.pause_pending=threading.Event()
   self.frame=None;self.frame_time=0;self.frozen=False;self.source=None;self.logs=deque(maxlen=8000);self.rx=0;self.tx=0
+  self.event_cursor=None;self.event_session=None
   self.log_path=self.root/'logs'/('serial_'+stamp()+'.log');self.log_path.parent.mkdir(exist_ok=True);self.log_file=self.log_path.open('a',encoding='utf-8',buffering=1);self.rx_file=self.log_path.with_suffix('.bin').open('ab',buffering=0)
   threading.Thread(target=self._serial_loop,daemon=True).start();threading.Thread(target=self._worker,daemon=True).start();threading.Thread(target=self._preview_loop,daemon=True).start()
  def log(self,text,kind='info'):
@@ -35,7 +39,7 @@ class Controller:
     self.log(str(e),'error');self.serial.close();self.events.put(('error',str(e)))
  def submit(self,action,**args):
   with self.lock:
-   if self.busy:raise RuntimeError('当前操作尚未完成，请稍等')
+   if self.busy:raise RuntimeError('正在处理当前操作，请稍候')
    self.busy=True
   self.jobs.put((action,args));self.events.put(('busy',action))
  def _worker(self):
@@ -49,17 +53,30 @@ class Controller:
     if self.pause_pending.is_set():
      self.pause_pending.clear()
      try:self.do_mode('blocked')
-     except Exception as e:self.error=str(e);self.log(str(e),'error');self.events.put(('error','暂停尚未确认：'+str(e)))
+     except Exception as e:self.error=str(e);self.log(str(e),'error');self.events.put(('error','暂停操作失败：'+str(e)))
     with self.lock:self.busy=False
  def _refresh(self):
   if not self.device or not self.connected:raise RuntimeError('请先初始化开发板并连接画面')
   h=self.device.command(3);c=configuration(h)
+  self.device.command(10)
+  self.vision=vision_device.read(self.device)
+  latest=self.vision['results']['motion_event_seq'];session=self.vision['results']['motion_session_id']
+  start=max(1,latest-31) if self.event_cursor is None or self.event_session!=session else self.event_cursor+1
+  if latest>=start:
+   start=max(start,latest-31)
+   for seq in range(start,latest+1):
+    record=vision_device.event(self.device,seq)
+    if record['session']!=session:continue
+    record['host_time']=datetime.now().isoformat(timespec='milliseconds')
+    with self.log_path.with_suffix('.events.jsonl').open('a',encoding='utf-8') as fp:fp.write(json.dumps(record,ensure_ascii=False)+'\n')
+    self.log('通过事件 '+str(record['sequence'])+' / 轨迹 '+str(record['track_id'])+' / '+record['source'],'event')
+  self.event_cursor=latest;self.event_session=session
   with self.lock:self.header=h;self.config=c
   self.events.put(('status',self.status()));return h
  def status(self):
   with self.lock:
    h=self.header;p=list(h[80:96]) if h else None
-   return dict(connected=self.connected,serial=bool(self.serial.handle),port=self.serial.name,busy=self.busy,error=self.error,config=self.config,pages=p,rx=self.rx,tx=self.tx,frozen=self.frozen,image_age=time.monotonic()-self.frame_time if self.frame_time else None)
+   return dict(connected=self.connected,serial=bool(self.serial.handle),port=self.serial.name,busy=self.busy,error=self.error,config=self.config,pages=p,vision=self.vision,rx=self.rx,tx=self.tx,frozen=self.frozen,image_age=time.monotonic()-self.frame_time if self.frame_time else None)
  def _connect_jtag(self):
   if self.transport:self.transport.close()
   self.connected=False;self.device=None
@@ -67,7 +84,7 @@ class Controller:
   deadline=time.monotonic()+25
   while time.monotonic()<deadline:
    h=self.device.header()
-   if h[0]==0x43545231 and h[1]==3 and h[31]==0:time.sleep(.2);continue
+   if h[0]==0x43545231 and h[1]==4 and h[31]==0:time.sleep(.2);continue
    self.device.command(0);break
   else:raise RuntimeError('初始化超时，请查看串口日志中的失败原因')
   self.connected=True;self.source=None;self.frozen=False;self._refresh()
@@ -75,7 +92,7 @@ class Controller:
   self.progress('连接串口与画面…')
   if self.serial.name!=port or not self.serial.handle:self.serial.open(port)
   with self.io:self._connect_jtag()
-  self.log('设备已连接，所有常用按钮均核对板上读回')
+  self.log('设备已连接，配置已同步')
  def _stop_old_studio(self):
   p=self.root.parent/'camera_capture_studio_2026-10-26/studio_runtime.json'
   if not p.exists():return
@@ -92,11 +109,13 @@ class Controller:
    self.connected=False
    if self.transport:self.transport.close();self.transport=None
    self._stop_old_studio()
-   cmd=[os.environ.get('COMSPEC','cmd.exe'),'/d','/c','D:/vivado/2025.2/Vitis/bin/xsdb.bat',str(self.root/'run_control.tcl')]
-   p=subprocess.run(cmd,cwd=self.root,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='replace',timeout=120,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
+   cmd=[os.environ.get('COMSPEC','cmd.exe'),'/d','/c',str(xsdb_path()),str(self.root/'run_control.tcl')]
+   child_env=dict(os.environ,FPGA_PYTHON=sys.executable)
+   p=subprocess.run(cmd,env=child_env,cwd=self.root,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='replace',timeout=120,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
    lines=p.stdout.splitlines()
    for line in lines:self.log(line,'init')
    if p.returncode or not any('CAMERA_CONTROL_CONSOLE_STARTED' in line for line in lines):raise RuntimeError('下载未完成，请查看下方初始化日志')
+   self.event_cursor=None;self.event_session=None
    self._connect_jtag()
   self.log('初始化完成，当前为手动暂停；调框后点击“正常计数”')
  def send(self,text):
@@ -113,7 +132,7 @@ class Controller:
    h=self._refresh()
    if predicate(h) and (not changes or h[83]!=old_epoch):return h
    time.sleep(.08)
-  raise RuntimeError('命令已发送，但板上读回未确认；没有自动重发，请查看串口日志')
+  raise RuntimeError('命令执行超时，请查看串口日志')
  def _control(self,op,args,predicate,changes=True):
   before=self._refresh()[83] if changes else None
   self.log('板卡控制 op='+str(op)+' args='+str(args),'control')
@@ -123,7 +142,7 @@ class Controller:
    h=self._refresh()
    if predicate(h) and (not changes or h[83]!=before):return h
    time.sleep(.08)
-  raise RuntimeError('板卡操作已应答，但实际状态未确认；未重复执行，请检查日志')
+  raise RuntimeError('设备状态更新超时，请查看操作日志')
  def do_mode(self,mode):
   values={'clear':4,'blocked':12,'auto':0}
   if mode not in values:raise ValueError('未知模式')
@@ -134,8 +153,8 @@ class Controller:
   # An urgent request survives a busy action; mailbox confirmation follows it.
   self.pause_pending.set()
   try:self.send('H')
-  except Exception as e:self.log('串口即时暂停未确认，当前操作结束后通过控制邮箱暂停：'+str(e),'control')
-  self.events.put(('progress','已请求暂停，等待当前操作结束及板上读回确认'))
+  except Exception as e:self.log('串口暂停失败，已排入暂停队列：'+str(e),'control')
+  self.events.put(('progress','暂停请求已提交，等待设备更新状态'))
  def do_clear(self):
   with self.io:
    before=self._refresh()[84];self._control(7,[0]*5,lambda h:h[84]!=before and (h[80]&0xfffff)==0,changes=False)
@@ -163,7 +182,7 @@ class Controller:
    self._control(4,[12,0,0,0,0],lambda h:h[73]&12==12 and bool(h[81]&4096))
    raw,full,crop,m=self.device.capture(self.progress)
    directory=self.root/'snapshots'/(stamp()+f'_{m["capture_seq"]:06d}');directory.mkdir(parents=True,exist_ok=False)
-   for name,data in [('original_1280x720.png',full),('algorithm_800x480.png',crop),('original.bgr',raw)]: (directory/name).write_bytes(data)
+   for name,data in [('original_800x480.png',full),('algorithm_800x480.png',crop),('original.bgr',raw)]: (directory/name).write_bytes(data)
    (directory/'metadata.json').write_text(json.dumps(m,ensure_ascii=False,indent=2),encoding='utf-8')
    with self.lock:self.frame=crop;self.frame_time=time.monotonic();self.frozen=True
    self.events.put(('frame',dict(data=crop,kind='color',source=m['capture_seq'],frozen=True)));self._refresh()
@@ -191,14 +210,22 @@ class Controller:
    except Exception as e:self.connected=False;self.error=str(e);self.events.put(('error',str(e)))
    finally:self.io.release()
  def save_profile(self,path,gates):
-  if not self.config:raise RuntimeError('尚无板上配置，请先连接')
+  if not self.config:raise RuntimeError('请连接设备并读取配置')
   if not valid_roi(gates):raise ValueError('参数不合法')
-  v=dict(schema='fixed-camera-console-v1',roi=gates,threshold=self.config['threshold'],mask=bool(self.config['flags']&2),algorithm='A manual two-gate counting / C30401',calibrated=False)
+  v=dict(schema='fixed-camera-console-v1',roi=gates,threshold=self.config['threshold'],mask=bool(self.config['flags']&2),algorithm='B guard/parallel/merge integrated C31401',vision=self.vision)
   Path(path).write_text(json.dumps(v,ensure_ascii=False,indent=2),encoding='utf-8')
  def do_profile(self,path):
   v=json.loads(Path(path).read_text(encoding='utf-8-sig'))
   if v.get('schema')!='fixed-camera-console-v1' or not valid_roi(v.get('roi',[])) or type(v.get('threshold')) is not int or not 32<=v['threshold']<=224 or type(v.get('mask')) is not bool:raise ValueError('不是本程序保存的有效场景文件')
-  self.do_roi(v['roi']);self.do_threshold(v['threshold']);self.do_mask(v['mask']);self.progress('场景已恢复并读回，保持暂停；不会自动开始计数')
+  self.do_roi(v['roi']);self.do_threshold(v['threshold']);self.do_mask(v['mask']);self.progress('场景已载入，当前为暂停；点击正常计数开始运行')
+ def do_vision_refresh(self):
+  with self.io:self._refresh()
+  self.events.put(('vision',self.vision))
+ def do_vision_apply(self,changes):
+  with self.io:
+   if not self.device:raise RuntimeError('请先连接设备')
+   self.vision=vision_device.apply(self.device,changes);self._refresh()
+  self.events.put(('vision',self.vision));self.progress('算法参数整包提交并读回完成')
  def close(self):
   self.closed.set();self.serial.close()
   with self.io:

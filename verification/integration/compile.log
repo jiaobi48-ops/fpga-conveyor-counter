@@ -1,0 +1,118 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/adaptive_threshold.v" into library work
+INFO: [VRFC 10-311] analyzing module adaptive_threshold
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/binary_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module binary_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/binary_roi_gate.v" into library work
+INFO: [VRFC 10-311] analyzing module binary_roi_gate
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/camera_frame_identity.v" into library work
+INFO: [VRFC 10-311] analyzing module camera_frame_identity
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/conveyor_bist_checker.v" into library work
+INFO: [VRFC 10-311] analyzing module conveyor_bist_checker
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/conveyor_bist_source.v" into library work
+INFO: [VRFC 10-311] analyzing module conveyor_bist_source
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/conveyor_merge_tracker.v" into library work
+INFO: [VRFC 10-311] analyzing module conveyor_merge_tracker
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/conveyor_track_counter.v" into library work
+INFO: [VRFC 10-311] analyzing module conveyor_track_counter
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/count_stabilizer.v" into library work
+INFO: [VRFC 10-311] analyzing module count_stabilizer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/cup_control.v" into library work
+INFO: [VRFC 10-311] analyzing module cup_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/cup_overlay.v" into library work
+INFO: [VRFC 10-311] analyzing module cup_overlay
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/cup_passage.v" into library work
+INFO: [VRFC 10-311] analyzing module cup_passage
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/dynamic_noise_policy.v" into library work
+INFO: [VRFC 10-311] analyzing module dynamic_noise_policy
+INFO: [VRFC 10-311] analyzing module dynamic_noise_policy_decision
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/follow_capture.v" into library work
+INFO: [VRFC 10-311] analyzing module follow_capture
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/frame_gray_statistics.v" into library work
+INFO: [VRFC 10-311] analyzing module frame_gray_statistics
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/frame_noise_statistics.v" into library work
+INFO: [VRFC 10-311] analyzing module frame_noise_statistics
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/gray_binary.v" into library work
+INFO: [VRFC 10-311] analyzing module gray_binary
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/guarded_adaptive_threshold.v" into library work
+INFO: [VRFC 10-311] analyzing module guarded_adaptive_threshold
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/interval_consensus3.v" into library work
+INFO: [VRFC 10-311] analyzing module interval_consensus3
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/lcd_video_bridge.v" into library work
+INFO: [VRFC 10-311] analyzing module lcd_video_bridge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/line_buffer_3x3.v" into library work
+INFO: [VRFC 10-311] analyzing module line_buffer_3x3
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/median5_pipeline.v" into library work
+INFO: [VRFC 10-311] analyzing module median5_pipeline
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/morphology_3x3.v" into library work
+INFO: [VRFC 10-311] analyzing module morphology_3x3
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/morphology_filter.v" into library work
+INFO: [VRFC 10-311] analyzing module morphology_filter
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/morphology_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module morphology_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/parallel_projection_lane.v" into library work
+INFO: [VRFC 10-311] analyzing module parallel_projection_lane
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/projection_accumulator.v" into library work
+INFO: [VRFC 10-311] analyzing module projection_accumulator
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/projection_correlation_speed.v" into library work
+INFO: [VRFC 10-311] analyzing module projection_correlation_speed
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/projection_count_scanner.v" into library work
+INFO: [VRFC 10-311] analyzing module projection_count_scanner
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/projection_object_extractor.v" into library work
+INFO: [VRFC 10-311] analyzing module projection_object_extractor
+INFO: [VRFC 10-311] analyzing module projection_object_extractor_impl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/projection_valley_counter.v" into library work
+INFO: [VRFC 10-311] analyzing module projection_valley_counter
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/projection_valley_scanner.v" into library work
+INFO: [VRFC 10-311] analyzing module projection_valley_scanner
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/scene_guard_statistics.v" into library work
+INFO: [VRFC 10-311] analyzing module scene_guard_statistics
+INFO: [VRFC 10-311] analyzing module scene_guard_statistics_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/scene_recovery_supervisor.v" into library work
+INFO: [VRFC 10-311] analyzing module scene_recovery_supervisor
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/selftest_video_source.v" into library work
+INFO: [VRFC 10-311] analyzing module selftest_video_source
+INFO: [VRFC 10-311] analyzing module selftest_packed_rom
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/unsigned_divider32.v" into library work
+INFO: [VRFC 10-311] analyzing module unsigned_divider32
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/video_source_switch.v" into library work
+INFO: [VRFC 10-311] analyzing module video_source_switch
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_adaptive_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_adaptive_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_bist_selftest_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_bist_selftest_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_conveyor_bist_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_conveyor_bist_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_conveyor_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_conveyor_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_counter_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_counter_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_guard_adaptive_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_guard_adaptive_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_guard_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_guard_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_guard_selftest_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_guard_selftest_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_lcd_bridge.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_lcd_bridge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_lcd_ip.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_lcd_ip
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_merge_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_merge_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_parallel_adaptive_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_parallel_adaptive_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_parallel_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_parallel_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_parallel_selftest_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_parallel_selftest_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_projection_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_projection_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_selftest_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_selftest_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_system_bridge.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_system_bridge
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_system_ip.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_system_ip
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/rtl/vision_valley_frontend.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_valley_frontend
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "L:/fpga/sim/tb_vision_system.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_vision_system

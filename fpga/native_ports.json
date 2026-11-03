@@ -1,0 +1,2817 @@
+{
+  "top": "vision_guard_frontend",
+  "port_count": 351,
+  "legacy_ports": 289,
+  "source_sha256": "ea4617bc4666e38e0f28ea5207b547a677b0b84f8220fd4c486437ab42464211",
+  "AXI_addresses_defined": false,
+  "ports": [
+    {
+      "name": "clk",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "rst_n",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "ce",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cam_valid",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cam_sof",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cam_eol",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cam_rgb",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[23:0]",
+      "width": 24
+    },
+    {
+      "name": "cfg_threshold",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "cfg_invert",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_mode",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[1:0]",
+      "width": 2
+    },
+    {
+      "name": "cfg_high",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_low",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_min_width",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_gap",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_valley_enable",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_valley_ratio",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "cfg_valley_depth",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_valley_width",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_peak_distance",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_peak_support",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "out_valid",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "out_sof",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "out_eol",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "out_binary",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "analysis_valid",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "out_x",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "out_y",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "out_source_x",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "out_source_y",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "out_mode",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[1:0]",
+      "width": 2
+    },
+    {
+      "name": "clear_busy",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "snapshot_valid",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "snapshot_update",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "frame_done",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "frame_drop",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "snapshot_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "snapshot_white_pixels",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "snapshot_roi_pixels",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "snapshot_mode",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[1:0]",
+      "width": 2
+    },
+    {
+      "name": "dropped_frames",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "done_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "error_sticky",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "busy",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "result_valid",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "result_update",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "scan_abort",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "abort_reason",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[2:0]",
+      "width": 3
+    },
+    {
+      "name": "aborted_scans",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "result_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "result_count",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "result_cut_count",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "result_mode",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[1:0]",
+      "width": 2
+    },
+    {
+      "name": "result_high",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "result_low",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "result_min_width",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "result_gap",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "result_valley_enable",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "result_valley_ratio",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "result_valley_depth",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "result_valley_width",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "result_peak_distance",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "result_peak_support",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cut_update",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cut_x",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cut_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "sample_valid",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "sample_x",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "sample_value",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "sample_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "cfg_auto_threshold",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_threshold_min",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "cfg_threshold_max",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "cfg_mean_offset",
+      "direction": "input",
+      "storage": "wire",
+      "signed": true,
+      "range": "[8:0]",
+      "width": 9
+    },
+    {
+      "name": "cfg_threshold_step",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "cfg_auto_denoise",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_noise_on",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "cfg_noise_off",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "cfg_noise_confirm",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "cfg_noise_min_foreground",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_stable_mode",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[1:0]",
+      "width": 2
+    },
+    {
+      "name": "cfg_stable_confirm",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "cfg_config_version",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "active_threshold",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "active_mode",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[1:0]",
+      "width": 2
+    },
+    {
+      "name": "policy_epoch",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "configuration_error",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "gray_stats_update",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "gray_stats_reject",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "gray_stats_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "gray_stats_sum",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "gray_stats_pixels",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "gray_rejected_frames",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "mean_busy",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "mean_update",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "mean_gray",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "mean_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "target_threshold",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "target_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "target_valid",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "threshold_skipped_statistics",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "noise_stats_update",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "noise_stats_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "noise_stats_windows",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "noise_stats_foreground",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "noise_stats_isolated",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "noise_rejected_frames",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "auto_mode_valid",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "auto_mode",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[1:0]",
+      "width": 2
+    },
+    {
+      "name": "auto_mode_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "result_threshold",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "result_invert",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "result_config_version",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "result_policy_epoch",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "stable_valid",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "stable_update",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "stable_changed",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "stable_count",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "stable_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "stable_epoch",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "stable_history_fill",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "stable_duplicate_results",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "stable_stale_results",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "stable_gap_resets",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "cfg_test_async",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_scene_auto",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_scene",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[1:0]",
+      "width": 2
+    },
+    {
+      "name": "selected_valid",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "selected_sof",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "selected_eol",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "selected_rgb",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[23:0]",
+      "width": 24
+    },
+    {
+      "name": "pipeline_rst_n",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "active_source",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "requested_source",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "switch_busy",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "waiting_for_sof",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "switch_done",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "switch_fault",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "source_fault_sticky",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "source_generation",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "switch_count",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "source_recoveries",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "discarded_camera_pixels",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "test_scene",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[1:0]",
+      "width": 2
+    },
+    {
+      "name": "result_is_test",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "stable_is_test",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "result_scene",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[1:0]",
+      "width": 2
+    },
+    {
+      "name": "stable_scene",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[1:0]",
+      "width": 2
+    },
+    {
+      "name": "result_generation",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "stable_generation",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "source_metadata_error",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cam_frame_drop",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "camera_drop_events",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "history_epoch",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "result_history_epoch",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "stable_history_epoch",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "stable_current_confirmed",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "stable_pending",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_motion_enable",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_line_a",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_line_b",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_hysteresis",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_max_step",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_width_delta",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_max_missed",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "cfg_min_hits",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "motion_clear_totals",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_busy",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_frame_update",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_frame_rejected",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_context",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[127:0]",
+      "width": 128
+    },
+    {
+      "name": "motion_is_test",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_delta",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "camera_total",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "test_total",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_event_valid",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_event_track_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_event_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_event_seq",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_event_context",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[127:0]",
+      "width": 128
+    },
+    {
+      "name": "motion_event_is_test",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_fault_sticky",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_fault_reasons",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_rejected_frames",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_extractor_faults",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_duplicate_frames",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_uncertain_tracks",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_live_tracks",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "motion_session_id",
+      "direction": "output",
+      "storage": "reg",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_objects_valid",
+      "direction": "output",
+      "storage": "reg",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_objects_update",
+      "direction": "output",
+      "storage": "reg",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_objects_count",
+      "direction": "output",
+      "storage": "reg",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "motion_objects_lefts",
+      "direction": "output",
+      "storage": "reg",
+      "signed": false,
+      "range": "[MAX_TRACKS*16-1:0]",
+      "width": 128
+    },
+    {
+      "name": "motion_objects_rights",
+      "direction": "output",
+      "storage": "reg",
+      "signed": false,
+      "range": "[MAX_TRACKS*16-1:0]",
+      "width": 128
+    },
+    {
+      "name": "motion_objects_frame_id",
+      "direction": "output",
+      "storage": "reg",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_objects_context",
+      "direction": "output",
+      "storage": "reg",
+      "signed": false,
+      "range": "[127:0]",
+      "width": 128
+    },
+    {
+      "name": "motion_objects_is_test",
+      "direction": "output",
+      "storage": "reg",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_debug_valid",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_debug_track_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_debug_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_debug_left",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "motion_debug_right",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "motion_debug_center",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "motion_debug_phase",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[1:0]",
+      "width": 2
+    },
+    {
+      "name": "motion_debug_counted",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_debug_eligible",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_debug_context",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[127:0]",
+      "width": 128
+    },
+    {
+      "name": "motion_debug_is_test",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_bist_dynamic",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_bist_profile",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[1:0]",
+      "width": 2
+    },
+    {
+      "name": "cfg_bist_seed",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "bist_dynamic_active",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "bist_source_finished",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "bist_source_error",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "bist_source_profile",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[1:0]",
+      "width": 2
+    },
+    {
+      "name": "bist_source_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "bist_busy",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "bist_valid",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "bist_done",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "bist_pass",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "bist_aborted",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "bist_reason",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "bist_run_generation",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "bist_run_session",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "bist_expected_count",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "bist_actual_count",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "bist_event_count",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "bist_run_profile",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[1:0]",
+      "width": 2
+    },
+    {
+      "name": "bist_accepted_frames",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "bist_motion_frames",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "bist_passed_runs",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "bist_failed_runs",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "bist_aborted_runs",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "cfg_parallel_enable",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_threshold_delta",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "cfg_interval_tolerance",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_speed_enable",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_speed_min_foreground",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_speed_margin",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "parallel_threshold_low",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "parallel_threshold_high",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "parallel_low_result_update",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "parallel_high_result_update",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "parallel_low_result_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "parallel_high_result_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "parallel_low_result_count",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "parallel_high_result_count",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "parallel_low_result_threshold",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "parallel_high_result_threshold",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "parallel_support",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[MAX_TRACKS*3-1:0]",
+      "width": 24
+    },
+    {
+      "name": "parallel_fault_sticky",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "parallel_fault_reason",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "parallel_rejected_frames",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "parallel_disagreement_frames",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "parallel_dropped_objects",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "speed_busy",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "speed_update",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "speed_valid",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "speed_dx",
+      "direction": "output",
+      "storage": "wire",
+      "signed": true,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "speed_cycles_per_frame",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "speed_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "speed_context",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[127:0]",
+      "width": 128
+    },
+    {
+      "name": "speed_is_test",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "speed_overlap",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "speed_second_overlap",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "speed_foreground_pixels",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "speed_reason",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "cfg_merge_enable",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_merge_max_frames",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "cfg_merge_confirm_frames",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "cfg_merge_shape_tolerance",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_merge_recovery_tolerance",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "motion_merge_active",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_merge_recovering",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_merge_blocked",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_merge_update",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_merge_recovered",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_merge_uncertain",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_merge_members",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[MAX_TRACKS-1:0]",
+      "width": 8
+    },
+    {
+      "name": "motion_merge_age",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "motion_merge_confirm_count",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "motion_merge_reason",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "motion_merge_frames",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_merge_restored_groups",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_merge_unresolved_groups",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_merge_track_a",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_merge_track_b",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "motion_debug_occluded",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "motion_debug_recovering",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_safety_enable",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_scene_valid",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_guard_enable",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "cfg_safety_roi_x0",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_safety_roi_y0",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_safety_roi_x1",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_safety_roi_y1",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_guard_x0",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_guard_y0",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_guard_x1",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_guard_y1",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "cfg_guard_dark_on",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[8:0]",
+      "width": 9
+    },
+    {
+      "name": "cfg_guard_dark_off",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[8:0]",
+      "width": 9
+    },
+    {
+      "name": "cfg_guard_warm_on",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[8:0]",
+      "width": 9
+    },
+    {
+      "name": "cfg_guard_warm_off",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[8:0]",
+      "width": 9
+    },
+    {
+      "name": "cfg_empty_ratio",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[8:0]",
+      "width": 9
+    },
+    {
+      "name": "cfg_recovery_normal_frames",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "cfg_recovery_empty_frames",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "cfg_source_timeout_cycles",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "cfg_scene_epoch",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "cam_source_frame_id",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "cam_source_generation",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "cam_source_timestamp",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_rearm",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "safety_link_fault",
+      "direction": "input",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "safety_state",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[2:0]",
+      "width": 3
+    },
+    {
+      "name": "safety_reason",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "safety_current_frame_reason",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "safety_sticky_reasons",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[15:0]",
+      "width": 16
+    },
+    {
+      "name": "safety_blocked",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "safety_policy_hold",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "safety_history_flush",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "safety_report_update",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "safety_report_count_allowed",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "safety_report_policy_allowed",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "safety_report_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_source_frames",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_duplicate_frames",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_stale_frames",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_blocked_frames",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_recoveries",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_age_cycles",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_normal_count",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "safety_empty_count",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[7:0]",
+      "width": 8
+    },
+    {
+      "name": "safety_statistics_update",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "safety_frame_good",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "safety_geometry_good",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    },
+    {
+      "name": "safety_statistics_frame_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_statistics_source_id",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_statistics_generation",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_statistics_timestamp",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_statistics_epoch",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_roi_pixels",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_foreground_pixels",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_guard_pixels",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_guard_dark",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_guard_warm",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_roi_gray_sum",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_identity_accepted",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_identity_duplicates",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "safety_identity_stale",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": "[31:0]",
+      "width": 32
+    },
+    {
+      "name": "result_safety_allowed",
+      "direction": "output",
+      "storage": "wire",
+      "signed": false,
+      "range": null,
+      "width": 1
+    }
+  ]
+}

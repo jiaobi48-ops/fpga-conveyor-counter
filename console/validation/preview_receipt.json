@@ -1,5 +1,0 @@
-{
-  "status": "PASS frozen preview bytes and source IDs; bad frames rejected; observer following disabled; no grant opcode exists",
-  "sha256": "0fdd9e44a17d828b19f445fb22ba411a314c1713c1f0b2f27979191daa588b5d",
-  "scope": "Actual C with mock MMIO, no board"
-}

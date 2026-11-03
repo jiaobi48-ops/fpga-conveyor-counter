@@ -1,9 +1,9 @@
-# Structured stdin/stdout bridge. No eval, PL access, reset, download or halt.
+# XSDB stdin/stdout bridge for camera-frame reads and control-mailbox requests.
 fconfigure stdin -encoding utf-8 -translation lf
 fconfigure stdout -encoding utf-8 -translation lf -buffering line
 proc studio_error {id msg} {puts "STUDIO_ERROR $id [binary encode base64 -maxlen 0 [encoding convertto utf-8 $msg]]";flush stdout}
 proc studio_read_allowed {a n} {
- foreach {lo hi} {0x02000000 0x02004000 0x023FFFC0 0x026A3040 0x03000000 0x03000200} {
+ foreach {lo hi} {0x02000000 0x02004000 0x023FFFC0 0x026A3040 0x03000000 0x03003000} {
   if {$a>=$lo && $a+$n<=$hi} {return 1}
  }
  return 0

@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "version": "ABC-1.4r2-C-calibration",
+  "algorithm_size": [
+    800,
+    480
+  ],
+  "clock_hz": 75000000,
+  "direction": "right_to_left",
+  "model_and_page_tests": 50,
+  "pixel_PNG_crosschecks": 254,
+  "console_import_tests": 3,
+  "unchanged_existing_source_files": 947,
+  "native_scene_schema": "ABC-1.4",
+  "console_load_button": "FPGA算法 / 三路并行 -> 载入算法场景",
+  "load_state": "manual_paused",
+  "configuration_scope": [
+    "ROI",
+    "entry/exit lines",
+    "threshold/polarity",
+    "adaptive threshold limits and offset",
+    "guard region and hysteresis",
+    "empty ratio",
+    "recovery frames",
+    "tracking association",
+    "source timeout"
+  ],
+  "preserved_algorithm_configuration": [
+    "auto denoise",
+    "three threshold lanes",
+    "valley splitting",
+    "merge recovery",
+    "speed",
+    "multi-frame stability"
+  ],
+  "supplied_archive_sha256": "8eeec813e62a74157318866f4dc68e363c1dec89c0424f6cb135b1196582d52f",
+  "source_hashes": {
+    "console/vision_registers.json": "7ec0a58ace53e15de0cb0d94bb6bcd906ae86a2310465e16cd9eacec9892388e",
+    "console/vision_device.py": "05a626491d0d9c9dcb44125da7ceec9e909369af2899f29d5de9a6656135409a",
+    "fpga/rtl/gray_binary.v": "77a495576a0da662a64ba28d01141547fb69cec481ea2dbb65977a83b8a868ec",
+    "fpga/rtl/scene_guard_statistics.v": "81301deb89727efefad3dadde62a3c38af9dfc713e8cbff733eb3039fa0ee813",
+    "tools/offline_calibration/model.js": "6d5bf706e083e842034a8dedb9fdd0dae8619260a47218c8c75cb6fdad199b3e",
+    "tools/offline_calibration/abc_adapter.js": "1ef043cfb34057a37206ffaa6d52038bf63c71cfff4cc878293cc2494411c355"
+  }
+}

@@ -1,0 +1,18 @@
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: E:/JLU/AMD_Vivado/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe tb_conveyor_extract_pipelined -s tb_conveyor_extract_pipelined 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.projection_object_extractor_impl...
+Compiling module work.projection_object_extractor(WIDT...
+Compiling module work.projection_object_extractor_impl...
+Compiling module work.projection_object_extractor(MAX_...
+Compiling module work.conveyor_extract_fullsize_check_...
+Compiling module work.tb_conveyor_extract_pipelined
+Built simulation snapshot tb_conveyor_extract_pipelined

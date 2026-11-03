@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "model": "B",
+  "algorithm_size": [
+    96,
+    64
+  ],
+  "roi": [
+    2,
+    12,
+    94,
+    60
+  ],
+  "guard": [
+    2,
+    2,
+    14,
+    8
+  ],
+  "guard_enabled": true,
+  "direction": "right_to_left",
+  "threshold": 128,
+  "invert": false,
+  "scene_epoch": 9,
+  "mapping": {
+    "scale_xy": [
+      1,
+      1
+    ],
+    "offset_xy": [
+      0,
+      0
+    ]
+  },
+  "policy": {
+    "dark_on": 128,
+    "dark_off": 96,
+    "warm_on": 32,
+    "warm_off": 16,
+    "empty_ratio": 4,
+    "normal_frames": 3,
+    "empty_frames": 2,
+    "timeout_cycles": 10000000
+  },
+  "motion": {
+    "line_a": 64,
+    "line_b": 32,
+    "hysteresis": 2,
+    "max_step": 16,
+    "width_delta": 16,
+    "min_hits": 3,
+    "max_missed": 2
+  },
+  "calibrated": false,
+  "note": "96×64合成演示样本。"
+}

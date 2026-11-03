@@ -16,12 +16,12 @@ class App:
   root.columnconfigure(0,weight=1);root.rowconfigure(1,weight=1)
   top=ttk.Frame(root,padding=(16,12));top.grid(row=0,column=0,sticky='ew');top.columnconfigure(8,weight=1)
   ttk.Label(top,text='控制台',font=('Microsoft YaHei UI',17,'bold')).grid(row=0,column=0,columnspan=4,sticky='w',pady=(0,9))
-  ttk.Label(top,text='固定机位 · 手动调框 · 串口日志 · v1.2',foreground='#5b6f86').grid(row=0,column=4,columnspan=5,sticky='e')
+  ttk.Label(top,text='动态降噪 · 三阈值并行 · 轨迹恢复 · v1.4',foreground='#5b6f86').grid(row=0,column=4,columnspan=5,sticky='e')
   ttk.Label(top,text='串口').grid(row=1,column=0,sticky='w');self.port=tk.StringVar();self.port_box=ttk.Combobox(top,textvariable=self.port,state='readonly',width=9);self.port_box.grid(row=1,column=1,padx=5)
   ttk.Button(top,text='刷新',command=self.refresh_ports).grid(row=1,column=2,padx=3)
   self.connect_btn=ttk.Button(top,text='连接设备',command=lambda:self.action('connect',port=self.port.get()));self.connect_btn.grid(row=1,column=3,padx=3)
   self.init_btn=ttk.Button(top,text='初始化开发板…',command=self.initialize);self.init_btn.grid(row=1,column=4,padx=8)
-  self.connection=tk.StringVar(value='尚未连接 · 115200 / 8N1');ttk.Label(top,textvariable=self.connection).grid(row=1,column=5,columnspan=4,sticky='e')
+  self.connection=tk.StringVar(value='未连接 · 115200 / 8N1');ttk.Label(top,textvariable=self.connection).grid(row=1,column=5,columnspan=4,sticky='e')
   self.notebook=ttk.Notebook(root);self.notebook.grid(row=1,column=0,sticky='nsew')
   body=ttk.Frame(self.notebook,padding=(16,0));self.main_page=body;self.notebook.add(body,text='计数与调框');body.columnconfigure(0,weight=1);body.columnconfigure(1,minsize=290);body.rowconfigure(0,weight=1)
   left=ttk.Frame(body);left.grid(row=0,column=0,sticky='nsew',padx=(0,14));left.columnconfigure(0,weight=1);left.rowconfigure(0,weight=1)
@@ -40,12 +40,12 @@ class App:
   ttk.Separator(right).grid(row=6,column=0,sticky='ew',pady=10)
   ttk.Label(right,text='检测框位置',font=('Microsoft YaHei UI',12,'bold')).grid(row=7,column=0,sticky='w')
   fields=ttk.Frame(right);fields.grid(row=8,column=0,sticky='ew');fields.columnconfigure(1,weight=1)
-  self.vars=[tk.StringVar(value=str(v)) for v in [416,376,4,96,128]]
-  for i,(label,var) in enumerate(zip(['A位置（右框）','B位置（左框）','框宽','上边界','下边界'],self.vars)):
+  self.vars=[tk.StringVar(value=str(v)) for v in [410,220,4,2,478]]
+  for i,(label,var) in enumerate(zip(['A位置（右框）','B位置（左框）','辅助框宽','上边界','下边界'],self.vars)):
    ttk.Label(fields,text=label).grid(row=i,column=0,sticky='w',pady=2);ttk.Spinbox(fields,from_=0,to=800,textvariable=var,width=9).grid(row=i,column=1,sticky='e',pady=2);var.trace_add('write',self.edit)
   self.validation=tk.StringVar(value='');ttk.Label(right,textvariable=self.validation,wraplength=290,foreground='#a3382d').grid(row=9,column=0,sticky='w',pady=3)
   self.button(right,'应用检测框（保持暂停）',self.apply_roi,bg='#1764ba').grid(row=10,column=0,sticky='ew',pady=5)
-  self.applied=tk.StringVar(value='尚无板上配置');ttk.Label(right,textvariable=self.applied,wraplength=290,foreground='#526a84').grid(row=11,column=0,sticky='w')
+  self.applied=tk.StringVar(value='等待设备配置');ttk.Label(right,textvariable=self.applied,wraplength=290,foreground='#526a84').grid(row=11,column=0,sticky='w')
   presets=ttk.Frame(right);presets.grid(row=12,column=0,sticky='ew',pady=8)
   self.button(presets,'保存已生效场景',self.save_profile).pack(side='left',padx=(0,5));self.button(presets,'载入场景…',self.load_profile).pack(side='left')
   footer=ttk.Frame(root,padding=(16,8));footer.grid(row=2,column=0,sticky='ew');footer.columnconfigure(0,weight=1)
@@ -53,13 +53,15 @@ class App:
   ttk.Button(footer,text='串口日志 / 高级设置',command=self.toggle_log).grid(row=0,column=1,sticky='e')
   self.extra=ttk.Frame(self.notebook,padding=(16,0,16,12));self.notebook.add(self.extra,text='串口日志 / 高级');self.extra.columnconfigure(0,weight=1);self.extra.rowconfigure(1,weight=1);self.log_shown=False
   adv=ttk.Frame(self.extra);adv.grid(row=0,column=0,sticky='ew',pady=4)
-  ttk.Label(adv,text='识别阈值').pack(side='left');self.threshold=tk.StringVar(value='144');ttk.Spinbox(adv,from_=32,to=224,textvariable=self.threshold,width=6).pack(side='left',padx=4);self.button(adv,'应用阈值（暂停）',self.apply_threshold).pack(side='left',padx=4)
-  self.mask=tk.BooleanVar();self.mask_btn=ttk.Checkbutton(adv,text='LCD显示识别掩膜',variable=self.mask,command=lambda:self.action('mask',value=self.mask.get()));self.mask_btn.pack(side='left',padx=8)
+  ttk.Label(adv,text='识别阈值').pack(side='left');self.threshold=tk.StringVar(value='144');ttk.Spinbox(adv,from_=32,to=224,textvariable=self.threshold,width=6).pack(side='left',padx=4);self.button(adv,'应用固定阈值（暂停）',self.apply_threshold).pack(side='left',padx=4)
+  self.mask=tk.BooleanVar();self.mask_btn=ttk.Checkbutton(adv,text='LCD显示阈值掩膜',variable=self.mask,command=lambda:self.action('mask',value=self.mask.get()));self.mask_btn.pack(side='left',padx=8)
   self.button(adv,'读取状态',lambda:self.action('raw',text='P')).pack(side='left');ttk.Button(adv,text='保存日志…',command=self.save_log).pack(side='right');ttk.Button(adv,text='清空显示',command=lambda:self.logbox.delete('1.0','end')).pack(side='right',padx=5)
   self.logbox=tk.Text(self.extra,height=7,font=('Consolas',9),bg='#132237',fg='#e2eaf4',wrap='none');self.logbox.grid(row=1,column=0,sticky='nsew')
   sendrow=ttk.Frame(self.extra);sendrow.grid(row=2,column=0,sticky='ew',pady=5);sendrow.columnconfigure(1,weight=1);ttk.Label(sendrow,text='英文命令').grid(row=0,column=0)
   self.command=tk.StringVar();entry=ttk.Entry(sendrow,textvariable=self.command);entry.grid(row=0,column=1,sticky='ew',padx=6);entry.bind('<Return>',lambda e:self.send_raw());ttk.Button(sendrow,text='发送（自动换行）',command=self.send_raw).grid(row=0,column=2)
   self.traffic=tk.StringVar(value='接收0字节 / 发送0字节');ttk.Label(sendrow,textvariable=self.traffic).grid(row=0,column=3,padx=8)
+  from algorithm_panel import AlgorithmPanel
+  self.algorithm_panel=AlgorithmPanel(self)
   self.refresh_ports();self.draw();root.after(100,self.poll);root.protocol('WM_DELETE_WINDOW',self.close)
  def button(self,parent,text,command,bg=None):
   b=tk.Button(parent,text=text,command=command,bg=bg or '#e2e9f2',fg='white' if bg else '#183657',relief='flat',padx=9,pady=7,cursor='hand2',disabledforeground='#8b98a7');self.buttons.append(b);return b
@@ -91,7 +93,7 @@ class App:
   self.suppress=False;self.draw()
  def apply_roi(self):
   g=self.gates()
-  if not valid_roi(g):self.progress.set('框参数不合法：A在B右侧，宽1～32，高8～128，上边界至少54');return
+  if not valid_roi(g):self.progress.set('框参数不合法：A在B右侧，宽1～32，高至少8，上边界至少2');return
   self.action('roi',gates=g)
  def apply_threshold(self):
   try:n=int(self.threshold.get())
@@ -122,8 +124,8 @@ class App:
   self.canvas.delete('all');s,ox,oy=self.geometry()
   if self.image:
    size=(max(1,round(800*s)),max(1,round(480*s)));self.photo=ImageTk.PhotoImage(self.image.resize(size,Image.Resampling.NEAREST if self.image_kind=='gray' else Image.Resampling.BILINEAR));self.canvas.create_image(ox,oy,anchor='nw',image=self.photo)
-  else:self.canvas.create_text(max(1,self.canvas.winfo_width())/2,max(1,self.canvas.winfo_height())/2,text='等待真实相机画面\n连接设备后显示；历史图片不会标为实时',fill='#b3c3d7',font=('Microsoft YaHei UI',14),justify='center')
-  g=self.gates();ok=valid_roi(g);self.validation.set(('待应用：点击下方按钮生效' if self.dirty else '') if ok else '位置不合法：A在右，框宽1～32，高8～128，上边界≥54')
+  else:self.canvas.create_text(max(1,self.canvas.winfo_width())/2,max(1,self.canvas.winfo_height())/2,text='等待相机画面\n请选择串口并连接设备',fill='#b3c3d7',font=('Microsoft YaHei UI',14),justify='center')
+  g=self.gates();ok=valid_roi(g);self.validation.set(('待应用：点击下方按钮生效' if self.dirty else '') if ok else '位置不合法：A在右，框宽1～32，高度≥8，上边界≥2')
   if len(g)==5:
    a,b,w,y0,y1=g
    for x,color,label in [(a,'#ffe33d','A'),(b,'#00dce9','B')]:
@@ -155,13 +157,14 @@ class App:
   self.dirty=True;self.set_fields(g)
  def update_status(self):
   s=self.ctrl.status();c=s['config'];p=s['pages'];busy=s['busy'];ready=s['connected'] and s['serial']
+  self.algorithm_panel.update(s.get('vision'))
   self.connection.set(('串口 '+s['port']+' 已连接' if s['serial'] else '串口未连接')+' · '+('画面已连接' if s['connected'] else '画面未连接'))
   for b in self.buttons:b.configure(state='normal' if ready and not busy else 'disabled')
   self.pause_btn.configure(state='normal' if s['serial'] else 'disabled');self.connect_btn.configure(state='disabled' if busy else 'normal');self.init_btn.configure(state='disabled' if busy else 'normal');self.mask_btn.configure(state='normal' if ready and not busy else 'disabled')
   self.traffic.set(f'接收{s["rx"]}字节 / 发送{s["tx"]}字节')
-  if not s['connected']:self.run_state.set('未连接 / 状态未确认')
+  if not s['connected']:self.run_state.set('等待连接')
   elif p:
-   flags=p[1];phase=(p[0]>>20)&3;self.count.set(str(p[0]&0xfffff))
+   flags=p[1];phase=(p[0]>>20)&3;self.count.set(str(s['vision']['count']) if s.get('vision') else str(p[0]&0xfffff))
    mode='手动' if flags&(1<<10) else '自动'
    if not flags&1:text='计数未启用'
    elif not flags&4 or not flags&8:text='采集异常，暂停计数'
@@ -181,15 +184,16 @@ class App:
   if self.image:
    label=('高清彩色冻结图' if s['frozen'] else '实时灰度预览')+f' · 编号 {self.image_source}'
    if age is not None:label+=f' · {age:.1f}秒前'
-   if not s['connected'] or (not s['frozen'] and age is not None and age>3):label+=' · 已过期 / 非实时'
-   elif s['frozen']:label+=' · 拍摄后保持暂停，点击正常计数才恢复'
+   if not s['connected'] or (not s['frozen'] and age is not None and age>3):label+=' · 预览已过期'
+   elif s['frozen']:label+=' · 高清图已冻结，点击“恢复实时预览”更新画面'
    self.image_label.set(label)
  def poll(self):
   if self.closing:return
   for _ in range(200):
    try:kind,value=self.ctrl.events.get_nowait()
    except queue.Empty:break
-   if kind=='log':
+   if kind=='vision':self.algorithm_panel.update(value,force=True)
+   elif kind=='log':
     self.logbox.insert('end',value+'\n');self.logbox.see('end')
     if int(self.logbox.index('end-1c').split('.')[0])>4000:self.logbox.delete('1.0','1000.0')
    elif kind in ['progress','error']:self.progress.set(value)
@@ -199,7 +203,7 @@ class App:
    elif kind=='frame':self.image=Image.open(BytesIO(value['data'])).copy();self.image_kind=value['kind'];self.image_source=value['source'];self.draw()
   self.update_status();self.root.after(150,self.poll)
  def close(self):
-  if self.ctrl.busy:messagebox.showinfo('操作尚未完成','请等当前取图或初始化完成后再关闭。',parent=self.root);return
+  if self.ctrl.busy:messagebox.showinfo('操作进行中','取图或初始化完成后可关闭窗口。',parent=self.root);return
   self.closing=True;self.root.destroy();self.ctrl.close()
 def main():
  root=tk.Tk();App(root);root.mainloop()

@@ -12,8 +12,8 @@ int sccb_write_verified(probe_bus *b,uint16_t reg,uint8_t value,sccb_write_obser
  rc=probe_read_register(b,reg,&o->read_value,&o->read_ninth);
  if(rc)return rc;
  o->compared=1;
- /* 3008[7] clears after software reset; it must not remain asserted.
-    Other readback fields are not claimed to equal the transient reset word. */
+ /* Software reset self-clears 3008[7]; compare its cleared state.
+    Other register writes use byte-wide readback. */
  o->compare_mask=(reg==0x3008U&&value==0x82U)?0x80U:0xFFU;
  if(o->compare_mask==0x80U)
   return (o->read_value&0x80U)?SCCB_READBACK_MISMATCH:0;

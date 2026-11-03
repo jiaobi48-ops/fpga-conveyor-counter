@@ -1,0 +1,43 @@
+{
+  "lcd_clock_hz": 25000000,
+  "lcd_outputs": 25,
+  "datasheet_setup_ns": 12.0,
+  "datasheet_hold_ns": 12.0,
+  "relative_board_skew_min_ns": -1.0,
+  "relative_board_skew_max_ns": 1.0,
+  "output_delay_max_ns": 13.0,
+  "output_delay_min_ns": -13.0,
+  "lcd_setup_slack_ns": 3.358,
+  "lcd_hold_slack_ns": 7.135,
+  "analysis": "existing routed checkpoint",
+  "status": "PASS",
+  "setup_wns_ns": 0.355,
+  "setup_tns_ns": 0.0,
+  "hold_whs_ns": 0.013,
+  "hold_ths_ns": 0.0,
+  "part": "xc7z015clg485-2",
+  "source_pdf": "E:\\Downloads\\wKh2EGqEmzeAIqUNABHmJZYwHLo296.pdf",
+  "source_pdf_sha256": "291867b40a92b5dd91676c416cf647617fcee9642e624ef1b6022d248d69d433",
+  "source_pages": [
+    4,
+    5
+  ],
+  "source_table": "2.2.2.2",
+  "parent_release": "ABC_integrated_v1.4_75MHz_AXI100_2026-11-03",
+  "parent_bit_sha256": "b61e83ff1b08735fcce30e24116949186055d0ed0522f5ca3661d32adb6ac58e",
+  "source_xdc_sha256": "75dc50858a2b2ad6824aaf886e511648326d71cefb4ad38995acf37ac7b331e2",
+  "replacement_xdc_sha256": "d825781fc30370db527cd27137efcb2ed9459c0adf419890b26bd4a22c7c6295",
+  "remaining_camera_input_ports": 10,
+  "remaining_output_ports": [
+    "lcd_bl",
+    "lcd_clk"
+  ],
+  "lcd_sampling_edge": "existing lcd_forwarded rising edge",
+  "files": {
+    "atk4384_output_budget.xdc": "9e69caa696071c7558dbc6fe85cbabc6d4e4c905be930af71e8cf2bb107747e1",
+    "camera_lcd_atk4384.xdc": "d825781fc30370db527cd27137efcb2ed9459c0adf419890b26bd4a22c7c6295",
+    "timing.rpt": "89b80001386a1fa70d17f48cae9c6dbfdc56340ac9e61eb7efee354681e5282f",
+    "lcd_output_paths.rpt": "d7c42a8ee99798b03eff5716112e138449f5d8bdcf24ef1ce0ae29dd37899f8b",
+    "methodology.rpt": "975106b2a07d32842dd51d3a7eb33d6e663936b75b4099144cfa364674ac6b91"
+  }
+}

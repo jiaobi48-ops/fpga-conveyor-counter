@@ -1,0 +1,6 @@
+{
+  "terminal": "PASS EPOCH_HINT cycles=30000 checks=59982 SOF/version_wrap/statistics/hold/clamps/slew/reset",
+  "test": "epoch_hint",
+  "status": "PASS",
+  "cycles": 30000
+}

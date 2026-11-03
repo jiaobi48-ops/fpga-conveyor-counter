@@ -1,0 +1,34 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Mon Nov  2 16:43:47 2026
+# Process ID         : 19868
+# Current directory  : T:/rebuild/sim/sources800
+# Command line       : xsim.exe -log simulate.log -mode tcl -source {xsim.dir/sources800/xsim_script.tcl}
+# Log file           : T:/rebuild/sim/sources800/simulate.log
+# Journal file       : T:/rebuild/sim/sources800\xsim.jou
+# Running On         : Xianyu-laptop
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : AMD Ryzen 7 H 255 w/ Radeon 780M Graphics
+# CPU Frequency      : 3793 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 29859 MB
+# Swap memory        : 0 MB
+# Total Virtual      : 29859 MB
+# Available Virtual  : 13000 MB
+#-----------------------------------------------------------
+source xsim.dir/sources800/xsim_script.tcl
+# xsim {sources800} -autoloadwcfg -tclbatch {run.tcl}
+Time resolution is 1 ps
+source run.tcl
+## run all
+PASS 800 SOURCES BIST_profiles=4 RGB_pixels=73728000 ROM_scenes=4 ROM_pixels=1536000 scale=5 horizontal_padding=160
+$finish called at time : 770663880 ns : File "T:/fpga/sim/tb_800_sources.sv" Line 68
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:03:12 . Memory (MB): peak = 219.727 ; gain = 0.000
+## quit
+INFO: xsimkernel Simulation Memory Usage: 11696 KB (Peak: 11696 KB), Simulation CPU Usage: 190328 ms
+INFO: [Common 17-206] Exiting xsim at Mon Nov  2 16:47:01 2026...

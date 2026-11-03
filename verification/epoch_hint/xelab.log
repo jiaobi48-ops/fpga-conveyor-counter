@@ -1,0 +1,16 @@
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: E:/JLU/AMD_Vivado/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe tb_epoch_hint -s epoch_hint 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.unsigned_divider32
+Compiling module work.threshold_epoch_reference
+Compiling module work.guarded_adaptive_threshold(FRAME...
+Compiling module work.tb_epoch_hint
+Built simulation snapshot epoch_hint

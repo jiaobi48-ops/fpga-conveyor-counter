@@ -1,0 +1,20 @@
+{
+  "source_release": "B_to_AC_2026-10-23_v0.13_guard",
+  "source_zip_sha256": "8a2720f3d2bc115e01e01f85159eab2a7effad2cba3be036adb1f67a84045d17",
+  "files": {
+    "b_scene_reference.py": {
+      "original_path": "software/scene_reference.py",
+      "sha256": "2219baa4cce7ecf0cfd41934c1c2057ebdeb9fd89435bbe32eabe306200a0932"
+    },
+    "B_profile_example_示例.json": {
+      "original_path": "fixtures/guard/profile_example.json",
+      "sha256": "95f5aab70a3b9583a7650ea7c77ba03a5a35feb64de70bb75c918eeae029abf0"
+    }
+  },
+  "status": "B pixel reference with ABC v1.4 documentation adaptation",
+  "delivery_files": {
+    "b_scene_reference.py": "bd0800db851fe91fa44d974c9ca95dc310ee6cff31abb104c9789f9dd69a8f3b",
+    "B_profile_example_示例.json": "a946199ce5f5a084e4eb8ae5c0edf31a2c1e9c1a7755eb5cad447777dae5fef9",
+    "ABC_v1.4_800x480_base.json": "e2e218be12606c4c34e627ece6ef4650945def621c26fffc5db8d917a60c001c"
+  }
+}

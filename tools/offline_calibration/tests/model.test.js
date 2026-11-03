@@ -1,0 +1,40 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict');
+const M=require('../model.js'),D=require('../demo.js');
+function data(){return D.create();}
+function copy(f){return {...f,rgb:new Uint8Array(f.rgb),...(f.mask?{mask:new Uint8Array(f.mask)}:{})};}
+function reject(d,reason){const r=M.propose(d);assert.equal(r.status,'REJECTED');assert.ok(r.reasons.includes(reason),JSON.stringify(r));return r;}
+test('synthetic dark object produces a B candidate with separate validation',()=>{const r=M.propose(data());assert.equal(r.status,'CANDIDATE_READY_FOR_REVIEW');assert.equal(r.profile.invert,true);assert.deepEqual(r.profile.roi,[16,18,84,50]);assert.equal(r.profile.calibrated,false);assert.equal(r.motion_validated,false);assert.equal(r.source_mapping_confirmed,false);assert.equal(r.automatic_apply,false);});
+test('source base is unchanged; existing mapping and recovery timing retained',()=>{const d=data(),before=JSON.stringify(d.base),r=M.propose(d);assert.equal(JSON.stringify(d.base),before);assert.deepEqual(r.profile.mapping,d.base.mapping);assert.equal(r.profile.policy.timeout_cycles,d.base.policy.timeout_cycles);assert.equal(r.profile.motion.max_step,d.base.motion.max_step);assert.equal(r.profile.scene_epoch,d.base.scene_epoch+1);});
+test('32 bit epoch wrap produces a different scene version',()=>{const d=data();d.base.scene_epoch=0xffffffff;assert.equal(M.propose(d).profile.scene_epoch,0);});
+test('B gray rounding and warm classifier boundaries',()=>{assert.equal(M.gray(127,128,128),128);assert.equal(M.gray(255,255,255),255);assert.equal(M.warm(120,80,40),true);assert.equal(M.warm(80,0,0),false);assert.equal(M.warm(120,108,80),false);});
+test('rejects old V3 schema',()=>{const d=data();d.base.model='V3';reject(d,'invalid_base_profile');});
+test('does not auto convert an already calibrated base',()=>{const d=data();d.base.calibrated=true;reject(d,'invalid_base_profile');});
+test('does not disable protection to get a candidate',()=>{const d=data();d.base.guard_enabled=false;reject(d,'invalid_base_profile');});
+test('rejects invalid recovery policy',()=>{const d=data();d.base.policy.normal_frames=0;reject(d,'invalid_base_profile');});
+test('rejects empty_ratio 256',()=>{const d=data();d.base.policy.empty_ratio=256;reject(d,'invalid_base_profile');});
+test('rejects nonfinite mapping',()=>{const d=data();d.base.mapping.scale_xy[0]=NaN;reject(d,'invalid_base_profile');});
+test('rejects an unsupported configuration field',()=>{const d=data();d.base.register_address=123;reject(d,'invalid_base_profile');});
+test('requires enough training evidence',()=>{const d=data();d.trainEmpty.pop();reject(d,'need_two_training_empty_and_object_frames');});
+test('requires distinct empty images',()=>{const d=data();d.trainEmpty[1]=copy(d.trainEmpty[0]);reject(d,'training_frames_not_distinct');});
+test('requires distinct object images',()=>{const d=data();d.trainObjects[1]=copy(d.trainObjects[0]);reject(d,'training_frames_not_distinct');});
+test('rejects reuse of training RGB under a different validation filename',()=>{const d=data();d.validationEmpty=[{...copy(d.trainEmpty[0]),id:'renamed.png'}];reject(d,'validation_reuses_training_image');});
+test('rejects malformed RGB buffer',()=>{const d=data();d.trainEmpty[0].rgb=new Uint8Array(2);reject(d,'image_size_or_rgb');});
+test('rejects float RGB input',()=>{const d=data();d.trainEmpty[0].rgb=new Float32Array(d.trainEmpty[0].rgb);reject(d,'rgb_requires_uint8');});
+test('rejects missing target mask',()=>{const d=data();delete d.trainObjects[0].mask;reject(d,'missing_object_mask');});
+test('rejects nonbinary target mask',()=>{const d=data();d.trainObjects[0].mask[0]=255;reject(d,'mask_must_be_binary');});
+test('rejects empty target mask',()=>{const d=data();d.trainObjects[0].mask.fill(0);reject(d,'empty_object_mask');});
+test('rejects clipped/edge target',()=>{const d=data();d.trainObjects[0].mask[0]=1;reject(d,'target_touches_image_edge');});
+test('rejects a target below declared size margin',()=>{const d=data();d.trainObjects[0].mask.fill(0);for(let y=28;y<31;y++)for(let x=28;x<31;x++)d.trainObjects[0].mask[y*96+x]=1;reject(d,'target_too_small_for_declared_margin');});
+test('background and labelled object with equal RGB are not separable',()=>{const d=data();for(const [j,f] of d.trainObjects.entries())for(let i=0;i<f.width*f.height;i++)f.rgb.set([239+2*j,239+2*j,239+2*j],3*i);reject(d,'no_separable_threshold_in_search_grid');});
+test('missing held-out images leaves an unverified candidate',()=>{const d=data();d.validationEmpty=[];d.validationObjects=[];const r=M.propose(d);assert.equal(r.status,'NEEDS_EVIDENCE');assert.ok(r.reasons.includes('missing_held_out_empty_or_object'));assert.equal(r.profile.calibrated,false);});
+test('missing positive protection controls leaves an unverified candidate',()=>{const d=data();d.blockedDark=[];d.blockedWarm=[];const r=M.propose(d);assert.equal(r.status,'NEEDS_EVIDENCE');assert.ok(r.reasons.includes('missing_dark_or_warm_positive_control'));});
+test('held-out failure does not retune training candidate',()=>{const d=data(),good=M.propose(d);d.validationEmpty[0].rgb.fill(1);const bad=reject(d,'held_out_validation_failed');assert.deepEqual(bad.profile,good.profile);assert.equal(bad.evidence.validation[0].ok,false);});
+test('held-out target outside observed ROI is rejected without expansion',()=>{const d=data(),good=M.propose(d),f=d.validationObjects[0];f.mask[10*96+10]=1;const bad=reject(d,'held_out_validation_failed');assert.deepEqual(bad.profile.roi,good.profile.roi);assert.ok(bad.evidence.validation.some(s=>s.reasons.includes('object_outside_roi')));});
+test('a white image labelled dark occlusion does not prove protection',()=>{const d=data();d.blockedDark[0].rgb.fill(245);reject(d,'guard_positive_control_not_detected');});
+test('small target cannot be accepted merely because target pixels recall',()=>{const d=data();const r=M.propose(d);const f=M.prepare(d.validationObjects[0],d.base.algorithm_size,true),p=JSON.parse(JSON.stringify(r.profile));p.policy.empty_ratio=255;const checked=M.checkNormal(f,p,true);assert.ok(checked.reasons.includes('object_indistinguishable_from_empty'));});
+test('more than 20 samples is explicitly rejected',()=>{const d=data();while(d.validationEmpty.length<18)d.validationEmpty.push(copy(d.validationEmpty[0]));reject(d,'too_many_samples');});
+test('warm normal background is not silently accepted as protection area',()=>{const d=data();for(const [j,f] of [...d.trainEmpty,...d.trainObjects].entries())for(let i=0;i<f.width*f.height;i++)if(!f.mask?.[i])f.rgb.set([238+j,165,110],3*i);reject(d,'no_stable_guard_outside_observed_target_path');});
+test('bright objects on a dark belt select non-inverted B foreground',()=>{const d=data();for(const [j,f] of [...d.trainEmpty,...d.trainObjects,...d.validationEmpty,...d.validationObjects].entries())for(let y=0;y<64;y++)for(let x=0;x<96;x++){const i=y*96+x;const v=f.mask?.[i]?200:(y>=16&&y<54?35+j:235+j);f.rgb.set([v,v,v],3*i);}const r=M.propose(d);assert.equal(r.status,'CANDIDATE_READY_FOR_REVIEW');assert.equal(r.profile.invert,false);});
+test('guard exit comparison includes off boundary; entry includes on boundary',()=>{const d=data(),r=M.propose(d),f=M.prepare(d.blockedDark[0],d.base.algorithm_size,false),p=r.profile;const s=M.statistics(f,p);assert.equal(s.dark_enters,true);assert.equal(s.guard_can_release,false);});
+test('malformed role list and dimensions fail cleanly',()=>{const d=data();d.trainObjects='wrong';reject(d,'sample_list_type');const e=data();e.base.algorithm_size=[false,64];reject(e,'invalid_base_profile');});

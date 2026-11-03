@@ -1,0 +1,10 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "W:/fpga/rtl/projection_valley_counter.v" into library work
+INFO: [VRFC 10-311] analyzing module projection_valley_counter
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "W:/fpga/rtl/projection_valley_scanner.v" into library work
+INFO: [VRFC 10-311] analyzing module projection_valley_scanner
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "W:/fpga/sim/tb_valley_vectors.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_valley_vectors
+INFO: [VRFC 10-311] analyzing module tb_valley_unit
+INFO: [VRFC 10-311] analyzing module tb_valley_min
+INFO: [VRFC 10-311] analyzing module tb_valley_pipe32
+INFO: [VRFC 10-311] analyzing module tb_valley_pipe5

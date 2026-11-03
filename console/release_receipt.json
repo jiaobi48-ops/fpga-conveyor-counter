@@ -1,0 +1,39 @@
+{
+  "version": "ABC-1.4r2-75MHz-AXI100-Calibration",
+  "files": {
+    "hardware/camera_vision_integrated_v14.bit": "b61e83ff1b08735fcce30e24116949186055d0ed0522f5ca3661d32adb6ac58e",
+    "hardware/camera_vision_integrated_v14.xsa": "29ab894700d7544856fb5fe1edfbfaad53e7d507d6a9bc6a0564ea43c41be421",
+    "hardware/ps7_init.tcl": "d13fe1eb9a0dcaa1056277c56ad1fcd6de1839c8f8d824737ec761679f626d8b",
+    "build/camera_control_console.elf": "454067a17f38f0c92a975008c3da38df0a74eaf613dbc7e277be283dc8379869"
+  },
+  "sources": {
+    "control_dispatch.c": "1d0f2a61f64368ccd48266ddb298d74f4798ec5d592357fbc9430e8c5097caa4",
+    "control_dispatch.h": "2b52c809719403670f9e754121323804572442603ce72165982d270f15548099",
+    "count_types.h": "d0a32bd70f4dbd76ad183626aaaf13ab12a7bb9948e88a44653c87b990a0a102",
+    "cup_commands.c": "b1e53bfb194b820dd74a3c153cc0f1bb8241792a3f24eadbf77a24b31ac0e922",
+    "cup_commands.h": "364cf43ca06170271be7b42125376ca30f30ff44ff9b2df2286237c790e5696b",
+    "frame_audit.c": "c98f4cc9662c212764f51b70dbf78ca20cbcac499fc6fc99561c842001bcce4d",
+    "frame_audit.h": "7a596a70eeefab60c8b0d23118851693d721a71bbe9a40a0bd799eed339fc4b3",
+    "gpio_bus.c": "f7fe26ec62f34cacbd5c7b5afd75e9f45bd3b8d54f9e3d8227d4e0b0db16e435",
+    "gpio_bus.h": "9b84dca984fb046edea708f2a5d1981bf44a3ae54275424eb6268652f5618da1",
+    "lscript.ld": "2d5104ce4b68436517b0691fb261ad949685242cacc032c303b02b86fecbbf93",
+    "main.c": "943c89cc672aea5bac53dc913a2ec977fe27623480dae1f48c6e4f19739b5846",
+    "platform.c": "f71a3da639ce53d700967a4ab37685af1248743e27aadf9184aaf06c3c97a924",
+    "platform.h": "449c2bd1529754fe2de126858afd63b3b1ee20db2ea418af549c6f8c3b887f55",
+    "preview_service.c": "0fdd9e44a17d828b19f445fb22ba411a314c1713c1f0b2f27979191daa588b5d",
+    "preview_service.h": "0b2d2448c547b93a859624b81a8a50dc41bb57feb89575e75a60af5c88c5a6a8",
+    "probe_sccb.c": "1807bb5268fe7c839cd3b2934aaf17584706c8f2497775e22dcada4594b00648",
+    "probe_sccb.h": "d3c8c2d7650e30fd479a70931b6cb46cb8567a789acd8d67124c270976fcb77a",
+    "sccb_verify.c": "566a724d0d9a773df768c378bde3989addbb77ed974c72726c1e89ffe7801d94",
+    "sccb_verify.h": "ab7a866fab1a9414aaa237e7d38b0f54c08994e98690476121c7e1229184d481",
+    "sensor.c": "5f00048e9accc2c531af9400b57a0432f1940a2ddd44b087fad31812430f4c33",
+    "sensor.h": "57f1f79bc849c81b618855226a052b884f1365091445aac195baef556ddcaf92",
+    "studio_protocol.c": "f0375b2b47a19701aecf7f9eff565681f73dab5254431ba07544b72fe04974bb",
+    "studio_protocol.h": "ba6fff8d7c1c2f8ccda8f927a48a67587e27f579c2b4325f19237b818e20d5be",
+    "studio_snapshot.c": "a98162b6fcdbb8855f6488346d0b38371349c1a78957db3691b2d9ddb2e6488a",
+    "studio_snapshot.h": "ed4d3553facdedf4f26b6c792de1c0e0e0dea215a003462be4f791a1e53eed34",
+    "vision_control.c": "131f60975d95c0f4d7cfd8ab617494cf092db532132ae12e410a978755b2a3e1",
+    "vision_control.h": "3ed771d6b626b6c42ba5c83b74f52b6ac107f7a08fe82aa1990169611a2f8e46",
+    "vision_registers.h": "26a2e59f49460a4e104c1cc8ae0bc52c60c6ba025539d363ccb52b9219a4ad58"
+  }
+}

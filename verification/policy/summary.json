@@ -1,0 +1,37 @@
+[
+  {
+    "test": "tb_adaptive_policy",
+    "status": "PASS",
+    "terminal": "PASS ADAPTIVE POLICY divider_jobs=133 threshold_slew/clamp/epochs/busy noise_hysteresis/gaps"
+  },
+  {
+    "test": "tb_stability",
+    "status": "PASS",
+    "terminal": "PASS ADAPTIVE STABILITY events=31 commits=9 median_vectors=248 duplicate/stale/gap/epoch/flush/wrap"
+  },
+  {
+    "test": "tb_guard_identity",
+    "status": "PASS",
+    "terminal": "PASS GUARD ID frames=11 accepted=9 duplicate=1 stale=1 CE/metadata/wrap/bypass"
+  },
+  {
+    "test": "tb_guard_supervisor",
+    "status": "PASS",
+    "terminal": "PASS GUARD SUPERVISOR reports=86 checks=274 duplicate/stale/wrap/hysteresis/occupied/rearm/timeout/link/config"
+  },
+  {
+    "test": "tb_guard_supervisor_pipeline",
+    "status": "PASS",
+    "terminal": "PASS GUARD SUPERVISOR PIPELINE reports=86 checks=274 duplicate/stale/wrap/hysteresis/occupied/rearm/timeout/link/config"
+  },
+  {
+    "test": "tb_guard_pixels",
+    "status": "PASS",
+    "terminal": "PASS GUARD PIXELS frames=12 checks=144 NumPy-oracle/2models/polarity/invalidROI/badEOL/SOF-config/CE=720 bubbles=216"
+  },
+  {
+    "test": "tb_guard_pixels_pipeline",
+    "status": "PASS",
+    "terminal": "PASS GUARD PIXELS PIPELINE frames=12 checks=144 NumPy-oracle/2models/polarity/invalidROI/badEOL/SOF-config/CE=720 bubbles=216"
+  }
+]

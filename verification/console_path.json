@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "checks": [
+    "no_environment_no_PATH",
+    "XILINX_VIVADO",
+    "XSDB_EXE"
+  ],
+  "xsdb": "E:\\JLU\\AMD_Vivado\\2025.2\\Vivado\\bin\\xsdb.bat"
+}

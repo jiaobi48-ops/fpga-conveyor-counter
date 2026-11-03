@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Mon Nov  2 09:07:50 2026
+# Process ID         : 3392
+# Current directory  : V:/rebuild/narrow_indices
+# Command line       : xsim.exe -log tb_conveyor_extract.log -mode tcl -source {xsim.dir/tb_conveyor_extract/xsim_script.tcl}
+# Log file           : V:/rebuild/narrow_indices/tb_conveyor_extract.log
+# Journal file       : V:/rebuild/narrow_indices\xsim.jou
+# Running On         : Xianyu-laptop
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : AMD Ryzen 7 H 255 w/ Radeon 780M Graphics
+# CPU Frequency      : 3793 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 29859 MB
+# Swap memory        : 0 MB
+# Total Virtual      : 29859 MB
+# Available Virtual  : 16225 MB
+#-----------------------------------------------------------
+source xsim.dir/tb_conveyor_extract/xsim_script.tcl
+# xsim {tb_conveyor_extract} -testplusarg OUTPUT=merge.csv -autoloadwcfg -tclbatch {run.tcl}
+Time resolution is 1 ps
+source run.tcl
+## run all
+PASS CONVEYOR EXTRACT cases=32 batches=11 faults=21 width640=PASS committed_intervals/gaps/cuts/backpressure/flush/recovery
+$finish called at time : 50870 ns : File "V:/fpga/sim/tb_conveyor_extract.sv" Line 187
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Nov  2 09:07:52 2026...

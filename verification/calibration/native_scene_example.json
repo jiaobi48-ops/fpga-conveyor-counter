@@ -1,0 +1,65 @@
+{
+  "schema": "ABC-1.4",
+  "configuration": {
+    "cfg_threshold": 136,
+    "cfg_invert": 1,
+    "cfg_safety_roi_x0": 184,
+    "cfg_safety_roi_y0": 200,
+    "cfg_safety_roi_x1": 616,
+    "cfg_safety_roi_y1": 344,
+    "cfg_guard_x0": 2,
+    "cfg_guard_y0": 2,
+    "cfg_guard_x1": 102,
+    "cfg_guard_y1": 50,
+    "cfg_guard_dark_on": 24,
+    "cfg_guard_dark_off": 8,
+    "cfg_guard_warm_on": 24,
+    "cfg_guard_warm_off": 8,
+    "cfg_empty_ratio": 1,
+    "cfg_recovery_normal_frames": 3,
+    "cfg_recovery_empty_frames": 2,
+    "cfg_source_timeout_cycles": 7500000,
+    "cfg_line_a": 472,
+    "cfg_line_b": 328,
+    "cfg_hysteresis": 10,
+    "cfg_max_step": 120,
+    "cfg_width_delta": 30,
+    "cfg_min_hits": 2,
+    "cfg_max_missed": 2,
+    "cfg_safety_enable": 1,
+    "cfg_scene_valid": 1,
+    "cfg_guard_enable": 1,
+    "cfg_test_async": 0,
+    "sys_dip_override": 0,
+    "sys_count_enable": 1,
+    "sys_manual_mode": 1,
+    "sys_manual_block": 1,
+    "cfg_threshold_min": 36,
+    "cfg_threshold_max": 236,
+    "cfg_mean_offset": -104
+  },
+  "calibration": {
+    "tool": "C-v8.7-ABC-v1.4",
+    "algorithm_size": [
+      800,
+      480
+    ],
+    "clock_hz": 75000000,
+    "direction": "right_to_left",
+    "roi_coordinates": "half-open algorithm/LCD pixels",
+    "status": "CANDIDATE_READY_FOR_REVIEW",
+    "sample_counts": {
+      "train_empty": 2,
+      "train_objects": 2,
+      "validation_empty": 1,
+      "validation_objects": 1,
+      "dark_controls": 1,
+      "warm_controls": 1
+    },
+    "threshold_band": [
+      36,
+      236
+    ],
+    "load_mode": "manual_paused"
+  }
+}

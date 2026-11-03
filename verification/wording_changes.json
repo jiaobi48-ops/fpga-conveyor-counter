@@ -1,0 +1,77 @@
+{
+  "console/app.py": {
+    "before_sha256": "ac77ce3d5f3a3b25d2197e54535c23281c73bcd33f615eee07feb26e74dfc219",
+    "after_sha256": "f75a7f870b0bd21a3490415fe67c178d5dfbcb6137cc977b6139bf9583cb7c01",
+    "replacements": 8
+  },
+  "console/algorithm_panel.py": {
+    "before_sha256": "6efe401b584a8d260375a45b533168709dd2ca91d7342992fa55ef76bc727cfa",
+    "after_sha256": "b7faa9a798b7b62d9ea813d7bed41dae01a17648cb55322f4fa320c52eae6197",
+    "replacements": 1
+  },
+  "console/controller.py": {
+    "before_sha256": "fa3d91e54aea2d58d14c0ac87cd05b6b5916cb1579e6e016417e1a10721dc923",
+    "after_sha256": "1b38c9c3f008060b557858599045cb9c7c5355761597c8361ee6c929ac5b223e",
+    "replacements": 9
+  },
+  "console/protocol.py": {
+    "before_sha256": "9b58e4c2bfba33a546cf1bf72964a3021e220ba0cc64f03e32cb5ffff59d193f",
+    "after_sha256": "dfaa98b93b992680bf445a96fd3daaa3ac3bbd5960447cf3c25732eec0085fb3",
+    "replacements": 3
+  },
+  "console/transport.py": {
+    "before_sha256": "4350b74e16774883986da0ddfc89fc3f0dd8da6d1546ebb0e8ba1436a5b3b82a",
+    "after_sha256": "917ae2b262375422627d942e3752aee8d788b926e730d4ac8dfd00b6fad1579e",
+    "replacements": 1
+  },
+  "console/src/sccb_verify.h": {
+    "before_sha256": "39d5b771f6a6d859b3caf40a76550212cd07d6ae5bf191b5e925977674995829",
+    "after_sha256": "ab7a866fab1a9414aaa237e7d38b0f54c08994e98690476121c7e1229184d481",
+    "replacements": 1
+  },
+  "console/src/sccb_verify.c": {
+    "before_sha256": "c6753b895579c19e605eeafa2b31c1d56e7ce0b3f78cd7dfd66d0d45c3a98fa0",
+    "after_sha256": "566a724d0d9a773df768c378bde3989addbb77ed974c72726c1e89ffe7801d94",
+    "replacements": 1
+  },
+  "console/src/main.c": {
+    "before_sha256": "cd44f7cdc7783fc399df415f6f577a6520b968e663436484097323980f0815b6",
+    "after_sha256": "943c89cc672aea5bac53dc913a2ec977fe27623480dae1f48c6e4f19739b5846",
+    "replacements": 2
+  },
+  "tools/export_completed.tcl": {
+    "before_sha256": "4617c3087ec10d9f51fd879a1669d01f72e5a51484ddf3e6a74553c2471abf75",
+    "after_sha256": "01f23248bbadf38fda14f728536b8a0f49d91f4d27dc2884d75670f704aa3ae6",
+    "replacements": 1
+  },
+  "console/使用说明.md": {
+    "before_sha256": "3ea3075a47d4d348f7c78f8b3b6a2dc7c514a1ec7f9cf44be71f6943b7fefbd9",
+    "after_sha256": "ba7e5bba44ce8f3f1783eb8ab0f11587669fe58b513f59c88aa955a0c7e0504c",
+    "replacements": 1
+  },
+  "README.md": {
+    "before_sha256": "40817456b93574aa2f3bc72310124fd11606ac21ff8ccb3a4fbb598aab1b7c8e",
+    "after_sha256": "438e3da57a2d83ffc98178027277480b8d6dcee72ca7ab34452d48f8f476d488",
+    "replacements": 1
+  },
+  "console/ddr_bridge.tcl": {
+    "before_sha256": "04df05f6343e5720d0076f8978f53074d91515448d4a00244fbe7b514f430548",
+    "after_sha256": "f7df015f6509be8e3cf91a8c0b8e831ce4563a075b033297185449c28bf1dc6b",
+    "replacements": 1
+  },
+  "tools/close_physical_timing.tcl": {
+    "before_sha256": "199b68ede456c99ca27ff18e16bb332712392c8cee8e202cec8ab702469f20f8",
+    "after_sha256": "d5caa1c519f93efd9c41a3faeb3a67c74c407c2904a6834ba00656cef06f1f42",
+    "replacements": 3
+  },
+  "console/src/gpio_bus.c": {
+    "before_sha256": "c5bb2238a2b51ab5ae4cbbcae7080a3c8b7bc5eb52d5f9ea6ee64aca629c613b",
+    "after_sha256": "f7fe26ec62f34cacbd5c7b5afd75e9f45bd3b8d54f9e3d8227d4e0b0db16e435",
+    "replacements": 1
+  },
+  "console/src/probe_sccb.h": {
+    "before_sha256": "534b946f7d72af1d3e4a53cdd7749f1d7c0a68e23ef1b3b2bd56e668667a7c6e",
+    "after_sha256": "d3c8c2d7650e30fd479a70931b6cb46cb8567a789acd8d67124c270976fcb77a",
+    "replacements": 1
+  }
+}

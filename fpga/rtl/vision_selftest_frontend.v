@@ -1,0 +1,370 @@
+`timescale 1ns/1ps
+// Stage 7 native wrapper. The stage-6 algorithm and its configuration ports are unchanged.
+module vision_selftest_frontend #(
+    parameter integer WIDTH=640, HEIGHT=480, SCAN_TIMEOUT=4*WIDTH+32,
+    parameter integer ROM_WIDTH=160, ROM_HEIGHT=120, SCALE=4,
+    parameter integer HOLD_FRAMES=60, FRAME_GAP_CYCLES=3026133,
+    parameter integer DEBOUNCE_CYCLES=1000000, DRAIN_CYCLES=WIDTH+80,
+    parameter integer FRAME_TIMEOUT_CYCLES=10000000, DRAIN_TIMEOUT_CYCLES=20000000,
+    parameter ROM_FILE="fixtures/selftest/scenes_160x120.hex"
+) (
+    input wire clk,
+    input wire rst_n,
+    input wire ce,
+    input wire cam_valid,
+    input wire cam_sof,
+    input wire cam_eol,
+    input wire [23:0] cam_rgb,
+    input wire [7:0] cfg_threshold,
+    input wire cfg_invert,
+    input wire [1:0] cfg_mode,
+    input wire [15:0] cfg_high,
+    input wire [15:0] cfg_low,
+    input wire [15:0] cfg_min_width,
+    input wire [15:0] cfg_gap,
+    input wire cfg_valley_enable,
+    input wire [7:0] cfg_valley_ratio,
+    input wire [15:0] cfg_valley_depth,
+    input wire [15:0] cfg_valley_width,
+    input wire [15:0] cfg_peak_distance,
+    input wire [15:0] cfg_peak_support,
+    output wire out_valid,
+    output wire out_sof,
+    output wire out_eol,
+    output wire out_binary,
+    output wire analysis_valid,
+    output wire [15:0] out_x,
+    output wire [15:0] out_y,
+    output wire [15:0] out_source_x,
+    output wire [15:0] out_source_y,
+    output wire [1:0] out_mode,
+    output wire clear_busy,
+    output wire snapshot_valid,
+    output wire snapshot_update,
+    output wire frame_done,
+    output wire frame_drop,
+    output wire [31:0] snapshot_frame_id,
+    output wire [31:0] snapshot_white_pixels,
+    output wire [31:0] snapshot_roi_pixels,
+    output wire [1:0] snapshot_mode,
+    output wire [31:0] dropped_frames,
+    output wire [31:0] done_frame_id,
+    output wire error_sticky,
+    output wire busy,
+    output wire result_valid,
+    output wire result_update,
+    output wire scan_abort,
+    output wire [2:0] abort_reason,
+    output wire [31:0] aborted_scans,
+    output wire [31:0] result_frame_id,
+    output wire [15:0] result_count,
+    output wire [15:0] result_cut_count,
+    output wire [1:0] result_mode,
+    output wire [15:0] result_high,
+    output wire [15:0] result_low,
+    output wire [15:0] result_min_width,
+    output wire [15:0] result_gap,
+    output wire result_valley_enable,
+    output wire [7:0] result_valley_ratio,
+    output wire [15:0] result_valley_depth,
+    output wire [15:0] result_valley_width,
+    output wire [15:0] result_peak_distance,
+    output wire [15:0] result_peak_support,
+    output wire cut_update,
+    output wire [15:0] cut_x,
+    output wire [31:0] cut_frame_id,
+    output wire sample_valid,
+    output wire [15:0] sample_x,
+    output wire [15:0] sample_value,
+    output wire [31:0] sample_frame_id,
+    input wire cfg_auto_threshold,
+    input wire [7:0] cfg_threshold_min,
+    input wire [7:0] cfg_threshold_max,
+    input wire signed [8:0] cfg_mean_offset,
+    input wire [7:0] cfg_threshold_step,
+    input wire cfg_auto_denoise,
+    input wire [7:0] cfg_noise_on,
+    input wire [7:0] cfg_noise_off,
+    input wire [7:0] cfg_noise_confirm,
+    input wire [15:0] cfg_noise_min_foreground,
+    input wire [1:0] cfg_stable_mode,
+    input wire [7:0] cfg_stable_confirm,
+    input wire [31:0] cfg_config_version,
+    output wire [7:0] active_threshold,
+    output wire [1:0] active_mode,
+    output wire [31:0] policy_epoch,
+    output wire configuration_error,
+    output wire gray_stats_update,
+    output wire gray_stats_reject,
+    output wire [31:0] gray_stats_frame_id,
+    output wire [31:0] gray_stats_sum,
+    output wire [31:0] gray_stats_pixels,
+    output wire [31:0] gray_rejected_frames,
+    output wire mean_busy,
+    output wire mean_update,
+    output wire [7:0] mean_gray,
+    output wire [31:0] mean_frame_id,
+    output wire [7:0] target_threshold,
+    output wire [31:0] target_frame_id,
+    output wire target_valid,
+    output wire [31:0] threshold_skipped_statistics,
+    output wire noise_stats_update,
+    output wire [31:0] noise_stats_frame_id,
+    output wire [31:0] noise_stats_windows,
+    output wire [31:0] noise_stats_foreground,
+    output wire [31:0] noise_stats_isolated,
+    output wire [31:0] noise_rejected_frames,
+    output wire auto_mode_valid,
+    output wire [1:0] auto_mode,
+    output wire [31:0] auto_mode_frame_id,
+    output wire [7:0] result_threshold,
+    output wire result_invert,
+    output wire [31:0] result_config_version,
+    output wire [31:0] result_policy_epoch,
+    output wire stable_valid,
+    output wire stable_update,
+    output wire stable_changed,
+    output wire [15:0] stable_count,
+    output wire [31:0] stable_frame_id,
+    output wire [31:0] stable_epoch,
+    output wire [7:0] stable_history_fill,
+    output wire [31:0] stable_duplicate_results,
+    output wire [31:0] stable_stale_results,
+    output wire [31:0] stable_gap_resets,
+    input wire cfg_test_async,
+    input wire cfg_scene_auto,
+    input wire [1:0] cfg_scene,
+    output wire selected_valid, selected_sof, selected_eol,
+    output wire [23:0] selected_rgb,
+    output wire pipeline_rst_n,
+    output wire active_source, requested_source, switch_busy, waiting_for_sof,
+    output wire switch_done, switch_fault, source_fault_sticky,
+    output wire [31:0] source_generation, switch_count, source_recoveries, discarded_camera_pixels,
+    output wire [1:0] test_scene,
+    output wire result_is_test, stable_is_test,
+    output wire [1:0] result_scene, stable_scene,
+    output wire [31:0] result_generation, stable_generation,
+    output reg source_metadata_error,
+    input wire cam_frame_drop,
+    output reg [31:0] camera_drop_events,
+    output wire [31:0] history_epoch,
+    output wire [31:0] result_history_epoch,
+    output wire [31:0] stable_history_epoch,
+    output wire stable_current_confirmed,
+    output wire stable_pending
+);
+    wire test_valid,test_sof,test_eol,test_enable,test_restart;
+    wire [23:0] test_rgb;
+    selftest_video_source #(.WIDTH(WIDTH),.HEIGHT(HEIGHT),.ROM_WIDTH(ROM_WIDTH),
+        .ROM_HEIGHT(ROM_HEIGHT),.SCALE(SCALE),.HOLD_FRAMES(HOLD_FRAMES),
+        .FRAME_GAP_CYCLES(FRAME_GAP_CYCLES),.ROM_FILE(ROM_FILE)) test_source(
+        .clk(clk),.rst_n(rst_n),.ce(ce),.enable(test_enable),.restart(test_restart),
+        .cfg_scene_auto(cfg_scene_auto),.cfg_scene(cfg_scene),
+        .out_valid(test_valid),.out_sof(test_sof),.out_eol(test_eol),.out_rgb(test_rgb),.out_scene(test_scene),
+        .out_x(),.out_y(),.frame_done(),.scene_change());
+    video_source_switch #(.WIDTH(WIDTH),.HEIGHT(HEIGHT),.DEBOUNCE_CYCLES(DEBOUNCE_CYCLES),
+        .DRAIN_CYCLES(DRAIN_CYCLES),.FRAME_TIMEOUT_CYCLES(FRAME_TIMEOUT_CYCLES),
+        .DRAIN_TIMEOUT_CYCLES(DRAIN_TIMEOUT_CYCLES)) source_switch(
+        .clk(clk),.rst_n(rst_n),.ce(ce),.cfg_test_async(cfg_test_async),
+        .cam_valid(cam_valid),.cam_sof(cam_sof),.cam_eol(cam_eol),.cam_rgb(cam_rgb),
+        .test_valid(test_valid),.test_sof(test_sof),.test_eol(test_eol),.test_rgb(test_rgb),
+        .algorithm_idle(!busy&&!mean_busy),
+        .out_valid(selected_valid),.out_sof(selected_sof),.out_eol(selected_eol),.out_rgb(selected_rgb),
+        .pipeline_rst_n(pipeline_rst_n),.test_enable(test_enable),.test_restart(test_restart),
+        .active_source(active_source),.requested_source(requested_source),.switch_busy(switch_busy),
+        .waiting_for_sof(waiting_for_sof),.switch_done(switch_done),.switch_fault(switch_fault),
+        .fault_sticky(source_fault_sticky),.source_generation(source_generation),.switch_count(switch_count),
+        .recovery_count(source_recoveries),.discarded_camera_pixels(discarded_camera_pixels));
+
+    // Native algorithm IDs restart after each pipeline reset. External generation
+    // is therefore part of the result identity: (generation, frame_id).
+    reg [31:0] sequence_id;
+    reg [3:0] meta_valid;
+    reg [31:0] meta_id[0:3],meta_generation[0:3];
+    reg [1:0] meta_scene[0:3];reg [3:0] meta_source;
+    wire [31:0] next_id=sequence_id+1'b1;
+    wire result_meta_ok=meta_valid[result_frame_id[1:0]]&&meta_id[result_frame_id[1:0]]==result_frame_id;
+    wire stable_meta_ok=meta_valid[stable_frame_id[1:0]]&&meta_id[stable_frame_id[1:0]]==stable_frame_id;
+    wire core_result_valid,core_result_update,core_stable_valid,core_stable_update,core_stable_changed;
+    wire core_current_confirmed,core_pending;
+    wire accepted_drop_notice=cam_frame_drop&&!active_source&&pipeline_rst_n;
+    always @(posedge clk) begin
+        if(!rst_n) camera_drop_events<=0;
+        else if(cam_frame_drop) camera_drop_events<=camera_drop_events+1'b1;
+    end
+    reg result_tag_valid,stable_tag_valid,result_source_hold,stable_source_hold;
+    reg [1:0] result_scene_hold,stable_scene_hold;
+    reg [31:0] result_generation_hold,stable_generation_hold;
+    // The four slots bind in-flight packets. Published identities have their
+    // own holding registers: later bad frames must not overwrite an old result.
+    assign result_is_test=core_result_update ? meta_source[result_frame_id[1:0]] : result_source_hold;
+    assign stable_is_test=core_stable_update ? meta_source[stable_frame_id[1:0]] : stable_source_hold;
+    assign result_scene=core_result_update ? meta_scene[result_frame_id[1:0]] : result_scene_hold;
+    assign stable_scene=core_stable_update ? meta_scene[stable_frame_id[1:0]] : stable_scene_hold;
+    assign result_generation=core_result_update ? meta_generation[result_frame_id[1:0]] : result_generation_hold;
+    assign stable_generation=core_stable_update ? meta_generation[stable_frame_id[1:0]] : stable_generation_hold;
+    assign result_valid=pipeline_rst_n&&core_result_valid&&(core_result_update ? result_meta_ok : result_tag_valid);
+    assign result_update=pipeline_rst_n&&core_result_update&&result_meta_ok;
+    assign stable_valid=pipeline_rst_n&&core_stable_valid&&(core_stable_update ? stable_meta_ok : stable_tag_valid);
+    assign stable_update=pipeline_rst_n&&core_stable_update&&stable_meta_ok;
+    assign stable_changed=pipeline_rst_n&&core_stable_changed&&stable_meta_ok;
+    assign stable_current_confirmed=stable_valid&&core_current_confirmed;
+    assign stable_pending=pipeline_rst_n&&core_pending;
+    integer i;
+    always @(posedge clk) begin
+        if(!rst_n) source_metadata_error<=0;
+        else if(pipeline_rst_n&&((core_result_update&&!result_meta_ok)||(core_stable_update&&!stable_meta_ok)))
+            source_metadata_error<=1;
+        if(!pipeline_rst_n) begin
+            sequence_id<=0;meta_valid<=0;meta_source<=0;
+            result_tag_valid<=0;stable_tag_valid<=0;result_source_hold<=0;stable_source_hold<=0;
+            result_scene_hold<=0;stable_scene_hold<=0;result_generation_hold<=0;stable_generation_hold<=0;
+            for(i=0;i<4;i=i+1) begin meta_id[i]<=0;meta_generation[i]<=0;meta_scene[i]<=0;end
+        end else begin
+            if(core_result_update&&result_meta_ok) begin
+                result_tag_valid<=1;result_source_hold<=meta_source[result_frame_id[1:0]];
+                result_scene_hold<=meta_scene[result_frame_id[1:0]];
+                result_generation_hold<=meta_generation[result_frame_id[1:0]];
+            end else if(core_result_update) result_tag_valid<=0;
+            if(core_stable_update&&stable_meta_ok) begin
+                stable_tag_valid<=1;stable_source_hold<=meta_source[stable_frame_id[1:0]];
+                stable_scene_hold<=meta_scene[stable_frame_id[1:0]];
+                stable_generation_hold<=meta_generation[stable_frame_id[1:0]];
+            end else if(core_stable_update) stable_tag_valid<=0;
+            if(ce&&selected_valid&&selected_sof) begin
+                sequence_id<=next_id;meta_valid[next_id[1:0]]<=1;
+                meta_id[next_id[1:0]]<=next_id;meta_generation[next_id[1:0]]<=source_generation;
+                meta_source[next_id[1:0]]<=active_source;
+                meta_scene[next_id[1:0]]<=active_source ? test_scene : 2'd0;
+            end
+        end
+    end
+    vision_adaptive_frontend #(.WIDTH(WIDTH),.HEIGHT(HEIGHT),.SCAN_TIMEOUT(SCAN_TIMEOUT)) algorithm(
+        .upstream_frame_drop(accepted_drop_notice),.history_epoch(history_epoch),
+        .result_history_epoch(result_history_epoch),.stable_history_epoch(stable_history_epoch),
+        .stable_current_confirmed(core_current_confirmed),.stable_pending(core_pending),
+        .clk(clk),
+        .rst_n(pipeline_rst_n),
+        .ce(ce),
+        .in_valid(selected_valid),
+        .in_sof(selected_sof),
+        .in_eol(selected_eol),
+        .in_rgb(selected_rgb),
+        .cfg_threshold(cfg_threshold),
+        .cfg_invert(cfg_invert),
+        .cfg_mode(cfg_mode),
+        .cfg_high(cfg_high),
+        .cfg_low(cfg_low),
+        .cfg_min_width(cfg_min_width),
+        .cfg_gap(cfg_gap),
+        .cfg_valley_enable(cfg_valley_enable),
+        .cfg_valley_ratio(cfg_valley_ratio),
+        .cfg_valley_depth(cfg_valley_depth),
+        .cfg_valley_width(cfg_valley_width),
+        .cfg_peak_distance(cfg_peak_distance),
+        .cfg_peak_support(cfg_peak_support),
+        .out_valid(out_valid),
+        .out_sof(out_sof),
+        .out_eol(out_eol),
+        .out_binary(out_binary),
+        .analysis_valid(analysis_valid),
+        .out_x(out_x),
+        .out_y(out_y),
+        .out_source_x(out_source_x),
+        .out_source_y(out_source_y),
+        .out_mode(out_mode),
+        .clear_busy(clear_busy),
+        .snapshot_valid(snapshot_valid),
+        .snapshot_update(snapshot_update),
+        .frame_done(frame_done),
+        .frame_drop(frame_drop),
+        .snapshot_frame_id(snapshot_frame_id),
+        .snapshot_white_pixels(snapshot_white_pixels),
+        .snapshot_roi_pixels(snapshot_roi_pixels),
+        .snapshot_mode(snapshot_mode),
+        .dropped_frames(dropped_frames),
+        .done_frame_id(done_frame_id),
+        .error_sticky(error_sticky),
+        .busy(busy),
+        .result_valid(core_result_valid),
+        .result_update(core_result_update),
+        .scan_abort(scan_abort),
+        .abort_reason(abort_reason),
+        .aborted_scans(aborted_scans),
+        .result_frame_id(result_frame_id),
+        .result_count(result_count),
+        .result_cut_count(result_cut_count),
+        .result_mode(result_mode),
+        .result_high(result_high),
+        .result_low(result_low),
+        .result_min_width(result_min_width),
+        .result_gap(result_gap),
+        .result_valley_enable(result_valley_enable),
+        .result_valley_ratio(result_valley_ratio),
+        .result_valley_depth(result_valley_depth),
+        .result_valley_width(result_valley_width),
+        .result_peak_distance(result_peak_distance),
+        .result_peak_support(result_peak_support),
+        .cut_update(cut_update),
+        .cut_x(cut_x),
+        .cut_frame_id(cut_frame_id),
+        .sample_valid(sample_valid),
+        .sample_x(sample_x),
+        .sample_value(sample_value),
+        .sample_frame_id(sample_frame_id),
+        .cfg_auto_threshold(cfg_auto_threshold),
+        .cfg_threshold_min(cfg_threshold_min),
+        .cfg_threshold_max(cfg_threshold_max),
+        .cfg_mean_offset(cfg_mean_offset),
+        .cfg_threshold_step(cfg_threshold_step),
+        .cfg_auto_denoise(cfg_auto_denoise),
+        .cfg_noise_on(cfg_noise_on),
+        .cfg_noise_off(cfg_noise_off),
+        .cfg_noise_confirm(cfg_noise_confirm),
+        .cfg_noise_min_foreground(cfg_noise_min_foreground),
+        .cfg_stable_mode(cfg_stable_mode),
+        .cfg_stable_confirm(cfg_stable_confirm),
+        .cfg_config_version(cfg_config_version),
+        .active_threshold(active_threshold),
+        .active_mode(active_mode),
+        .policy_epoch(policy_epoch),
+        .configuration_error(configuration_error),
+        .gray_stats_update(gray_stats_update),
+        .gray_stats_reject(gray_stats_reject),
+        .gray_stats_frame_id(gray_stats_frame_id),
+        .gray_stats_sum(gray_stats_sum),
+        .gray_stats_pixels(gray_stats_pixels),
+        .gray_rejected_frames(gray_rejected_frames),
+        .mean_busy(mean_busy),
+        .mean_update(mean_update),
+        .mean_gray(mean_gray),
+        .mean_frame_id(mean_frame_id),
+        .target_threshold(target_threshold),
+        .target_frame_id(target_frame_id),
+        .target_valid(target_valid),
+        .threshold_skipped_statistics(threshold_skipped_statistics),
+        .noise_stats_update(noise_stats_update),
+        .noise_stats_frame_id(noise_stats_frame_id),
+        .noise_stats_windows(noise_stats_windows),
+        .noise_stats_foreground(noise_stats_foreground),
+        .noise_stats_isolated(noise_stats_isolated),
+        .noise_rejected_frames(noise_rejected_frames),
+        .auto_mode_valid(auto_mode_valid),
+        .auto_mode(auto_mode),
+        .auto_mode_frame_id(auto_mode_frame_id),
+        .result_threshold(result_threshold),
+        .result_invert(result_invert),
+        .result_config_version(result_config_version),
+        .result_policy_epoch(result_policy_epoch),
+        .stable_valid(core_stable_valid),
+        .stable_update(core_stable_update),
+        .stable_changed(core_stable_changed),
+        .stable_count(stable_count),
+        .stable_frame_id(stable_frame_id),
+        .stable_epoch(stable_epoch),
+        .stable_history_fill(stable_history_fill),
+        .stable_duplicate_results(stable_duplicate_results),
+        .stable_stale_results(stable_stale_results),
+        .stable_gap_resets(stable_gap_resets)
+    );
+endmodule

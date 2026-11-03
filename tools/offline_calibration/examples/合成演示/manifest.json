@@ -1,0 +1,49 @@
+{
+  "base": "base.json",
+  "samples": [
+    {
+      "role": "trainEmpty",
+      "rgb": "train_empty_1.png",
+      "id": "SYNTHETIC_train_empty_1"
+    },
+    {
+      "role": "trainEmpty",
+      "rgb": "train_empty_2.png",
+      "id": "SYNTHETIC_train_empty_2"
+    },
+    {
+      "role": "trainObjects",
+      "rgb": "train_object_1.png",
+      "id": "SYNTHETIC_train_object_1",
+      "mask": "train_object_1_mask.png"
+    },
+    {
+      "role": "trainObjects",
+      "rgb": "train_object_2.png",
+      "id": "SYNTHETIC_train_object_2",
+      "mask": "train_object_2_mask.png"
+    },
+    {
+      "role": "validationEmpty",
+      "rgb": "held_out_empty.png",
+      "id": "SYNTHETIC_held_out_empty"
+    },
+    {
+      "role": "validationObjects",
+      "rgb": "held_out_object.png",
+      "id": "SYNTHETIC_held_out_object",
+      "mask": "held_out_object_mask.png"
+    },
+    {
+      "role": "blockedDark",
+      "rgb": "dark_control.png",
+      "id": "SYNTHETIC_dark_control"
+    },
+    {
+      "role": "blockedWarm",
+      "rgb": "warm_control.png",
+      "id": "SYNTHETIC_warm_control"
+    }
+  ],
+  "note": "96×64合成演示样本。"
+}

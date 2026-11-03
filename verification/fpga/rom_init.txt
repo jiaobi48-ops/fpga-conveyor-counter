@@ -1,0 +1,4 @@
+system_i/vision_system_bridge_0/inst/impl/core/legacy/static_test_source/rom/read_data_reg_0 NONZERO_INIT_WORDS=63
+system_i/vision_system_bridge_0/inst/impl/core/legacy/static_test_source/rom/read_data_reg_1 NONZERO_INIT_WORDS=63
+system_i/vision_system_bridge_0/inst/impl/core/legacy/static_test_source/rom/read_data_reg_2 NONZERO_INIT_WORDS=63
+system_i/vision_system_bridge_0/inst/impl/core/legacy/static_test_source/rom/read_data_reg_3 NONZERO_INIT_WORDS=63

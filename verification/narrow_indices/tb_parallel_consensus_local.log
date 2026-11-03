@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Mon Nov  2 21:46:06 2026
+# Process ID         : 11272
+# Current directory  : X:/rebuild/narrow_indices
+# Command line       : xsim.exe -log tb_parallel_consensus_local.log -mode tcl -source {xsim.dir/tb_parallel_consensus_local/xsim_script.tcl}
+# Log file           : X:/rebuild/narrow_indices/tb_parallel_consensus_local.log
+# Journal file       : X:/rebuild/narrow_indices\xsim.jou
+# Running On         : Xianyu-laptop
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : AMD Ryzen 7 H 255 w/ Radeon 780M Graphics
+# CPU Frequency      : 3793 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 29859 MB
+# Swap memory        : 0 MB
+# Total Virtual      : 29859 MB
+# Available Virtual  : 12510 MB
+#-----------------------------------------------------------
+source xsim.dir/tb_parallel_consensus_local/xsim_script.tcl
+# xsim {tb_parallel_consensus_local} -testplusarg OUTPUT=merge.csv -autoloadwcfg -tclbatch {run.tcl}
+Time resolution is 1 ps
+source run.tcl
+## run all
+PASS PARALLEL CONSENSUS LOCAL cases=13 rejected=4 disagreement=2 dropped=2 voting/central_outlier/empty/ambiguity/tag/order/bypass/backpressure/timeout/flush
+$finish called at time : 5460 ns : File "X:/fpga/sim/tb_parallel_consensus_local.sv" Line 78
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Nov  2 21:46:08 2026...

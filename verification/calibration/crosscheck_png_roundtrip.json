@@ -1,0 +1,420 @@
+{
+  "schema": "C-offline-calibration-v1",
+  "version": "C-v8.7-ABC-v1.4",
+  "status": "CANDIDATE_READY_FOR_REVIEW",
+  "reasons": [],
+  "profile": {
+    "schema_version": 1,
+    "model": "B",
+    "algorithm_size": [
+      96,
+      64
+    ],
+    "roi": [
+      16,
+      18,
+      84,
+      50
+    ],
+    "guard": [
+      2,
+      2,
+      14,
+      8
+    ],
+    "guard_enabled": true,
+    "direction": "right_to_left",
+    "threshold": 136,
+    "invert": true,
+    "scene_epoch": 10,
+    "mapping": {
+      "scale_xy": [
+        1,
+        1
+      ],
+      "offset_xy": [
+        0,
+        0
+      ]
+    },
+    "policy": {
+      "dark_on": 24,
+      "dark_off": 8,
+      "warm_on": 24,
+      "warm_off": 8,
+      "empty_ratio": 1,
+      "normal_frames": 3,
+      "empty_frames": 2,
+      "timeout_cycles": 10000000
+    },
+    "motion": {
+      "line_a": 61,
+      "line_b": 38,
+      "hysteresis": 2,
+      "max_step": 16,
+      "width_delta": 16,
+      "min_hits": 3,
+      "max_missed": 2
+    },
+    "calibrated": false,
+    "note": "ROI、阈值与遮挡保护参数候选；映射、恢复节拍和轨迹关联参数沿用基础配置。"
+  },
+  "automatic_apply": false,
+  "requires_human_confirmation": true,
+  "hardware_verified": false,
+  "source_mapping_confirmed": false,
+  "motion_validated": false,
+  "threshold_search": {
+    "step": 4,
+    "range": [
+      16,
+      240
+    ],
+    "selected_band": [
+      36,
+      236
+    ],
+    "threshold": 136,
+    "invert": true,
+    "training_only": true
+  },
+  "evidence": {
+    "training": [
+      {
+        "ok": true,
+        "reasons": [],
+        "id": "SYNTHETIC_train_empty_1",
+        "roi_pixels": 2176,
+        "foreground_pixels": 0,
+        "guard_pixels": 72,
+        "guard_dark": 0,
+        "guard_warm": 0,
+        "roi_gray_sum": 517888,
+        "object_recall": null,
+        "object_outside_roi": 0,
+        "non_object_foreground": null,
+        "empty": true,
+        "guard_can_release": true,
+        "dark_enters": false,
+        "warm_enters": false
+      },
+      {
+        "ok": true,
+        "reasons": [],
+        "id": "SYNTHETIC_train_empty_2",
+        "roi_pixels": 2176,
+        "foreground_pixels": 0,
+        "guard_pixels": 72,
+        "guard_dark": 0,
+        "guard_warm": 0,
+        "roi_gray_sum": 526592,
+        "object_recall": null,
+        "object_outside_roi": 0,
+        "non_object_foreground": null,
+        "empty": true,
+        "guard_can_release": true,
+        "dark_enters": false,
+        "warm_enters": false
+      },
+      {
+        "ok": true,
+        "reasons": [],
+        "id": "SYNTHETIC_train_object_1",
+        "roi_pixels": 2176,
+        "foreground_pixels": 192,
+        "guard_pixels": 72,
+        "guard_dark": 0,
+        "guard_warm": 0,
+        "roi_gray_sum": 480896,
+        "object_recall": 1,
+        "object_outside_roi": 0,
+        "non_object_foreground": 0,
+        "empty": false,
+        "guard_can_release": true,
+        "dark_enters": false,
+        "warm_enters": false
+      },
+      {
+        "ok": true,
+        "reasons": [],
+        "id": "SYNTHETIC_train_object_2",
+        "roi_pixels": 2176,
+        "foreground_pixels": 256,
+        "guard_pixels": 72,
+        "guard_dark": 0,
+        "guard_warm": 0,
+        "roi_gray_sum": 471680,
+        "object_recall": 1,
+        "object_outside_roi": 0,
+        "non_object_foreground": 0,
+        "empty": false,
+        "guard_can_release": true,
+        "dark_enters": false,
+        "warm_enters": false
+      }
+    ],
+    "validation": [
+      {
+        "ok": true,
+        "reasons": [],
+        "id": "SYNTHETIC_held_out_empty",
+        "roi_pixels": 2176,
+        "foreground_pixels": 0,
+        "guard_pixels": 72,
+        "guard_dark": 0,
+        "guard_warm": 0,
+        "roi_gray_sum": 522240,
+        "object_recall": null,
+        "object_outside_roi": 0,
+        "non_object_foreground": null,
+        "empty": true,
+        "guard_can_release": true,
+        "dark_enters": false,
+        "warm_enters": false
+      },
+      {
+        "ok": true,
+        "reasons": [],
+        "id": "SYNTHETIC_held_out_object",
+        "roi_pixels": 2176,
+        "foreground_pixels": 182,
+        "guard_pixels": 72,
+        "guard_dark": 0,
+        "guard_warm": 0,
+        "roi_gray_sum": 490912,
+        "object_recall": 1,
+        "object_outside_roi": 0,
+        "non_object_foreground": 0,
+        "empty": false,
+        "guard_can_release": true,
+        "dark_enters": false,
+        "warm_enters": false
+      }
+    ],
+    "controls": [
+      {
+        "kind": "dark",
+        "id": "SYNTHETIC_dark_control",
+        "roi_pixels": 2176,
+        "foreground_pixels": 2176,
+        "guard_pixels": 72,
+        "guard_dark": 72,
+        "guard_warm": 0,
+        "roi_gray_sum": 0,
+        "object_recall": null,
+        "object_outside_roi": 0,
+        "non_object_foreground": null,
+        "empty": false,
+        "guard_can_release": false,
+        "dark_enters": true,
+        "warm_enters": false
+      },
+      {
+        "kind": "warm",
+        "id": "SYNTHETIC_warm_control",
+        "roi_pixels": 2176,
+        "foreground_pixels": 2176,
+        "guard_pixels": 72,
+        "guard_dark": 72,
+        "guard_warm": 72,
+        "roi_gray_sum": 285056,
+        "object_recall": null,
+        "object_outside_roi": 0,
+        "non_object_foreground": null,
+        "empty": false,
+        "guard_can_release": false,
+        "dark_enters": true,
+        "warm_enters": true
+      }
+    ],
+    "guard_mean_range": [
+      238,
+      242
+    ],
+    "guard_candidates_search": "fixed size axis-aligned grid outside training-mask bounding ROI"
+  },
+  "sample_counts": {
+    "train_empty": 2,
+    "train_objects": 2,
+    "validation_empty": 1,
+    "validation_objects": 1,
+    "dark_controls": 1,
+    "warm_controls": 1
+  },
+  "model_scope": [
+    "labelled ROI",
+    "weighted-gray threshold",
+    "guard hysteresis",
+    "empty-frame occupancy"
+  ],
+  "sample_manifest": [
+    {
+      "role": "trainEmpty",
+      "id": "SYNTHETIC_train_empty_1",
+      "provenance": {
+        "filename": "train_empty_1.png",
+        "file_sha256": "120443b51bc8e5198b94340574a5b82c1de593450db9aaa926fa31e346ac79fc",
+        "source_frame_id": null,
+        "source_generation": null,
+        "source_timestamp": null
+      }
+    },
+    {
+      "role": "trainEmpty",
+      "id": "SYNTHETIC_train_empty_2",
+      "provenance": {
+        "filename": "train_empty_2.png",
+        "file_sha256": "4f581c518b68d507dfaa6eec7e22088a4fdcabdfbc6e66a78816b89e3f1783ce",
+        "source_frame_id": null,
+        "source_generation": null,
+        "source_timestamp": null
+      }
+    },
+    {
+      "role": "trainObjects",
+      "id": "SYNTHETIC_train_object_1",
+      "provenance": {
+        "filename": "train_object_1.png",
+        "file_sha256": "bed1028ca3aee640419f0ea89bc32eccbce2d6761c6acdc31dfca6f2c22c6628",
+        "source_frame_id": null,
+        "source_generation": null,
+        "source_timestamp": null
+      },
+      "mask_provenance": {
+        "filename": "train_object_1_mask.png",
+        "file_sha256": "9cd5e81983af5db4fb7c2a053f72f64b9aff6f969a4a8ade3c6afdf213b75011",
+        "source_frame_id": null,
+        "source_generation": null,
+        "source_timestamp": null
+      }
+    },
+    {
+      "role": "trainObjects",
+      "id": "SYNTHETIC_train_object_2",
+      "provenance": {
+        "filename": "train_object_2.png",
+        "file_sha256": "09a5305a549eec6daf13e82cec9d12628d51b0ba9d3219ab3c440ad474bbe8a6",
+        "source_frame_id": null,
+        "source_generation": null,
+        "source_timestamp": null
+      },
+      "mask_provenance": {
+        "filename": "train_object_2_mask.png",
+        "file_sha256": "0760c8f74e77fde5338f1e89325b61feade492f117af967747af8fc56dc27a28",
+        "source_frame_id": null,
+        "source_generation": null,
+        "source_timestamp": null
+      }
+    },
+    {
+      "role": "validationEmpty",
+      "id": "SYNTHETIC_held_out_empty",
+      "provenance": {
+        "filename": "held_out_empty.png",
+        "file_sha256": "eaade8a3192e9a6a3fea416dcbe628779a043639ff42adb092a51a27bef66270",
+        "source_frame_id": null,
+        "source_generation": null,
+        "source_timestamp": null
+      }
+    },
+    {
+      "role": "validationObjects",
+      "id": "SYNTHETIC_held_out_object",
+      "provenance": {
+        "filename": "held_out_object.png",
+        "file_sha256": "c32ba51924dc03536610c31b49374f88fc3e7d96f8063698e29411d4e2f431a9",
+        "source_frame_id": null,
+        "source_generation": null,
+        "source_timestamp": null
+      },
+      "mask_provenance": {
+        "filename": "held_out_object_mask.png",
+        "file_sha256": "b2046a457f9ca55a6eee52f9c30b969598d9e6418ebd5135610e09dade3aff47",
+        "source_frame_id": null,
+        "source_generation": null,
+        "source_timestamp": null
+      }
+    },
+    {
+      "role": "blockedDark",
+      "id": "SYNTHETIC_dark_control",
+      "provenance": {
+        "filename": "dark_control.png",
+        "file_sha256": "d3459b8ffe1ebcf48a82a47650624f4a3592aa6165bb164fd49ac0611b8fb2ca",
+        "source_frame_id": null,
+        "source_generation": null,
+        "source_timestamp": null
+      }
+    },
+    {
+      "role": "blockedWarm",
+      "id": "SYNTHETIC_warm_control",
+      "provenance": {
+        "filename": "warm_control.png",
+        "file_sha256": "db29529cd10f41cf1e4461b1a2da6349efdc9df9c52928bc6d1652004c418218",
+        "source_frame_id": null,
+        "source_generation": null,
+        "source_timestamp": null
+      }
+    }
+  ],
+  "input_base": {
+    "schema_version": 1,
+    "model": "B",
+    "algorithm_size": [
+      96,
+      64
+    ],
+    "roi": [
+      2,
+      12,
+      94,
+      60
+    ],
+    "guard": [
+      2,
+      2,
+      14,
+      8
+    ],
+    "guard_enabled": true,
+    "direction": "right_to_left",
+    "threshold": 128,
+    "invert": false,
+    "scene_epoch": 9,
+    "mapping": {
+      "scale_xy": [
+        1,
+        1
+      ],
+      "offset_xy": [
+        0,
+        0
+      ]
+    },
+    "policy": {
+      "dark_on": 128,
+      "dark_off": 96,
+      "warm_on": 32,
+      "warm_off": 16,
+      "empty_ratio": 4,
+      "normal_frames": 3,
+      "empty_frames": 2,
+      "timeout_cycles": 10000000
+    },
+    "motion": {
+      "line_a": 64,
+      "line_b": 32,
+      "hysteresis": 2,
+      "max_step": 16,
+      "width_delta": 16,
+      "min_hits": 3,
+      "max_missed": 2
+    },
+    "calibrated": false,
+    "note": "96×64合成演示样本。"
+  },
+  "contains_original_RGB": false,
+  "board_connected": false,
+  "commands_sent": false
+}

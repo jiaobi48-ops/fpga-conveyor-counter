@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Mon Nov  2 19:04:08 2026
+# Process ID         : 21712
+# Current directory  : W:/rebuild/valley_pipeline
+# Command line       : xsim.exe -log tb_valley_pipe5.log -mode tcl -source {xsim.dir/tb_valley_pipe5/xsim_script.tcl}
+# Log file           : W:/rebuild/valley_pipeline/tb_valley_pipe5.log
+# Journal file       : W:/rebuild/valley_pipeline\xsim.jou
+# Running On         : Xianyu-laptop
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : AMD Ryzen 7 H 255 w/ Radeon 780M Graphics
+# CPU Frequency      : 3793 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 29859 MB
+# Swap memory        : 0 MB
+# Total Virtual      : 29859 MB
+# Available Virtual  : 12669 MB
+#-----------------------------------------------------------
+source xsim.dir/tb_valley_pipe5/xsim_script.tcl
+# xsim {tb_valley_pipe5} -testplusarg VECTORS=W:/fixtures/valley_vectors_w5.hex -autoloadwcfg -tclbatch {run.tcl}
+Time resolution is 1 ps
+source run.tcl
+## run all
+PASS VALLEY VECTORS W=5 cases=3125 good=3125 aborted=0 samples=15625 cuts=256 stalls=7811
+$finish called at time : 1203167 ns : File "W:/fpga/sim/tb_valley_vectors.sv" Line 125
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Nov  2 19:04:11 2026...

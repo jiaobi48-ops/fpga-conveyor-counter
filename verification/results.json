@@ -1,0 +1,267 @@
+{
+  "release": "ABC-1.4",
+  "date": "2026-11-03",
+  "native_ports_connected": 351,
+  "configuration_entries": 77,
+  "result_words": 303,
+  "B_RTL_files": 47,
+  "B_functional_pipeline": "integrated",
+  "B_modified_files": [
+    "conveyor_bist_source.v",
+    "conveyor_merge_tracker.v",
+    "dynamic_noise_policy.v",
+    "guarded_adaptive_threshold.v",
+    "interval_consensus3.v",
+    "parallel_projection_lane.v",
+    "projection_correlation_speed.v",
+    "projection_object_extractor.v",
+    "projection_valley_counter.v",
+    "projection_valley_scanner.v",
+    "scene_guard_statistics.v",
+    "scene_recovery_supervisor.v",
+    "video_source_switch.v",
+    "vision_guard_adaptive_frontend.v",
+    "vision_guard_frontend.v",
+    "vision_guard_selftest_frontend.v"
+  ],
+  "full800": {
+    "status": "PASS",
+    "width": 800,
+    "height": 480,
+    "frames": 48,
+    "test_total": 2,
+    "camera_total": 0,
+    "default_ROI": true,
+    "profile": 1,
+    "mean_updates": 48,
+    "threshold_changes": 47,
+    "denoise_frames": 22,
+    "clock_hz": 75000000
+  },
+  "integration": {
+    "status": "PASS",
+    "camera_total": 2,
+    "test_total": 5,
+    "pixels": 688128,
+    "three_lane_frames": 56,
+    "valley_cuts": 75,
+    "valid_speed_results": 193,
+    "restored_groups": 1,
+    "mean_updates": 243,
+    "threshold_changes": 130,
+    "BIST_profiles": 4,
+    "clock_hz": 75000000
+  },
+  "sources800": {
+    "status": "PASS",
+    "dynamic_profiles": 4,
+    "dynamic_pixels": 73728000,
+    "ROM_scenes": 4,
+    "ROM_pixels": 1536000
+  },
+  "tracking": [
+    {
+      "terminal": "PASS PARALLEL CONSENSUS cases=10 rejected=4 disagreement=2 dropped=2 voting/central_outlier/empty/ambiguity/tag/order/bypass/backpressure/timeout/flush",
+      "status": "PASS",
+      "test": "tb_parallel_consensus"
+    },
+    {
+      "terminal": "PASS PARALLEL CONSENSUS LOCAL cases=13 rejected=4 disagreement=2 dropped=2 voting/central_outlier/empty/ambiguity/tag/order/bypass/backpressure/timeout/flush",
+      "status": "PASS",
+      "test": "tb_parallel_consensus_local"
+    },
+    {
+      "terminal": "PASS PARALLEL SPEED cases=24 exhaustive_reference/left/right/stop/gap/context/empty/clipped/tie/disable/flush/timestamp_wrap/malformed",
+      "status": "PASS",
+      "test": "tb_parallel_speed"
+    },
+    {
+      "terminal": "PASS MERGE TRACKS cases=17 transactions=107 checks=389 events=5 partial/identity/confirmation/catchup/no_prediction/other_tracks/remerge/timeout/gap/bad_split/empty/flush/context/immature/duplicate/disable/startup/config",
+      "status": "PASS",
+      "test": "tb_merge_tracks"
+    },
+    {
+      "terminal": "PASS MERGE TRACKS REGISTERED cases=19 transactions=109 checks=402 events=5 partial/identity/confirmation/catchup/no_prediction/other_tracks/remerge/timeout/gap/bad_split/empty/flush/context/immature/duplicate/disable/startup/config",
+      "status": "PASS",
+      "test": "tb_merge_tracks_registered"
+    },
+    {
+      "terminal": "PASS CONVEYOR EXTRACT cases=32 batches=11 faults=21 width640=PASS committed_intervals/gaps/cuts/backpressure/flush/recovery",
+      "status": "PASS",
+      "test": "tb_conveyor_extract"
+    },
+    {
+      "terminal": "PASS CONVEYOR EXTRACT cases=32 batches=11 faults=21 width640=PASS committed_intervals/gaps/cuts/backpressure/flush/recovery",
+      "status": "PASS",
+      "test": "tb_conveyor_extract_pipelined"
+    }
+  ],
+  "policy": [
+    {
+      "test": "tb_adaptive_policy",
+      "status": "PASS",
+      "terminal": "PASS ADAPTIVE POLICY divider_jobs=133 threshold_slew/clamp/epochs/busy noise_hysteresis/gaps"
+    },
+    {
+      "test": "tb_stability",
+      "status": "PASS",
+      "terminal": "PASS ADAPTIVE STABILITY events=31 commits=9 median_vectors=248 duplicate/stale/gap/epoch/flush/wrap"
+    },
+    {
+      "test": "tb_guard_identity",
+      "status": "PASS",
+      "terminal": "PASS GUARD ID frames=11 accepted=9 duplicate=1 stale=1 CE/metadata/wrap/bypass"
+    },
+    {
+      "test": "tb_guard_supervisor",
+      "status": "PASS",
+      "terminal": "PASS GUARD SUPERVISOR reports=86 checks=274 duplicate/stale/wrap/hysteresis/occupied/rearm/timeout/link/config"
+    },
+    {
+      "test": "tb_guard_supervisor_pipeline",
+      "status": "PASS",
+      "terminal": "PASS GUARD SUPERVISOR PIPELINE reports=86 checks=274 duplicate/stale/wrap/hysteresis/occupied/rearm/timeout/link/config"
+    },
+    {
+      "test": "tb_guard_pixels",
+      "status": "PASS",
+      "terminal": "PASS GUARD PIXELS frames=12 checks=144 NumPy-oracle/2models/polarity/invalidROI/badEOL/SOF-config/CE=720 bubbles=216"
+    },
+    {
+      "test": "tb_guard_pixels_pipeline",
+      "status": "PASS",
+      "terminal": "PASS GUARD PIXELS PIPELINE frames=12 checks=144 NumPy-oracle/2models/polarity/invalidROI/badEOL/SOF-config/CE=720 bubbles=216"
+    }
+  ],
+  "valley_pipeline": [
+    {
+      "terminal": "PASS VALLEY VECTORS W=32 cases=854 good=837 aborted=17 samples=26808 cuts=125 stalls=7304",
+      "test": "tb_valley_unit",
+      "status": "PASS"
+    },
+    {
+      "terminal": "PASS VALLEY VECTORS W=5 cases=3125 good=3125 aborted=0 samples=15625 cuts=256 stalls=4368",
+      "test": "tb_valley_min",
+      "status": "PASS"
+    },
+    {
+      "terminal": "PASS VALLEY VECTORS W=32 cases=854 good=837 aborted=17 samples=26806 cuts=125 stalls=27869",
+      "test": "tb_valley_pipe32",
+      "status": "PASS"
+    },
+    {
+      "terminal": "PASS VALLEY VECTORS W=5 cases=3125 good=3125 aborted=0 samples=15625 cuts=256 stalls=7811",
+      "test": "tb_valley_pipe5",
+      "status": "PASS"
+    }
+  ],
+  "consensus_math": {
+    "terminal": "PASS CONSENSUS BOUNDS checks=50216 uint16_edges/saturation/random_absolute_distance_reference",
+    "test": "tb_consensus_bounds_math",
+    "status": "PASS"
+  },
+  "noise_pipeline": {
+    "test": "noise_pipeline",
+    "status": "PASS",
+    "terminal": "PASS NOISE_PIPELINE cycles=30000 checks=29939 coherent_products/thresholds/history/epoch/gaps/invalid_config/reset",
+    "cycles": 30000
+  },
+  "epoch_hint": {
+    "terminal": "PASS EPOCH_HINT cycles=30000 checks=59982 SOF/version_wrap/statistics/hold/clamps/slew/reset",
+    "test": "epoch_hint",
+    "status": "PASS",
+    "cycles": 30000
+  },
+  "configuration": {
+    "status": "PASS",
+    "checks": 70
+  },
+  "threshold_equivalence": {
+    "status": "PASS",
+    "vectors": 30000
+  },
+  "GUI": {
+    "status": "PASS",
+    "tests": 9
+  },
+  "LCD": {
+    "status": "PASS",
+    "checks": 15
+  },
+  "firmware_driver": {
+    "status": "PASS",
+    "GPIO_requests": 952
+  },
+  "firmware": {
+    "status": "PASS",
+    "elf_sha256": "454067a17f38f0c92a975008c3da38df0a74eaf613dbc7e277be283dc8379869"
+  },
+  "fpga": {
+    "status": "PASS",
+    "part": "xc7z015clg485-2",
+    "algorithm_clock_hz": 75000000,
+    "LCD_clock_hz": 25000000,
+    "axi_clock_hz": 100000000,
+    "setup_wns_ns": 0.355,
+    "setup_tns_ns": 0.0,
+    "hold_whs_ns": 0.013,
+    "hold_ths_ns": 0.0,
+    "timing_status": "PASS",
+    "clock_domains": {
+      "clk_fpga_0": {
+        "setup_wns_ns": 0.355,
+        "setup_tns_ns": 0.0,
+        "hold_whs_ns": 0.013,
+        "hold_ths_ns": 0.0
+      },
+      "clk_out1_system_clk_wiz_0_0": {
+        "setup_wns_ns": 13.993,
+        "setup_tns_ns": 0.0,
+        "hold_whs_ns": 0.051,
+        "hold_ths_ns": 0.0
+      },
+      "clk_fpga_1": {
+        "setup_wns_ns": 2.476,
+        "setup_tns_ns": 0.0,
+        "hold_whs_ns": 0.076,
+        "hold_ths_ns": 0.0
+      }
+    },
+    "bit_sha256": "b61e83ff1b08735fcce30e24116949186055d0ed0522f5ca3661d32adb6ac58e",
+    "xsa_sha256": "29ab894700d7544856fb5fe1edfbfaad53e7d507d6a9bc6a0564ea43c41be421",
+    "baseline_100MHz": {
+      "setup_wns_ns": -0.198,
+      "setup_tns_ns": -11.44,
+      "hold_whs_ns": 0.004
+    }
+  },
+  "speed_indices": {
+    "inputs": {
+      "fpga/sim/tb_speed_indices800.sv": "921e362b9871fd3ea2fd057a7e6b70bd7ecb0ec2cab0bf09052618de5215fd4e",
+      "fpga/rtl/projection_correlation_speed.v": "5d0737b19e64563de63c89554404b4c46eb8500cdf3263e993120f6c60ec506b"
+    },
+    "cases": 24,
+    "terminal": "PASS SPEED INDICES800 cases=24 exhaustive_reference/left/right/stop/gap/context/empty/clipped/tie/disable/flush/timestamp_wrap/malformed",
+    "width": 800,
+    "max_shift": 32,
+    "status": "PASS"
+  },
+  "clock_variant": "75MHz-AXI100",
+  "camera_stream_connections": "generated_netlist_verified",
+  "revision": "1.4r2-Calibration",
+  "lcd_interface": {
+    "status": "PASS",
+    "outputs": 25,
+    "setup_slack_ns": 3.358,
+    "hold_slack_ns": 7.135,
+    "output_delay_max_ns": 13.0,
+    "output_delay_min_ns": -13.0
+  },
+  "console_xsdb_lookup": "PASS",
+  "calibration": {
+    "status": "PASS",
+    "model_and_page": 50,
+    "pixel_crosscheck": 254,
+    "console_import": 3
+  }
+}

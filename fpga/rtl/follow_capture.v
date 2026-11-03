@@ -2,7 +2,7 @@
 // Passive AXIS observer in the AXI clock domain. Never drives ready or pixels.
 // An armed next COMPLETE source frame owns the frozen thumbnail until re-arm.
 module follow_capture #(
- parameter integer WIDTH=1280,HEIGHT=720,STEP=8,LEASE_CYCLES=100000000,
+ parameter integer WIDTH=1280,HEIGHT=720,STEP=8,LEASE_CYCLES=75000000,
  parameter integer COLS=WIDTH/STEP,ROWS=HEIGHT/STEP,WORDS=COLS*ROWS/3
 )(
  input wire clk,reset_n,

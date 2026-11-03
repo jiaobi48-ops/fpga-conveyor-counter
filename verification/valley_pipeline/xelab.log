@@ -1,0 +1,16 @@
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: E:/JLU/AMD_Vivado/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe tb_valley_pipe5 -s tb_valley_pipe5 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.projection_valley_counter(PIPELI...
+Compiling module work.projection_valley_scanner(WIDTH=...
+Compiling module work.tb_valley_vectors(W=5,N=3125,PIP...
+Compiling module work.tb_valley_pipe5
+Built simulation snapshot tb_valley_pipe5

@@ -1,7 +1,0 @@
-{
-  "status": "PASS",
-  "scope": "Recompiled from included sources and included BSP; no board programming",
-  "comparison": "PT_LOAD bytes equal after zeroing only the 20-byte GNU build-ID descriptor for comparison; original ELF files unchanged",
-  "sealed_elf_sha256": "5a311f0480a07a758451fa09447282b4f31d48978c95fa23575a0fe692b2915a",
-  "rebuilt_elf_sha256": "f4e0195a0615edfd41062b2cd05b75d6ea73bb7789dc0538946ddebc6cd1ea6c"
-}

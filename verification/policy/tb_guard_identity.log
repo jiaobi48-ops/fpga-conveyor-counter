@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# xsim v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Mon Nov  2 20:17:22 2026
+# Process ID         : 18732
+# Current directory  : X:/rebuild/policy
+# Command line       : xsim.exe -log tb_guard_identity.log -mode tcl -source {xsim.dir/tb_guard_identity/xsim_script.tcl}
+# Log file           : X:/rebuild/policy/tb_guard_identity.log
+# Journal file       : X:/rebuild/policy\xsim.jou
+# Running On         : Xianyu-laptop
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : AMD Ryzen 7 H 255 w/ Radeon 780M Graphics
+# CPU Frequency      : 3793 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 29859 MB
+# Swap memory        : 0 MB
+# Total Virtual      : 29859 MB
+# Available Virtual  : 14014 MB
+#-----------------------------------------------------------
+source xsim.dir/tb_guard_identity/xsim_script.tcl
+# xsim {tb_guard_identity} -autoloadwcfg -tclbatch {run.tcl}
+Time resolution is 1 ps
+source run.tcl
+## run all
+PASS GUARD ID frames=11 accepted=9 duplicate=1 stale=1 CE/metadata/wrap/bypass
+$finish called at time : 1020 ns : File "X:/fpga/sim/tb_guard_identity.sv" Line 31
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Nov  2 20:17:24 2026...

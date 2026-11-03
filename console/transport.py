@@ -1,4 +1,4 @@
-"""Persistent XSDB connection; its only writes are the firmware's DDR mailbox."""
+"""Persistent XSDB transport for camera frames and the firmware control mailbox."""
 from pathlib import Path
 import base64,os,queue,subprocess,threading,time
 class TransportError(RuntimeError):pass
@@ -15,8 +15,9 @@ class DDRTransport:
     if line.startswith('STUDIO_'):self.lines.put(line.strip())
   self.lines.put('STUDIO_CLOSED')
  def connect(self):
-  xsdb=Path('D:/vivado/2025.2/Vitis/bin/xsdb.bat')
-  if not xsdb.is_file():raise TransportError('找不到 Vitis XSDB，请核对安装路径')
+  from tool_paths import xsdb_path
+  xsdb=xsdb_path()
+  if not xsdb.is_file():raise TransportError('找不到 AMD XSDB，请核对安装路径')
   self.process=subprocess.Popen([os.environ.get('COMSPEC','cmd.exe'),'/d','/c',str(xsdb),str(self.root/'ddr_bridge.tcl')],cwd=self.root,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='replace',bufsize=1,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
   threading.Thread(target=self._reader,daemon=True).start()
   line=self._line(40)

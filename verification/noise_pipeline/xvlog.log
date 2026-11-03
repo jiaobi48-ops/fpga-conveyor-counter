@@ -1,0 +1,7 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "U:/fpga/rtl/dynamic_noise_policy.v" into library work
+INFO: [VRFC 10-311] analyzing module dynamic_noise_policy
+INFO: [VRFC 10-311] analyzing module dynamic_noise_policy_decision
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "U:/fpga/sim/noise_policy_reference.v" into library work
+INFO: [VRFC 10-311] analyzing module noise_policy_reference
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "U:/fpga/sim/tb_noise_pipeline.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_noise_pipeline

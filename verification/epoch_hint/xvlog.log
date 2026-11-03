@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "U:/fpga/rtl/guarded_adaptive_threshold.v" into library work
+INFO: [VRFC 10-311] analyzing module guarded_adaptive_threshold
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "U:/fpga/rtl/unsigned_divider32.v" into library work
+INFO: [VRFC 10-311] analyzing module unsigned_divider32
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "U:/fpga/sim/threshold_epoch_reference.v" into library work
+INFO: [VRFC 10-311] analyzing module threshold_epoch_reference
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "U:/fpga/sim/tb_epoch_hint.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_epoch_hint
